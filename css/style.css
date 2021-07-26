@@ -1,0 +1,104 @@
+.w-100{
+	width: 100%;
+}
+
+/* show info header */
+.show_can {
+	width: 100%;
+	min-height: 150px;
+	position: relative;
+}
+.show_can img.poster{
+	float: left;
+	height: 150px;
+	min-width: 100px;
+	margin-right: 10px;
+}
+.show_info .headding{
+	font-size: 22px;
+	font-weight: bold;;
+}
+.show_info .air_date{
+	color: #aaa;
+}
+.show_info .not_this{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+
+/* file table */
+.file_list {
+	margin-top: 20px;
+	width: 100%;
+}
+.file_list tr {
+	height: 51px;
+	border-bottom: 2px solid #000;
+}
+.file_list th {
+	font-size: 18px;
+	color: #767;
+	padding: 0px 10px;
+}
+.file_list td {
+	font-size: 15px;
+}
+.file_list .selection {
+	padding: 12px 14px;
+	width: 30px;
+}
+.file_list .name {
+
+}
+.file_list .load{
+	padding: 5px;
+}
+.file_list td.name .from {
+	color: #d04a4a;
+}
+.file_list .name .to {
+	color: #225518;
+}
+.file_list .buttons {
+	width: 100px;
+}
+.file_list td.buttons {
+	text-align: right;
+}
+
+
+/* Loading Container */
+#loading-can > div{
+	margin-bottom: 10px;
+}
+#loading-can{
+	position: absolute;
+	left: 50%;
+	top: 50vh;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	padding-top: 50px;
+}
+#loading-can.hidden{
+	display: none;
+}
+
+/* hedding style */
+#headding{
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+/* content styles */
+#app-content{
+	width: 100%;
+	clear: both;
+}
+#content, #app{
+	width: 100%;
+}
+#display-can{
+	padding: 10px;
+}

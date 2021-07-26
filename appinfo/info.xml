@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>tvshownamer</id>
+    <name>TV Show Namer</name>
+    <summary>Organise you TV shows</summary>
+    <description><![CDATA[TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.
+
+Rename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="isntit000@gmail.com" homepage="https://github.com/j4ym0/nextcloud-tv-namer">J4yM0</author>
+    <namespace>TVShowNamer</namespace>
+    <category>multimedia</category>
+    <category>organization</category>
+    <bugs>https://github.com/j4ym0/nextcloud-tv-namer/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="16" max-version="22"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>TV Show Renamer</name>
+            <route>tvshownamer.page.index</route>
+        </navigation>
+    </navigations>
+</info>

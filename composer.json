@@ -1,0 +1,15 @@
+{
+    "name": "TV Show Namer",
+    "description": "Organise you TV shows",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "J4yM0"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}
