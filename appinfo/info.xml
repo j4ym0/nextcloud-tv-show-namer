@@ -19,7 +19,7 @@ Rename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode 
     </dependencies>
     <navigations>
         <navigation>
-            <name>TV Show Renamer</name>
+            <name>TV Show Namer</name>
             <route>tvshownamer.page.index</route>
         </navigation>
     </navigations>
