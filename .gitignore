@@ -1,4 +1,5 @@
-
+signature.txt
+*.tar.gz
 *.log
 *.db*
 *.tmp
