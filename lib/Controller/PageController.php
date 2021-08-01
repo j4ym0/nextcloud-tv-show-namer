@@ -52,7 +52,7 @@ class PageController extends Controller {
 	 *          save settings changed
 	 */
 	public function saveSetting() {
-		# init responce
+		# init response
 		$response = array('success' => false,
 											'message' => '');
 
@@ -76,7 +76,7 @@ class PageController extends Controller {
 	 *          retreve list of show that can be renamed
 	 */
 	public function rename() {
-		# init responce
+		# init response
 		$response = array('success' => false,
 											'message' => '');
 		# get the posted vars we need
@@ -121,6 +121,10 @@ class PageController extends Controller {
 		// start the response with defaults
 		$response = array('success' => false,
 											'message' => '');
+		if ($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '') == ''){
+			$response['message'] = 'Please configure your API key in settings';
+			return new JSONResponse($response);
+		}
 
 		// is there a show index
 		$show_index = array_key_exists('show_index', $this->postdata) ? $this->postdata->show_index+1 : 0;
