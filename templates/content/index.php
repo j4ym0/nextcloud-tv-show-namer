@@ -5,6 +5,6 @@
 
 <div id="headding">
  <a id="scanfolder" class="button"><span>Scan Folder</span></a>
- <span class="current_folder">Choose a folder start</span>
+ <span class="current_folder">Choose a folder to start</span>
 </div>
 <div id="display-can"></div>
