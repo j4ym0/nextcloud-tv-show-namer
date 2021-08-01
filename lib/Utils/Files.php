@@ -72,7 +72,7 @@ class Files {
       $path = $collection['files'][$i]['path'];
       # phrase the filename
       # yeh, just a simple regex ATM
-      preg_match('/^(?P<seriesname>.+?)?[ \._\-]?[Ss](?P<seasonnumber>[0-9]+)[\.\- ]?[Ee](?P<episodenumberstart>[0-9]+)[\.\- ]?(?P<episodename>.+?)?\.(?P<extention>[^.]{3})$/',
+      preg_match('/^(?P<seriesname>.+?)?[ \._\-]?[Ss](?P<seasonnumber>[0-9]+)[\.\- ]?[Ee]p?(?P<episodenumberstart>[0-9]+)[\.\- ]?(?P<episodename>.+?)?\.(?P<extention>[^.]{3})$/',
                   $name,
                   $matches);
       # add info to filelist
