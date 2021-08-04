@@ -47,7 +47,7 @@
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
     '<img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+json.show_info.name+' poster"/>' +
-    '<div class="show_info"><span class="headding">'+json.show_info.name+'</span> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span><p>'+json.show_info.overview+'</p>'+
+    '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span><p>'+json.show_info.overview+'</p>'+
     '<div class="not_this">Not this one? <button class="primary" id="next_title" data-show_index="'+json.show_index+'" data-path="'+json.path+'">Next</button></div></div>' +
     '</div>';
   }

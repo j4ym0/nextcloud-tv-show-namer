@@ -16,7 +16,13 @@
 }
 .show_info .headding{
 	font-size: 22px;
-	font-weight: bold;;
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.show_info .headding:hover{
+	color: #aaa;
+	text-decoration: none;
 }
 .show_info .air_date{
 	color: #aaa;
