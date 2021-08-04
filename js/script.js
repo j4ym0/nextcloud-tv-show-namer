@@ -29,7 +29,8 @@
         can.innerHTML=r;
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('button#next_title', function(t){next_title(t);});
-        $('.current_folder').html(data.path);
+        $('.current_folder').html(data.path + '<a data-path="'+data.path +'" class="reload" alt="Rescan Folder"></a>');
+        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
     }else{
       message(data);

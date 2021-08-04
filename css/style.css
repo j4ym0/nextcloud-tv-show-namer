@@ -90,6 +90,22 @@
 	margin-top: 15px;
 	margin-left: 10px;
 }
+.reload{
+	width: 10px;
+	height: 10px;
+	display: inline-block;;
+	margin-left: 10px;
+	background-image: url('../img/reload.svg');
+	background-size: 10px 10px;
+}
+.reload:hover{
+	width: 10px;
+	height: 10px;
+	background-color: #aaa;
+	-webkit-mask:  url('../img/reload.svg');
+	mask: url('../img/reload.svg');
+	background-size: 110x 10px;
+}
 
 /* content styles */
 #app-content{
