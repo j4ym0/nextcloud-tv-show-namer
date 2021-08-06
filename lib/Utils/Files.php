@@ -81,7 +81,7 @@ class Files {
       $collection['files'][$i]['episodenumberstart'] = $matches['episodenumberstart'];
       $collection['files'][$i]['episodename'] = $matches['episodename'];
       $collection['files'][$i]['ext'] = $matches['extention'];
-      $collection['files'][$i]['new_name'] = $name;
+      $collection['files'][$i]['new_name'] = '';
 
       # get the episode list from tmdb
       $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);

@@ -62,7 +62,8 @@
     var tk = '<input id="select-files-'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
     var tb = '<button class="primary" id="confirm" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
-    if (item.name === item.new_name || item.new_name == '' ||  item.new_name === undefined){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>';}
+    if (item.name === item.new_name){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>';}
+    if (item.new_name == '' ||  item.new_name === undefined){tk = '<div class="icon-unknown" title="Episode not found"></div>'; tb = '';tn = '<span class="from">'+item.name+'</span>';}
     return '<tr class="file" data-fileid="'+item.file_id+'" id="file'+item.file_id+'">'+
     '<td class="selection">' + tk + '</td>' +
     '<td class="name">'+tn+'</td>'+

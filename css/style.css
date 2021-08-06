@@ -96,6 +96,9 @@
 	margin-top: 15px;
 	margin-left: 10px;
 }
+.icon-unknown{
+	background-image: url('../img/question-solid.svg');
+}
 .reload{
 	width: 10px;
 	height: 10px;
