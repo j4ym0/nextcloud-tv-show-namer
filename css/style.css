@@ -124,3 +124,13 @@
 #display-can{
 	padding: 10px;
 }
+#app-settings-content a.help{
+	float: right;
+}
+#app-settings-content a{
+	font-size: 10px;
+	text-decoration: underline;
+}
+#app-settings-content a:hover{
+	color: #aaa;
+}
