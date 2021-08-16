@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.0.3
+  recognition of e, ep and episode
 
 ## v0.0.2
   add re-scan folder button
