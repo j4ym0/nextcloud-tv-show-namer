@@ -37,7 +37,7 @@ class PageController extends Controller {
 		$this->config = $Config;
 		$this->rootFolder = $rootFolder;
 		$this->initialStateService = $initialStateService;
-		$this->postdata = $data = json_decode(file_get_contents("php://input"));
+		$this->postdata = json_decode(file_get_contents("php://input"), true);
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
 	}
 
@@ -125,7 +125,6 @@ class PageController extends Controller {
 			$response['message'] = 'Please configure your API key in settings';
 			return new JSONResponse($response);
 		}
-
 		// is there a show index
 		$show_index = array_key_exists('show_index', $this->postdata) ? $this->postdata->show_index+1 : 0;
 
