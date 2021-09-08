@@ -96,6 +96,9 @@
 	margin-top: 15px;
 	margin-left: 10px;
 }
+.current_folder a:hover{
+	text-decoration: underline;
+}
 .icon-unknown{
 	background-image: url('../img/question-solid.svg');
 }

@@ -147,7 +147,8 @@ class PageController extends Controller {
 						# store the folder info ready to eb returned to ui
 						$response['folder_id'] =  $folder_to_scan->getId();
 						$response['name'] =  $folder_to_scan->getName();
-						$response['path'] = $folder_to_scan->getPath();
+#						$response['absolute_path'] = $folder_to_scan->getPath();
+						$response['path'] = $path;
 
 						$search = $this->TMDB->searchTvShow($response['name']);
 						#check if there are enought results
