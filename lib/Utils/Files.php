@@ -18,7 +18,7 @@ class Files {
   * @return results of search
   */
 
-  public function getFilesRecursive($path , & $results = [], $type = []) {
+  public static function getFilesRecursive($path , & $results = [], $type = []) {
     $files = Filesystem::getDirectoryContent($path);
     foreach($files as $file) {
       if ($file->getType() === FileInfo::TYPE_FOLDER) {
@@ -44,7 +44,7 @@ class Files {
   * @return results of search
   */
 
-  public function getFile(File $file) {
+  public static function getFile(File $file) {
     $results[] = array(
           'file_id' => $file->getId(),
           'name' => $file->getName(),
@@ -64,7 +64,7 @@ class Files {
   * @return none
   */
 
-  public function matchFilesToEpisodes(&$collection, &$TMDB) {
+  public static function matchFilesToEpisodes(&$collection, &$TMDB) {
     # loop though all the files in the collection
     for($i = 0; $i < count($collection['files']); ++$i) {
       #decode the file name
@@ -111,7 +111,7 @@ class Files {
   * @since 0.0.1
   * @return file named a directed
   */
-  public function filePathEncode($title, $season_number, $episode_number, $episode_name, $file_ext){
+  public static function filePathEncode($title, $season_number, $episode_number, $episode_name, $file_ext){
     $season_number_padded = substr('0'.$season_number, -2);
     $episode_number_padded = substr('0'.$episode_number, -2);
     $title = self::sanitizeString($title,'');
@@ -126,20 +126,22 @@ class Files {
   * @since 0.0.1
   * @return string sanitized
   */
-  public function sanitizeString($string, $replace = ''){
+  public static function sanitizeString($string, $replace = ''){
     return preg_replace('/[\/\\?*<>"\':;\|]/', $replace, $string);
   }
+
   /**
   * Function to check string startingwith given substring
   * @param string $string to be check
   * @param startString $startString the start of the string to check
   * @since 0.0.1
-  * @return Bool
+  * @return bool
   */
-  function startsWith($string, $startString){
+  static function startsWith($string, $startString){
       $len = strlen($startString);
       return (substr($string, 0, $len) === $startString);
   }
+
   /**
   * Function to remove the firs part of a string
   * @param string $string to be check
@@ -147,7 +149,7 @@ class Files {
   * @since 0.0.1
   * @return string
   */
-  function removeStart($string, $startString){
+  static function removeStart($string, $startString){
       $len = is_string($startString) ? strlen($startString) : $startString;
       return (substr($string, $len));
   }

@@ -37,7 +37,7 @@ class PageController extends Controller {
 		$this->config = $Config;
 		$this->rootFolder = $rootFolder;
 		$this->initialStateService = $initialStateService;
-		$this->postdata = json_decode(file_get_contents("php://input"), true);
+		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
 	}
 
@@ -126,7 +126,7 @@ class PageController extends Controller {
 			return new JSONResponse($response);
 		}
 		// is there a show index
-		$show_index = array_key_exists('show_index', $this->postdata) ? $this->postdata->show_index+1 : 0;
+		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
 
 		// get the folder path
 		$path = $this->postdata->scan_folder;

@@ -1,7 +1,7 @@
 # Changelog
 
 ## v0.0.4
-  fix for stdclass to array
+  bug fixes
 
 ## v0.0.3
   recognition of e, ep and episode
