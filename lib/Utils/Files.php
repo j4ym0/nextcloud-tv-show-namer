@@ -4,6 +4,7 @@ namespace OCA\TVShowNamer\Utils;
 use OC\Files\Filesystem;
 use OCP\Files\FileInfo;
 use OC\Files\Node\File;
+use OC\Files\Node\Folder;
 
 use OCA\TVShowNamer\Utils\TMDB;
 
@@ -44,13 +45,18 @@ class Files {
   * @return results of search
   */
 
-  public static function getFile(File $file) {
+  public static function getFile(File $file, Folder $userHome) {
+    $path = $file->getParent()->getPath();
+    #remove the front folder of the user
+    $path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
     $results[] = array(
           'file_id' => $file->getId(),
           'name' => $file->getName(),
           'file' => $path . '/' . $file->getName(),
           'path' => $path,
           'mimetype' => $file->getMimePart(),
+          'ext' => $file->getExtension(),
+          'new_name' => $file->getName(),
         );
 
     return $results;

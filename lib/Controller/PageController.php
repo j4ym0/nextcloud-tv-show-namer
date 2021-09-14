@@ -98,7 +98,7 @@ class PageController extends Controller {
 				$response['success'] = true;
 				$response['action'] = 'update';
 				$response['element'] = 'file'.$file_id;
-				$response['file'] = Files::getFile($file);
+				$response['file'] = Files::getFile($file, $userHome);
 			} catch (\OCP\Files\NotPermittedException $ex) {
 				$response['message'] = 'Unable rename the file';
 			} catch (\OCP\Lock\LockedException $ex) {
