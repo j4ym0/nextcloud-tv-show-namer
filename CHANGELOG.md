@@ -4,6 +4,7 @@
   bug fixes
   add link to folder from breadcrumb
   fix ? after updating filename
+  link to show from image
 
 ## v0.0.3
   recognition of e, ep and episode
