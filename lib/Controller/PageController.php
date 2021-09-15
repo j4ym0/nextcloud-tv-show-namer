@@ -89,6 +89,7 @@ class PageController extends Controller {
 		$file = $userHome->getById($file_id);
 		$file = $file[0] ?? null;
 
+
 		# extra security check to make sure the file is in the same folder as we think
 		$internal_path = $file == null ? null : $file->getParent()->getPath();
 		if($file != null && $internal_path == $file_path){
@@ -157,10 +158,15 @@ class PageController extends Controller {
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);
 
+							# check we have some files
+							if (is_null($response['files'])){
+								$response['message'] = 'No files found';
+							}else{
 							#match the files to episodes
-							Files::matchFilesToEpisodes($response, $this->TMDB);
+								Files::matchFilesToEpisodes($response, $this->TMDB);
 
-							$response['success'] = true;
+								$response['success'] = true;
+							}
 						}else{
 							$response['message'] = 'No results for "' . $response['name'] .'"';
 						}

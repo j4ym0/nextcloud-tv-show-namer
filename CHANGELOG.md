@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.0.5
+  fix issue with unrecognised files
+
 ## v0.0.4
   bug fixes
   add link to folder from breadcrumb

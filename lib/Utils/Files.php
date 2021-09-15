@@ -71,6 +71,8 @@ class Files {
   */
 
   public static function matchFilesToEpisodes(&$collection, &$TMDB) {
+    #check for empty-Collection
+    if (is_null($collection['files'])){return false;}
     # loop though all the files in the collection
     for($i = 0; $i < count($collection['files']); ++$i) {
       #decode the file name
@@ -78,29 +80,37 @@ class Files {
       $path = $collection['files'][$i]['path'];
       # phrase the filename
       # yeh, just a simple regex ATM
-      preg_match('/^(?P<seriesname>.+?)?[ \._\-]?[Ss](?:eason)?[\.\- ]?(?P<seasonnumber>[0-9]+)[\.\- ]?[Ee][Pp]?(?:isode)?[\.\- ]?(?P<episodenumberstart>[0-9]+)[\.\- ]?(?P<episodename>.+?)?\.(?P<extention>[^.]{3})$/',
+      if (preg_match('/^(?P<seriesname>.+?)?[ \._\-]?[Ss](?:eason)?[\.\- ]?(?P<seasonnumber>[0-9]+)[\.\- ]?[Ee][Pp]?(?:isode)?[\.\- ]?(?P<episodenumberstart>[0-9]+)[\.\- ]?(?P<episodename>.+?)?\.(?P<extention>[^.]{3})$/',
                   $name,
-                  $matches);
-      # add info to filelist
-      $collection['files'][$i]['seriesname'] = $matches['seriesname'];
-      $collection['files'][$i]['seasonnumber'] = $matches['seasonnumber'];
-      $collection['files'][$i]['episodenumberstart'] = $matches['episodenumberstart'];
-      $collection['files'][$i]['episodename'] = $matches['episodename'];
-      $collection['files'][$i]['ext'] = $matches['extention'];
-      $collection['files'][$i]['new_name'] = '';
+                  $matches)){
+        # add info to filelist
+        $collection['files'][$i]['seriesname'] = $matches['seriesname'];
+        $collection['files'][$i]['seasonnumber'] = $matches['seasonnumber'];
+        $collection['files'][$i]['episodenumberstart'] = $matches['episodenumberstart'];
+        $collection['files'][$i]['episodename'] = $matches['episodename'];
+        $collection['files'][$i]['ext'] = $matches['extention'];
+        $collection['files'][$i]['new_name'] = '';
 
-      # get the episode list from tmdb
-      $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);
-      $episode_number = -1;
-      for($e = 0; $e < count($epilist['episodes']); ++$e) {
-        if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
-          $episode_number = $e;
-          break;
+        # get the episode list from tmdb
+        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);
+        $episode_number = -1;
+        for($e = 0; $e < count($epilist['episodes']); ++$e) {
+          if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
+            $episode_number = $e;
+            break;
+          }
         }
-      }
-      # ok we have the episode index
-      if ($episode_number > -1){
-        $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention']);
+        # ok we have the episode index
+        if ($episode_number > -1){
+          $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention']);
+        }
+      }else{
+        $collection['files'][$i]['seriesname'] = '';
+        $collection['files'][$i]['seasonnumber'] = '0';
+        $collection['files'][$i]['episodenumberstart'] = '0';
+        $collection['files'][$i]['episodename'] = '';
+        $collection['files'][$i]['ext'] = '';
+        $collection['files'][$i]['new_name'] = '';
       }
     }
 
