@@ -56,7 +56,8 @@
 	width: 30px;
 }
 .file_list .name {
-
+	width: auto;
+	white-space: normal;
 }
 .file_list .load{
 	padding: 5px;

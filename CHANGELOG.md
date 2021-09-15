@@ -2,6 +2,7 @@
 
 ## v0.0.5
   fix issue with unrecognised files
+  stop falling off screen
 
 ## v0.0.4
   bug fixes
