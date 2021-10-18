@@ -69,6 +69,9 @@ class PageController extends Controller {
 		if ($setting == 'tmdb_api_key'){
 			$response['message'] = "Updated your API Key";
 		}
+		if ($setting == 'file_name_structure'){
+			$response['message'] = "Updated file naming structure";
+		}
 		#return the json to render on client
 		return new JSONResponse($response);
 	}

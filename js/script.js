@@ -129,4 +129,7 @@ function scanFolderCallback(path){
   $("#tmdb_api_key").focusout(function(e) {
     get_data('save_setting', {'setting' : 'tmdb_api_key', 'data' : $('#tmdb_api_key').val()}, message, false);
   });
+  $("#file_name_structure").focusout(function(e) {
+    get_data('save_setting', {'setting' : 'file_name_structure', 'data' : $('#file_name_structure').val()}, message, false);
+  });
 })();
