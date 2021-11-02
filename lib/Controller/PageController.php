@@ -200,6 +200,7 @@ class PageController extends Controller {
 	public function index() {
 
 		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '')];
+		$perams =['file_name_structure' => $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}')];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
