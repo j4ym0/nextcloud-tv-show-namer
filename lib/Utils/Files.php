@@ -102,6 +102,7 @@ class Files {
         }
         # ok we have the episode index
         if ($episode_number > -1){
+          #set the episode name
           $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention']);
         }
       }else{
@@ -127,10 +128,10 @@ class Files {
   * @since 0.0.1
   * @return file named a directed
   */
-  public static function filePathEncode($title, $season_number, $episode_number, $episode_name, $file_ext){
+  public static function filePathEncode($season_name, $season_number, $episode_number, $episode_name, $file_ext){
     $season_number_padded = substr('0'.$season_number, -2);
     $episode_number_padded = substr('0'.$episode_number, -2);
-    $title = self::sanitizeString($title,'');
+    $season_name = self::sanitizeString($season_name,'');
     $episode_name = self::sanitizeString($episode_name,'');
     return 'S'. $season_number_padded . 'E' . $episode_number_padded . ' - ' . $episode_name . '.' . $file_ext;
   }
