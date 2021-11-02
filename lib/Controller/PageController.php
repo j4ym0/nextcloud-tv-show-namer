@@ -169,7 +169,7 @@ class PageController extends Controller {
 								$response['message'] = 'No files found';
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB);
+								Files::matchFilesToEpisodes($response, $this->TMDB, $file_name_structure);
 
 								$response['success'] = true;
 							}
@@ -203,7 +203,7 @@ class PageController extends Controller {
 	public function index() {
 
 		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '')];
-		$perams =['file_name_structure' => $this->file_name_structure;
+		$perams =['file_name_structure' => $this->file_name_structure];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
