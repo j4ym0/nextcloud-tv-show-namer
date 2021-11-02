@@ -27,7 +27,7 @@ class PageController extends Controller {
 	private $postdata;
 	private $TMDB;
 	public $file_name_structure;
-	public $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
+	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 
 	public function __construct($AppName, IRequest $request,
                                 IConfig $Config,
@@ -173,7 +173,7 @@ class PageController extends Controller {
 								$response['message'] = 'No files found';
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB, $file_name_structure);
+								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure);
 
 								$response['success'] = true;
 							}
