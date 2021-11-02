@@ -27,7 +27,7 @@ class PageController extends Controller {
 	private $postdata;
 	private $TMDB;
 	public $file_name_structure;
-	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
+	public $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 
 	public function __construct($AppName, IRequest $request,
                                 IConfig $Config,
@@ -41,7 +41,11 @@ class PageController extends Controller {
 		$this->initialStateService = $initialStateService;
 		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
-		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', $file_name_structure_default);
+		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', $this->file_name_structure_default);
+		if ($this->file_name_structure == ''){
+			$this->file_name_structure = $this->file_name_structure_default;
+			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', $this->file_name_structure_default);
+		}
 	}
 
 	/**
@@ -202,8 +206,8 @@ class PageController extends Controller {
 	 */
 	public function index() {
 
-		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '')];
-		$perams =['file_name_structure' => $this->file_name_structure];
+		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''),
+							'file_name_structure' => $this->file_name_structure];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
