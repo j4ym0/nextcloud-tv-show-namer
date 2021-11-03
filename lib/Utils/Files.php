@@ -7,6 +7,7 @@ use OC\Files\Node\File;
 use OC\Files\Node\Folder;
 
 use OCA\TVShowNamer\Utils\TMDB;
+use OCA\TVShowNamer\Controller\PageController;
 
 class Files {
 
@@ -70,7 +71,7 @@ class Files {
   * @return none
   */
 
-  public static function matchFilesToEpisodes(&$collection, &$TMDB) {
+  public static function matchFilesToEpisodes(&$collection, &$TMDB, $file_name_structure = null) {
     #check for empty-Collection
     if (is_null($collection['files'])){return false;}
     # loop though all the files in the collection
@@ -103,7 +104,7 @@ class Files {
         # ok we have the episode index
         if ($episode_number > -1){
           #set the episode name
-          $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention']);
+          $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention'], $file_name_structure);
         }
       }else{
         $collection['files'][$i]['seriesname'] = '';
@@ -125,15 +126,34 @@ class Files {
   * @param episode $episode_number of the file
   * @param name $name of the episode
   * @param ext $extention of the file
+  * @param file_structure $file_structure how the file should be named - Default in PageController
   * @since 0.0.1
   * @return file named a directed
   */
-  public static function filePathEncode($season_name, $season_number, $episode_number, $episode_name, $file_ext){
+  public static function filePathEncode($season_name, $season_number, $episode_number, $episode_name, $file_ext, $file_structure = null){
+    #set default from PageController
+    if (null === $file_structure) {
+      $file_structure = PageController::$file_name_structure_default;
+    }
     $season_number_padded = substr('0'.$season_number, -2);
     $episode_number_padded = substr('0'.$episode_number, -2);
     $season_name = self::sanitizeString($season_name,'');
     $episode_name = self::sanitizeString($episode_name,'');
-    return 'S'. $season_number_padded . 'E' . $episode_number_padded . ' - ' . $episode_name . '.' . $file_ext;
+
+    #build the episode nome from Settings
+    $array = array('{{Series_Name}}' => $season_name,
+                  '{{Season_Name}}' => $season_name,
+                  '{{Series_Number}}' => $season_number,
+                  '{{Season_Number}}' => $season_number,
+                  '{{Series_Number_Padded}}' => $season_number_padded,
+                  '{{Season_Number_Padded}}' => $season_number_padded,
+                  '{{Episode_Number}}' => $episode_number,
+                  '{{Episode_Number_Padded}}' => $episode_number_padded,
+                  '{{Episode_Name}}' => $episode_name
+    );
+    $named_file = str_ireplace(array_keys($array), array_values($array), $file_structure) . '.' . $file_ext;
+
+    return $named_file;
   }
 
   /**
