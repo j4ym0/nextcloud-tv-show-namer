@@ -31,6 +31,23 @@ The app should run on standard php installation, you will need a api key from th
  - Past into the TV Show Namer app settings menu on the bottom left
 
 
+## Naming Guide
+
+When choosing your naming structure you can mix the below variables, letters and symbols. To use a variable they need to be wrapped in {{}}, e.g. {{Season_Name}}, the variables are not case sensitive but anything outside is case sensitive. Variables are pretty self explanatory but referenced below.
+
+  - {{Season_Name}} - The season name as from TMDB
+  - {{Series_Name}} - Same as above
+  - {{Season_Number}} - The season number of the episode 
+  - {{Series_Number}} - Same as above
+  - {{Season_Number_Padded}} - Same as above but 'Season 1' would be 'Season 01' and 'Season 10' would be 'Season 10'
+  - {{Series_Number_Padded}} - Same as above
+  - {{Episode_Number}} - The episode number of the episode
+  - {{Episode_Number_Padded}} - Same as above but 'Episode 1' would be 'Episode 01' and 'Episode 10' would be 'Episode 10'
+  - {{Episode_Name}} - The episode name from TMDB
+
+NOTE: Any incompatible symbols will be filleted out when renaming the file.
+
+
 ## TODO
 
  - Connect to DB
