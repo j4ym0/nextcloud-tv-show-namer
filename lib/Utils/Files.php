@@ -151,7 +151,7 @@ class Files {
                   '{{Episode_Number_Padded}}' => $episode_number_padded,
                   '{{Episode_Name}}' => $episode_name
     );
-    $named_file = str_ireplace(array_keys($array), array_values($array), $file_structure) . '.' . $file_ext;
+    $named_file = self::sanitizeString(str_ireplace(array_keys($array), array_values($array), $file_structure),'') . '.' . $file_ext;
 
     return $named_file;
   }
@@ -164,7 +164,7 @@ class Files {
   * @return string sanitized
   */
   public static function sanitizeString($string, $replace = ''){
-    return preg_replace('/[\/\\?*<>"\':;\|]/', $replace, $string);
+    return preg_replace('/[\/\\?*<>"\':;\|]/g', $replace, $string);
   }
 
   /**
