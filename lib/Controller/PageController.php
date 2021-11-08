@@ -41,10 +41,12 @@ class PageController extends Controller {
 		$this->initialStateService = $initialStateService;
 		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
-		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', $this->file_name_structure_default);
+		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
 		if ($this->file_name_structure == ''){
-			$this->file_name_structure = $this->file_name_structure_default;
-			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', $this->file_name_structure_default);
+			$this->file_name_structure = self::$file_name_structure_default;
+			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+		}else{
+			$this->file_name_structure = 'v1';
 		}
 	}
 
