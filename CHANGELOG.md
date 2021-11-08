@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.1.0
+  add custom file name structure in settings
+
 ## v0.0.5
   fix issue with unrecognised files
   stop falling off screen

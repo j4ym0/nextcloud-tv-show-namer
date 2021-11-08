@@ -26,6 +26,8 @@ class PageController extends Controller {
 	private $initialStateService;
 	private $postdata;
 	private $TMDB;
+	public $file_name_structure;
+	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 
 	public function __construct($AppName, IRequest $request,
                                 IConfig $Config,
@@ -39,6 +41,11 @@ class PageController extends Controller {
 		$this->initialStateService = $initialStateService;
 		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
+		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
+		if ($this->file_name_structure == ''){
+			$this->file_name_structure = self::$file_name_structure_default;
+			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+		}
 	}
 
 	/**
@@ -68,6 +75,9 @@ class PageController extends Controller {
 		}
 		if ($setting == 'tmdb_api_key'){
 			$response['message'] = "Updated your API Key";
+		}
+		if ($setting == 'file_name_structure'){
+			$response['message'] = "Updated file naming structure";
 		}
 		#return the json to render on client
 		return new JSONResponse($response);
@@ -163,7 +173,7 @@ class PageController extends Controller {
 								$response['message'] = 'No files found';
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB);
+								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure);
 
 								$response['success'] = true;
 							}
@@ -196,7 +206,8 @@ class PageController extends Controller {
 	 */
 	public function index() {
 
-		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '')];
+		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''),
+							'file_name_structure' => $this->file_name_structure];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
