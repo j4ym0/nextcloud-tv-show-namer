@@ -164,7 +164,7 @@ class Files {
   * @return string sanitized
   */
   public static function sanitizeString($string, $replace = ''){
-    return preg_replace('/[\/\\?*<>"\':;\|]/g', $replace, $string);
+    return preg_replace('/[\/\\?*<>"\':;\|]/', $replace, $string);
   }
 
   /**
