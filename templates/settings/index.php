@@ -12,7 +12,7 @@
 		</div>
 		<div>
 			<label for="file_name_structure">Naming Structure</label>
-			<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#naming_guide" target="_blank" class="help">Examples</a>
+			<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#naming-guide" target="_blank" class="help">Examples</a>
 			<input type="input" id="file_name_structure" class="input w-100" value="<?php p($_['file_name_structure']);?>">
 		</div>
 	</div>
