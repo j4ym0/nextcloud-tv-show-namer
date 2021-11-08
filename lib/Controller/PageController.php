@@ -45,8 +45,6 @@ class PageController extends Controller {
 		if ($this->file_name_structure == ''){
 			$this->file_name_structure = self::$file_name_structure_default;
 			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
-		}else{
-			$this->file_name_structure = 'v1';
 		}
 	}
 
