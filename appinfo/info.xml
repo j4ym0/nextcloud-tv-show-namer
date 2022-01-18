@@ -16,7 +16,7 @@ Rename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode 
     <bugs>https://github.com/j4ym0/nextcloud-tv-namer/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/j4ym0/nextcloud-tv-show-namer/main/screenshot.png</screenshot>
     <dependencies>
-        <nextcloud min-version="16" max-version="22"/>
+        <nextcloud min-version="16" max-version="23"/>
     </dependencies>
     <navigations>
         <navigation>
