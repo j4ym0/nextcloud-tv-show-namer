@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.1.1
+  tested on Nextcloud 23
+
 ## v0.1.0
   add custom file name structure in settings
 
