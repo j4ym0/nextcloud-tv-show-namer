@@ -1,8 +1,6 @@
 <div id="app-settings">
 	<div id="app-settings-header">
-		<button class="settings-button"
-				data-apps-slide-toggle="#app-settings-content"
-		>Settings</button>
+		<button class="settings-button" data-apps-slide-toggle="#app-settings-content">Settings</button>
 	</div>
 	<div id="app-settings-content">
 		<div>
@@ -14,6 +12,13 @@
 			<label for="file_name_structure">Naming Structure</label>
 			<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#naming-guide" target="_blank" class="help">Examples</a>
 			<input type="input" id="file_name_structure" class="input w-100" value="<?php p($_['file_name_structure']);?>">
+		</div>
+		<div class="mar-top-20">
+			<lable for="hide_matching">Hide matching entrys</lable>
+			<label class="toggle a-right">
+				<input type="checkbox" id="hide_matching" <?php p($_['hide_matching']);?>>
+				<span class="slider"></span>
+			</label>
 		</div>
 	</div>
 </div>

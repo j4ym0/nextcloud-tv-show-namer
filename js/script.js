@@ -14,6 +14,7 @@
 
 
   function render(data) {
+    var hide_matching = $('#hide_matching').prop('checked');
     if (data.success){
       if (data.action === "update"){
         $('#'+data.element).replaceWith(build_file_list(data.file[0]));
@@ -23,7 +24,7 @@
         r += '<table class="file_list">';
         r += build_file_list_header();
         for(var i in data.files) {
-          r += build_file_list(data.files[i]);
+          r += build_file_list(data.files[i],hide_matching);
         }
         r+='</table>';
         can.innerHTML=r;
@@ -58,13 +59,15 @@
     '<th class="buttons"></th>' +
     '</tr>';
   }
-  function build_file_list(item){
+  function build_file_list(item, hide){
     var tk = '<input id="select-files-'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
     var tb = '<button class="primary" id="confirm" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
-    if (item.name === item.new_name){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>';}
+    var match = 'false';
+    var hideit = '';
+    if (item.name === item.new_name){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>'; match= match ? 'true' : 'false'; hideit = hide ? ' hidden' : '';}
     if (item.new_name == '' ||  item.new_name === undefined){tk = '<div class="icon-unknown" title="Episode not found"></div>'; tb = '';tn = '<span class="from">'+item.name+'</span>';}
-    return '<tr class="file" data-fileid="'+item.file_id+'" id="file'+item.file_id+'">'+
+    return '<tr class="file'+hideit+'" data-fileid="'+item.file_id+'" data-match="'+match+'" id="file'+item.file_id+'">'+
     '<td class="selection">' + tk + '</td>' +
     '<td class="name">'+tn+'</td>'+
     '<td class="buttons" align="right">' + tb + '</td>' +
@@ -83,6 +86,17 @@
     }else{
       loader.style.display = 'block';
     }
+  }
+  function update_file_list(){
+    var hide_matching = $('#hide_matching').prop('checked');
+    $('.file').each(function(i) {
+      if (hide_matching && $(this).attr('data-match') == 'true') {
+        $(this).addClass('hidden');
+      }else {
+        $(this).removeClass('hidden');
+      }
+    });
+
   }
   function next_title(t){
     get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index')}, render);
@@ -131,5 +145,9 @@ function scanFolderCallback(path){
   });
   $("#file_name_structure").focusout(function(e) {
     get_data('save_setting', {'setting' : 'file_name_structure', 'data' : $('#file_name_structure').val()}, message, false);
+  });
+  $("#hide_matching").change(function(e) {
+    get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
+    update_file_list();
   });
 })();

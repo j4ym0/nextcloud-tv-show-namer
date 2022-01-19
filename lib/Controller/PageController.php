@@ -42,6 +42,7 @@ class PageController extends Controller {
 		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
 		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
+		$this->hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
 		if ($this->file_name_structure == ''){
 			$this->file_name_structure = self::$file_name_structure_default;
 			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
@@ -73,11 +74,16 @@ class PageController extends Controller {
 		}else {
 			$response['message'] = "Oops, Something when wrong.";
 		}
-		if ($setting == 'tmdb_api_key'){
-			$response['message'] = "Updated your API Key";
-		}
-		if ($setting == 'file_name_structure'){
-			$response['message'] = "Updated file naming structure";
+		switch ($setting){
+			case 'tmdb_api_key':
+				$response['message'] = "Updated your API Key";
+				break;
+			case 'file_name_structure':
+				$response['message'] = "Updated file naming structure";
+				break;
+			case 'hide_matching':
+				$response['message'] = "Updated your preference";
+				break;
 		}
 		#return the json to render on client
 		return new JSONResponse($response);
@@ -207,7 +213,8 @@ class PageController extends Controller {
 	public function index() {
 
 		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''),
-							'file_name_structure' => $this->file_name_structure];
+							'file_name_structure' => $this->file_name_structure,
+							'hide_matching' => $this->hide_matching ? "checked" : ""];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
