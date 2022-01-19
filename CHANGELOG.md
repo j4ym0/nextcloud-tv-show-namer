@@ -2,6 +2,7 @@
 
 ## v0.1.1
   tested on Nextcloud 23
+  add hide matching entry's in file list
 
 ## v0.1.0
   add custom file name structure in settings
