@@ -30,7 +30,7 @@
         can.innerHTML=r;
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('button#next_title', function(t){next_title(t);});
-        $('.current_folder').html('<a href="../files/?dir=' + data.path + '">' + data.path + '</a><a data-path="'+data.path +'" class="reload" alt="Rescan Folder"></a>');
+        $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="Open ' + data.path + ' in nextcloud" alt="click to open ' + data.path + ' in nextcloud">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="Rescan Folder" alt="Rescan selected folder"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
     }else{
@@ -47,7 +47,7 @@
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
-    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+json.show_info.name+' poster"/></a>' +
+    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+json.show_info.name+' poster, click to open the show in a new window" title="Open '+json.show_info.name+' on themoviedb.org"/></a>' +
     '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span><p>'+json.show_info.overview+'</p>'+
     '<div class="not_this">Not this one? <button class="primary" id="next_title" data-show_index="'+json.show_index+'" data-path="'+json.path+'">Next</button></div></div>' +
     '</div>';

@@ -5,6 +5,7 @@
   add hide matching entry's in file list
   fix file detection with the word series
   fix files with no episode identification
+  added some tiles and alt tags
 
 ## v0.1.0
   add custom file name structure in settings
