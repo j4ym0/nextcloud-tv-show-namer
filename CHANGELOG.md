@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.2
+  fix for detection of episodes without a 's' for season
+  fix for detection season with 01x01 or name ending with a number
+
 ## v0.1.1
   tested on Nextcloud 23
   add hide matching entry's in file list
