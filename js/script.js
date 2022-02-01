@@ -57,7 +57,7 @@
     return '<tr>' +
     '<th class="selection"></th>' +
     '<th class="file-name">File Name</th>' +
-    '<th class="buttons"></th>' +
+    '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">Update all</button></div></th>' +
     '</tr>';
   }
   function build_file_list(item, hide){
@@ -115,8 +115,10 @@
     var s = $('input.select-file').filter(':checked').length;
     if (s == 0){
       $('.file_list .file-name').html('File Name');
+      $('.file_list #selected-button').addClass('hidden');
     }else{
       $('.file_list .file-name').html(s +' Selected');
+      $('.file_list #selected-button').removeClass('hidden');
     }
   }
 
