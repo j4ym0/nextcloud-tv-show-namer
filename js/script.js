@@ -29,6 +29,7 @@
         r+='</table>';
         can.innerHTML=r;
         checkElForCallback('button#confirm', function(t){rename_file(t);});
+        checkElForCallback('input.select-file', function(t){select_file(t);});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="Open ' + data.path + ' in nextcloud" alt="click to open ' + data.path + ' in nextcloud">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="Rescan Folder" alt="Rescan selected folder"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
@@ -55,12 +56,12 @@
   function build_file_list_header(){
     return '<tr>' +
     '<th class="selection"></th>' +
-    '<th class="name">File Name</th>' +
+    '<th class="file-name">File Name</th>' +
     '<th class="buttons"></th>' +
     '</tr>';
   }
   function build_file_list(item, hide){
-    var tk = '<input id="select-files-'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
+    var tk = '<input id="select-files-'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
     var tb = '<button class="primary" id="confirm" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
     var match = 'false';
@@ -108,6 +109,15 @@
     $(t).css("visibility", "hidden");
     $(t).removeClass('primary');
     get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
+  }
+  function select_file(t){
+    var id = $(t).data('fileid');
+    var s = $('input.select-file').filter(':checked').length;
+    if (s == 0){
+      $('.file_list .file-name').html('File Name');
+    }else{
+      $('.file_list .file-name').html(s +' Selected');
+    }
   }
 
 
