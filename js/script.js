@@ -58,7 +58,7 @@
     return '<tr>' +
     '<th class="selection"></th>' +
     '<th class="file-name">File Name</th>' +
-    '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">Update all</button></div></th>' +
+    '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">Update Selected</button></div></th>' +
     '</tr>';
   }
   function build_file_list(item, hide){
