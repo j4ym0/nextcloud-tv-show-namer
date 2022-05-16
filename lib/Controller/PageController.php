@@ -167,7 +167,7 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow($response['name']);
+						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"));
 						#check if there are enought results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search['results'][$show_index];

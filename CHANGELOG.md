@@ -3,6 +3,7 @@
 ## v0.1.3
   fix for no episodes found
   fix title not found
+  add ability to exclude part of season name with #
 
 ## v0.1.2
   fix for detection of episodes without a 's' for season

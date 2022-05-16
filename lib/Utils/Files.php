@@ -192,4 +192,17 @@ class Files {
       $len = is_string($startString) ? strlen($startString) : $startString;
       return (substr($string, $len));
   }
+
+  /**
+  * Function to remove everyting after a string
+  * @param string $string to be check
+  * @param trimAt $startAt where to start the trim
+  * @since 0.1.3
+  * @return string
+  */
+  static function removeAfter($string, $startAt){
+    if (strpos($string, $startAt) > 0)
+      return substr($string, 0, strpos($string, $startAt));
+    return $string;
+  }
 }
