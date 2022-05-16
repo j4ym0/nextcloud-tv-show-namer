@@ -169,7 +169,7 @@ class PageController extends Controller {
 
 						$search = $this->TMDB->searchTvShow($response['name']);
 						#check if there are enought results
-						if ($search !== "" || $search['total_results'] == '0'){
+						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search['results'][$show_index];
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);
