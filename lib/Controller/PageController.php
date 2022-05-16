@@ -4,6 +4,7 @@ namespace OCA\TVShowNamer\Controller;
 use OCP\IRequest;
 use OCP\IConfig;
 use OCP\IInitialStateService;
+use OCP\IUserSession;
 
 use OCA\TVShowNamer\AppInfo\Application;
 use OCA\TVShowNamer\Utils\Files;
@@ -31,11 +32,11 @@ class PageController extends Controller {
 
 	public function __construct($AppName, IRequest $request,
                                 IConfig $Config,
+																IUserSession $userSession,
 																IRootFolder $rootFolder,
-																IInitialStateService $initialStateService,
-								 							$UserId){
+																IInitialStateService $initialStateService){
 		parent::__construct($AppName, $request);
-		$this->userId = $UserId;
+		$this->userId = ($userSession->getUser())->getUID();
 		$this->config = $Config;
 		$this->rootFolder = $rootFolder;
 		$this->initialStateService = $initialStateService;

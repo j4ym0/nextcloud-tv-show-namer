@@ -46,7 +46,7 @@ class Files {
   * @return results of search
   */
 
-  public static function getFile(File $file, Folder $userHome) {
+  public static function getFile(File $file, $userHome) {
     $path = $file->getParent()->getPath();
     #remove the front folder of the user
     $path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
