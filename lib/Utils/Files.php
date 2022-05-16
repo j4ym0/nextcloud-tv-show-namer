@@ -95,10 +95,12 @@ class Files {
         # get the episode list from tmdb
         $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);
         $episode_number = -1;
-        for($e = 0; $e < count($epilist['episodes']); ++$e) {
-          if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
-            $episode_number = $e;
-            break;
+        if (!is_null($epilist['episodes'])){
+          for($e = 0; $e < count($epilist['episodes']); ++$e) {
+            if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
+              $episode_number = $e;
+              break;
+            }
           }
         }
         # ok we have the episode index
@@ -180,7 +182,7 @@ class Files {
   }
 
   /**
-  * Function to remove the firs part of a string
+  * Function to remove the first part of a string
   * @param string $string to be check
   * @param startString $startString the start of the string to remove
   * @since 0.0.1
