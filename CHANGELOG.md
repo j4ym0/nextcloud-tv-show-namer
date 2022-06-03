@@ -5,6 +5,7 @@
   fix title not found
   add ability to exclude part of season name with #
   moved to new user folder api
+  fix for issue #3
 
 ## v0.1.2
   fix for detection of episodes without a 's' for season

@@ -93,7 +93,7 @@ class Files {
         $collection['files'][$i]['new_name'] = '';
 
         # get the episode list from tmdb
-        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);
+        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename']);
         $episode_number = -1;
         if (!is_null($epilist['episodes'])){
           for($e = 0; $e < count($epilist['episodes']); ++$e) {
