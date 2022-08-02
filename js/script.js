@@ -3,6 +3,7 @@
   var can = document.getElementById('display-can');
   var loader = document.getElementById('loading-can');
   var header = document.getElementById('headding');
+  var current_posts = 0;
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
@@ -62,14 +63,14 @@
     '</tr>';
   }
   function build_file_list(item, hide){
-    var tk = '<input id="select-files-'+item.file_id+'" data-fileid="'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
+    var tk = '<input id="select-files-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
     var tb = '<button class="primary" id="confirm-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
     var match = 'false';
     var hideit = '';
     if (item.name === item.new_name){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>'; match= match ? 'true' : 'false'; hideit = hide ? ' hidden' : '';}
     if (item.new_name == '' ||  item.new_name === undefined){tk = '<div class="icon-unknown" title="Episode not found"></div>'; tb = '';tn = '<span class="from">'+item.name+'</span>';}
-    return '<tr class="file'+hideit+'" data-fileid="'+item.file_id+'" data-match="'+match+'" id="file'+item.file_id+'">'+
+    return '<tr class="file'+hideit+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" data-match="'+match+'" id="file'+item.file_id+'">'+
     '<td class="selection">' + tk + '</td>' +
     '<td class="name">'+tn+'</td>'+
     '<td class="buttons" align="right">' + tb + '</td>' +
@@ -122,28 +123,51 @@
     }
   }
   function submit_selected(){
-    $('input.select-file').each(function() {
-      if ($(this).is(':checked')){
-        var id = $(this).data('fileid');
-        rename_file($('#confirm-'+id));
-      }
+    var list = $('input.select-file').filter(':checked');
+    var selected =  new Array();
+    var i=0;
+    list.each(function() {
+      var id = $(this).data('fileid');
+      var file_path = $(this).data('filepath');
+      selected.push({
+        'id': id,
+        'file_name': file_path});
+      $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
+      $(t).css("visibility", "hidden");
+      $(t).removeClass('primary');
+      i++;
     });
-    select_file();
+    setTimeout(submit_selected_items, 100, selected ,0);
   }
-
+  function submit_selected_items(items, i){
+    console.log(current_posts);
+    if (i < items.length){
+      if (current_posts < 6){
+        var id = items[i].id;
+        var file_path = items[i].file_name;
+        console.log(JSON.stringify(items[i]));
+        get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
+        i++;
+      }
+      setTimeout(submit_selected_items, 50, items ,i);
+    }else{
+      select_file();      
+    }
+}
 function scanFolderCallback(path){
   get_data('scan', {'scan_folder' : path}, render);
 }
 
 
   function get_data(url, perams, callback, l = true){
+    current_posts++;
     if (perams === undefined || perams === null){
      $.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
-      complete: function() {if(l){hide_loading(true);}}
+      complete: function() {if(l){hide_loading(true);}current_posts--;}
      });
    }else{
      $.ajax({
@@ -153,7 +177,7 @@ function scanFolderCallback(path){
       data: JSON.stringify(perams),
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
-      complete: function() {if(l){hide_loading(true);}}
+      complete: function() {if(l){hide_loading(true);}current_posts--;}
      });
    }
   }
