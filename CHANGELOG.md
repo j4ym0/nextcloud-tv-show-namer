@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0
+  add update Selected
+  add selected file count
+  add select all
+  fix button alignment
+
 ## v0.1.2
   fix for detection of episodes without a 's' for season
   fix for detection season with 01x01 or name ending with a number
