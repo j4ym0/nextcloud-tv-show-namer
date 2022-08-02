@@ -31,7 +31,7 @@
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('input.select-file', function(t){select_file();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
-        checkElForCallback('button#update-all', function(){submit_all();});
+        checkElForCallback('button#update-all', function(){submit_selected();});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="Open ' + data.path + ' in nextcloud" alt="click to open ' + data.path + ' in nextcloud">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="Rescan Folder" alt="Rescan selected folder"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
@@ -121,7 +121,7 @@
       $('.file_list #selected-button').removeClass('hidden');
     }
   }
-  function submit_all(){
+  function submit_selected(){
     $('input.select-file').each(function() {
       if ($(this).is(':checked')){
         var id = $(this).data('fileid');
