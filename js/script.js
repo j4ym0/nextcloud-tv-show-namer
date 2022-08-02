@@ -31,6 +31,7 @@
         can.innerHTML=r;
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('input.select-file', function(t){select_file();});
+        checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="Open ' + data.path + ' in nextcloud" alt="click to open ' + data.path + ' in nextcloud">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="Rescan Folder" alt="Rescan selected folder"></a>');
@@ -57,7 +58,7 @@
   }
   function build_file_list_header(){
     return '<tr>' +
-    '<th class="selection"></th>' +
+    '<th class="selection"><input id="select-all" type="checkbox" class="selectCheckBox checkbox select-all"><label for="select-all"><span class="hidden-visually">Select All</span></label></th>' +
     '<th class="file-name">File Name</th>' +
     '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">Update Selected</button></div></th>' +
     '</tr>';
@@ -89,6 +90,18 @@
     }else{
       loader.style.display = 'block';
     }
+  }
+  function select_all() {
+    if($('input.select-all').is(":checked")){
+      $('input.select-file').each(function() {
+        $(this).prop('checked', true);
+      });
+    }else{
+      $('input.select-file').each(function() {
+        $(this).prop('checked', false);
+      });
+    }
+    select_file();
   }
   function update_file_list(){
     var hide_matching = $('#hide_matching').prop('checked');
@@ -151,7 +164,7 @@
       }
       setTimeout(submit_selected_items, 50, items ,i);
     }else{
-      select_file();      
+      select_file();
     }
 }
 function scanFolderCallback(path){
