@@ -31,10 +31,11 @@ class TMDB {
   * get a list of the episodes for a show season
   * @param show $show id for the episode list
   * @param season $season number
-  * @since 0.0.1
+  * @param episode $episode number
+  * @since 0.1.3
   * @return results as array
   */
-  public function getTvShowEpisodes($show, $season) {
+  public function getTvShowEpisodes($show, $season, $episode) {
     # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
     $perams = array(
     );

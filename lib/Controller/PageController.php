@@ -4,6 +4,7 @@ namespace OCA\TVShowNamer\Controller;
 use OCP\IRequest;
 use OCP\IConfig;
 use OCP\IInitialStateService;
+use OCP\IUserSession;
 
 use OCA\TVShowNamer\AppInfo\Application;
 use OCA\TVShowNamer\Utils\Files;
@@ -31,11 +32,11 @@ class PageController extends Controller {
 
 	public function __construct($AppName, IRequest $request,
                                 IConfig $Config,
+																IUserSession $userSession,
 																IRootFolder $rootFolder,
-																IInitialStateService $initialStateService,
-								 							$UserId){
+																IInitialStateService $initialStateService){
 		parent::__construct($AppName, $request);
-		$this->userId = $UserId;
+		$this->userId = ($userSession->getUser())->getUID();
 		$this->config = $Config;
 		$this->rootFolder = $rootFolder;
 		$this->initialStateService = $initialStateService;
@@ -167,9 +168,9 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow($response['name']);
+						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"));
 						#check if there are enought results
-						if ($search !== "" || $search['total_results'] == '0'){
+						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search['results'][$show_index];
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);

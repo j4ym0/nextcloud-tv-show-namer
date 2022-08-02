@@ -46,7 +46,7 @@ class Files {
   * @return results of search
   */
 
-  public static function getFile(File $file, Folder $userHome) {
+  public static function getFile(File $file, $userHome) {
     $path = $file->getParent()->getPath();
     #remove the front folder of the user
     $path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
@@ -93,12 +93,14 @@ class Files {
         $collection['files'][$i]['new_name'] = '';
 
         # get the episode list from tmdb
-        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber']);
+        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename']);
         $episode_number = -1;
-        for($e = 0; $e < count($epilist['episodes']); ++$e) {
-          if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
-            $episode_number = $e;
-            break;
+        if (!is_null($epilist['episodes'])){
+          for($e = 0; $e < count($epilist['episodes']); ++$e) {
+            if ((int)$epilist['episodes'][$e]['episode_number'] == (int)$matches['episodenumberstart']){
+              $episode_number = $e;
+              break;
+            }
           }
         }
         # ok we have the episode index
@@ -180,7 +182,7 @@ class Files {
   }
 
   /**
-  * Function to remove the firs part of a string
+  * Function to remove the first part of a string
   * @param string $string to be check
   * @param startString $startString the start of the string to remove
   * @since 0.0.1
@@ -189,5 +191,18 @@ class Files {
   static function removeStart($string, $startString){
       $len = is_string($startString) ? strlen($startString) : $startString;
       return (substr($string, $len));
+  }
+
+  /**
+  * Function to remove everyting after a string
+  * @param string $string to be check
+  * @param trimAt $startAt where to start the trim
+  * @since 0.1.3
+  * @return string
+  */
+  static function removeAfter($string, $startAt){
+    if (strpos($string, $startAt) > 0)
+      return substr($string, 0, strpos($string, $startAt));
+    return $string;
   }
 }

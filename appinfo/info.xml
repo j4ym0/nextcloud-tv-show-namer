@@ -7,7 +7,7 @@
     <description><![CDATA[TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.
 
 Rename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily]]></description>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
     <licence>agpl</licence>
     <author mail="isntit000@gmail.com" homepage="https://github.com/j4ym0/nextcloud-tv-namer">J4yM0</author>
     <namespace>TVShowNamer</namespace>
@@ -16,7 +16,7 @@ Rename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode 
     <bugs>https://github.com/j4ym0/nextcloud-tv-namer/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/j4ym0/nextcloud-tv-show-namer/main/screenshot.png</screenshot>
     <dependencies>
-        <nextcloud min-version="16" max-version="23"/>
+        <nextcloud min-version="16" max-version="24"/>
     </dependencies>
     <navigations>
         <navigation>

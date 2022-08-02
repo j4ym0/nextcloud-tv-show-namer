@@ -37,7 +37,7 @@ When choosing your naming structure you can mix the below variables, letters and
 
   - {{Season_Name}} - The season name as from TMDB
   - {{Series_Name}} - Same as above
-  - {{Season_Number}} - The season number of the episode 
+  - {{Season_Number}} - The season number of the episode
   - {{Series_Number}} - Same as above
   - {{Season_Number_Padded}} - Same as above but 'Season 1' would be 'Season 01' and 'Season 10' would be 'Season 10'
   - {{Series_Number_Padded}} - Same as above
@@ -47,6 +47,9 @@ When choosing your naming structure you can mix the below variables, letters and
 
 NOTE: Any incompatible symbols will be filleted out when renaming the file.
 
+## Notes
+
+If you add a '#' to the season folder name, this will search themoviedb.org for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
 
 ## TODO
 
