@@ -84,7 +84,7 @@ input:checked + .slider:before {
 .show_info .not_this{
 	position: absolute;
 	bottom: 5px;
-	right: 5px;
+	right: 0px;
 }
 
 
@@ -100,7 +100,10 @@ input:checked + .slider:before {
 .file_list th {
 	font-size: 18px;
 	color: #767;
-	padding: 0px 10px;
+	padding: 0px;
+}
+.file_list th #update-all {
+	padding-right: -10px !important;
 }
 .file_list td {
 	font-size: 15px;
@@ -125,7 +128,7 @@ input:checked + .slider:before {
 .file_list .buttons {
 	width: 100px;
 }
-.file_list td.buttons {
+.file_list .buttons {
 	text-align: right;
 }
 

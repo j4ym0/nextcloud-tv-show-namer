@@ -3,6 +3,7 @@
   var can = document.getElementById('display-can');
   var loader = document.getElementById('loading-can');
   var header = document.getElementById('headding');
+  var current_posts = 0;
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
@@ -29,7 +30,10 @@
         r+='</table>';
         can.innerHTML=r;
         checkElForCallback('button#confirm', function(t){rename_file(t);});
+        checkElForCallback('input.select-file', function(t){select_file();});
+        checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
+        checkElForCallback('button#update-all', function(){submit_selected();});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="Open ' + data.path + ' in nextcloud" alt="click to open ' + data.path + ' in nextcloud">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="Rescan Folder" alt="Rescan selected folder"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
@@ -54,20 +58,20 @@
   }
   function build_file_list_header(){
     return '<tr>' +
-    '<th class="selection"></th>' +
-    '<th class="name">File Name</th>' +
-    '<th class="buttons"></th>' +
+    '<th class="selection"><input id="select-all" type="checkbox" class="selectCheckBox checkbox select-all"><label for="select-all"><span class="hidden-visually">Select All</span></label></th>' +
+    '<th class="file-name">File Name</th>' +
+    '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">Update Selected</button></div></th>' +
     '</tr>';
   }
   function build_file_list(item, hide){
-    var tk = '<input id="select-files-'+item.file_id+'" type="checkbox" class="selectCheckBox checkbox"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
-    var tb = '<button class="primary" id="confirm" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
+    var tk = '<input id="select-files-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
+    var tb = '<button class="primary" id="confirm-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
     var match = 'false';
     var hideit = '';
     if (item.name === item.new_name){tk = '<div class="icon-checkmark"></div>'; tb = '';tn = '<span class="to">'+item.name+'</span>'; match= match ? 'true' : 'false'; hideit = hide ? ' hidden' : '';}
     if (item.new_name == '' ||  item.new_name === undefined){tk = '<div class="icon-unknown" title="Episode not found"></div>'; tb = '';tn = '<span class="from">'+item.name+'</span>';}
-    return '<tr class="file'+hideit+'" data-fileid="'+item.file_id+'" data-match="'+match+'" id="file'+item.file_id+'">'+
+    return '<tr class="file'+hideit+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" data-match="'+match+'" id="file'+item.file_id+'">'+
     '<td class="selection">' + tk + '</td>' +
     '<td class="name">'+tn+'</td>'+
     '<td class="buttons" align="right">' + tb + '</td>' +
@@ -86,6 +90,18 @@
     }else{
       loader.style.display = 'block';
     }
+  }
+  function select_all() {
+    if($('input.select-all').is(":checked")){
+      $('input.select-file').each(function() {
+        $(this).prop('checked', true);
+      });
+    }else{
+      $('input.select-file').each(function() {
+        $(this).prop('checked', false);
+      });
+    }
+    select_file();
   }
   function update_file_list(){
     var hide_matching = $('#hide_matching').prop('checked');
@@ -109,21 +125,62 @@
     $(t).removeClass('primary');
     get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
   }
-
-
+  function select_file(){
+    var s = $('input.select-file').filter(':checked').length;
+    if (s == 0){
+      $('.file_list .file-name').html('File Name');
+      $('.file_list #selected-button').addClass('hidden');
+    }else{
+      $('.file_list .file-name').html(s +' Selected');
+      $('.file_list #selected-button').removeClass('hidden');
+    }
+  }
+  function submit_selected(){
+    var list = $('input.select-file').filter(':checked');
+    var selected =  new Array();
+    var i=0;
+    list.each(function() {
+      var id = $(this).data('fileid');
+      var file_path = $(this).data('filepath');
+      selected.push({
+        'id': id,
+        'file_name': file_path});
+      $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
+      $(t).css("visibility", "hidden");
+      $(t).removeClass('primary');
+      i++;
+    });
+    setTimeout(submit_selected_items, 100, selected ,0);
+  }
+  function submit_selected_items(items, i){
+    console.log(current_posts);
+    if (i < items.length){
+      if (current_posts < 6){
+        var id = items[i].id;
+        var file_path = items[i].file_name;
+        console.log(JSON.stringify(items[i]));
+        get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
+        i++;
+      }
+      setTimeout(submit_selected_items, 50, items ,i);
+    }else{
+      select_file();
+    }
+}
 function scanFolderCallback(path){
   get_data('scan', {'scan_folder' : path}, render);
 }
 
 
   function get_data(url, perams, callback, l = true){
+    current_posts++;
     if (perams === undefined || perams === null){
      $.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
-      complete: function() {if(l){hide_loading(true);}}
+      complete: function() {if(l){hide_loading(true);}current_posts--;}
      });
    }else{
      $.ajax({
@@ -133,7 +190,7 @@ function scanFolderCallback(path){
       data: JSON.stringify(perams),
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
-      complete: function() {if(l){hide_loading(true);}}
+      complete: function() {if(l){hide_loading(true);}current_posts--;}
      });
    }
   }

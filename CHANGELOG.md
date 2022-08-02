@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.0
+  add update Selected
+  add selected file count
+  add select all
+  fix button alignment
+
 ## v0.1.3
   fix for no episodes found
   fix title not found
