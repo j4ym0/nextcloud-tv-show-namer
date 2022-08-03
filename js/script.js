@@ -65,7 +65,7 @@
   }
   function build_file_list(item, hide){
     var tk = '<input id="select-files-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">Select</span></label>';
-    var tb = '<button class="primary" id="confirm-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
+    var tb = '<button class="primary" id="confirm" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'">Update</button>';
     var tn = '<span class="from">'+item.name+'</span> > <span class="to">'+item.new_name+'</span>';
     var match = 'false';
     var hideit = '';

@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.1
+  fix confirm button not working
+
 ## v0.2.0
   add update Selected
   add selected file count
