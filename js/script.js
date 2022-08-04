@@ -136,6 +136,9 @@
     }
   }
   function submit_selected(){
+    $('.file_list #select-all').css("visibility", "hidden");
+    $('.file_list #update-all').css("visibility", "hidden");
+    $('.file_list .file-name').html("Updateing...");
     var list = $('input.select-file').filter(':checked');
     var selected =  new Array();
     var i=0;
@@ -146,8 +149,8 @@
         'id': id,
         'file_name': file_path});
       $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
-      $(t).css("visibility", "hidden");
-      $(t).removeClass('primary');
+      $('#file'+id+' .confirm').css("visibility", "hidden");
+      $('#file'+id+' .confirm').removeClass('primary');
       i++;
     });
     setTimeout(submit_selected_items, 100, selected ,0);
@@ -165,6 +168,7 @@
       setTimeout(submit_selected_items, 50, items ,i);
     }else{
       select_file();
+      $('select-all').css("visibility", "visable");
     }
 }
 function scanFolderCallback(path){
