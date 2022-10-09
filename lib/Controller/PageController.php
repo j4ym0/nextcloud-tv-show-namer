@@ -5,6 +5,7 @@ use OCP\IRequest;
 use OCP\IConfig;
 use OCP\IInitialStateService;
 use OCP\IUserSession;
+use OCP\IL10N;
 
 use OCA\TVShowNamer\AppInfo\Application;
 use OCA\TVShowNamer\Utils\Files;
@@ -29,17 +30,22 @@ class PageController extends Controller {
 	private $TMDB;
 	public $file_name_structure;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
+	private $l;
 
-	public function __construct($AppName, IRequest $request,
+	public function __construct(	$AppName,
+																IRequest $request,
                                 IConfig $Config,
 																IUserSession $userSession,
 																IRootFolder $rootFolder,
-																IInitialStateService $initialStateService){
+																IInitialStateService $initialStateService,
+																IL10N $l){
 		parent::__construct($AppName, $request);
 		$this->userId = ($userSession->getUser())->getUID();
 		$this->config = $Config;
 		$this->rootFolder = $rootFolder;
 		$this->initialStateService = $initialStateService;
+		$this->l = $l;
+
 		$this->postdata = json_decode(file_get_contents("php://input"));
 		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
 		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
@@ -51,15 +57,22 @@ class PageController extends Controller {
 	}
 
 	/**
-	 *      load home page of TVSN
-	 */
-	public function home() {
+	*				Init IL10N get language
+	**/
+	public function getLanguageCode() {
+		return $this->l->getLanguageCode();
+	}
 
+	/**
+	*				load home page of TVSN
+	*/
+	public function home() {
 		return new JSONResponse(['status' => 200]);
 	}
+
 	/**
-	 *          save settings changed
-	 */
+	*				Save settings changed in settings panel
+	*/
 	public function saveSetting() {
 		# init response
 		$response = array('success' => false,
@@ -73,39 +86,42 @@ class PageController extends Controller {
 		if ($this->config->getAppValue(Application::APP_ID, $setting, '') == $data){
 			$response['success'] = true;
 		}else {
-			$response['message'] = "Oops, Something when wrong.";
+			$response['message'] = $this->l->t("Oops, Something when wrong.");
 		}
 		switch ($setting){
 			case 'tmdb_api_key':
-				$response['message'] = "Updated your API Key";
+				$response['message'] = $this->l->t("Updated your API Key");
 				break;
 			case 'file_name_structure':
-				$response['message'] = "Updated file naming structure";
+				$response['message'] = $this->l->t("Updated file naming structure");
 				break;
 			case 'hide_matching':
-				$response['message'] = "Updated your preference";
+				$response['message'] = $this->l->t("Updated your preference");
 				break;
 		}
-		#return the json to render on client
+
+		# return the json to render on client
 		return new JSONResponse($response);
 	}
+
 	/**
-	 *          retreve list of show that can be renamed
-	 */
+	*				Retrieve list of show that can be renamed
+	*/
 	public function rename() {
 		# init response
 		$response = array('success' => false,
 											'message' => '');
+
 		# get the posted vars we need
 		$file_id = $this->postdata->file_id;
 		$file_path = $this->postdata->file_path;
 		$new_file_name = $this->postdata->new_name;
+
 		# init OC Files
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
 		$file_path = str_replace('//', '/', $userHome->getPath() . '/' . $file_path);
 		$file = $userHome->getById($file_id);
 		$file = $file[0] ?? null;
-
 
 		# extra security check to make sure the file is in the same folder as we think
 		$internal_path = $file == null ? null : $file->getParent()->getPath();
@@ -118,41 +134,46 @@ class PageController extends Controller {
 				$response['element'] = 'file'.$file_id;
 				$response['file'] = Files::getFile($file, $userHome);
 			} catch (\OCP\Files\NotPermittedException $ex) {
-				$response['message'] = 'Unable rename the file';
+				$response['message'] = $this->l->t("Unable rename the file");
 			} catch (\OCP\Lock\LockedException $ex) {
-				$response['message'] = 'File is locked or in use';
+				$response['message'] = $this->l->t("File is locked or in use");
 			} catch (\OCP\Files\InvalidPathException $ex) {
-				$response['message'] = 'File path invalid';
+				$response['message'] = $this->l->t("File path invalid");
 			}
 		}else {
-			$response['message'] = 'Unable to find file. Try to refresh';
+			$response['message'] = $this->l->t("Unable to find file. Try to refresh");
 		}
+
 		#return the json to render on client
 		return new JSONResponse($response);
 	}
 
 
 	/**
-	 *          retreve list of show that can be renamed
-	 */
+	*				retreve list of show that can be renamed
+	*/
 	public function scan() {
 		// start the response with defaults
 		$response = array('success' => false,
 											'message' => '');
+
 		if ($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '') == ''){
-			$response['message'] = 'Please configure your API key in settings';
+			$response['message'] = $this->l->t("Please configure your API key in settings";
 			return new JSONResponse($response);
 		}
+
 		// is there a show index
 		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
 
 		// get the folder path
 		$path = $this->postdata->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
+
 		#check to make sure the folder exsist
 		$path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
 		if ($userHome->nodeExists($path)) {
 			$folder_to_scan = $userHome->get($path);
+
 			# store the folder info ready to eb returned to ui
 			$response['id'] =  $folder_to_scan->getId();
 			$response['name'] =  $folder_to_scan->getName();
@@ -177,7 +198,7 @@ class PageController extends Controller {
 
 							# check we have some files
 							if (is_null($response['files'])){
-								$response['message'] = 'No files found';
+								$response['message'] = $this->l->t("No files found");
 							}else{
 							#match the files to episodes
 								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure);
@@ -185,16 +206,16 @@ class PageController extends Controller {
 								$response['success'] = true;
 							}
 						}else{
-							$response['message'] = 'No results for "' . $response['name'] .'"';
+							$response['message'] = $this->l->t('No results for "%1$s"',  [$response['name']]);
 						}
 				}else{
-					$response['message'] = 'Can not scan home folder, Select a folder';
+					$response['message'] = $this->l->t("Can not scan home folder, Select a folder");
 				}
 			}else{
-				$response['message'] = 'Please select a folder';
+				$response['message'] = $this->l->t("Please select a folder");
 			}
 		}else{
-			$response['message'] = 'Folder does not exsist';
+			$response['message'] = $this->l->t("Folder does not exsist");
 		}
 
 		#return the json to render on client
@@ -202,15 +223,15 @@ class PageController extends Controller {
 	}
 
 	/**
-	 * CAUTION: the @Stuff turns off security checks; for this page no admin is
-	 *          required and no CSRF check. If you don't know what CSRF is, read
-	 *          it up in the docs or you might create a security hole. This is
-	 *          basically the only required method to add this exemption, don't
-	 *          add it to any other method if you don't exactly know what it does
-	 *
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 */
+ * CAUTION: the @Stuff turns off security checks; for this page no admin is
+ *          required and no CSRF check. If you don't know what CSRF is, read
+ *          it up in the docs or you might create a security hole. This is
+ *          basically the only required method to add this exemption, don't
+ *          add it to any other method if you don't exactly know what it does
+ *
+ * @NoAdminRequired
+ * @NoCSRFRequired
+ */
 	public function index() {
 
 		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''),
@@ -222,14 +243,13 @@ class PageController extends Controller {
 
 	# just a place holder to get imags at the mo
 	/**
-		 * @PublicPage
-		 * @NoCSRFRequired
-		 */
-   public function image($img){
-		 $res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
-		 $res->addHeader('Content-type', "image/jpeg; charset=utf-8");
-		 return $res;
-
-   }
+	* @PublicPage
+	* @NoCSRFRequired
+	*/
+  public function image($img){
+		$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
+		$res->addHeader('Content-type', "image/jpeg; charset=utf-8");
+		return $res;
+  }
 
 }
