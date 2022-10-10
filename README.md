@@ -17,7 +17,7 @@ Then run or extract the release zip into the folder:
 
 Next enable the app in the apps section in nextcloud
 
-The app should run on standard php installation, you will need a api key from themoviedb.org
+The app should run on standard php installation, but you will need a api key from themoviedb.org. See [here](#getting-your-api-key) to get an api key.
 
 ## Getting your API Key
 
