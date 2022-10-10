@@ -1,5 +1,7 @@
 # Changelog
 
+  bug fixes
+
 ## v0.2.2
   remove confirm button when updating selected
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\NotesTutorial\Controller;
+namespace OCA\TVShowNamer\Controller;
 
 use Closure;
 
