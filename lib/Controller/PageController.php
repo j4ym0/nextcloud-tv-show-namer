@@ -158,7 +158,7 @@ class PageController extends Controller {
 											'message' => '');
 
 		if ($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '') == ''){
-			$response['message'] = $this->l->t("Please configure your API key in settings";
+			$response['message'] = $this->l->t("Please configure your API key in settings");
 			return new JSONResponse($response);
 		}
 
