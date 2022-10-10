@@ -1,10 +1,10 @@
 <div id="loading-can" style="display: none;">
 	<div class="mask icon-loading"></div>
-  <p>Hang tight...</p>
+  <p><?php p($l->t('Hang tight')); ?>...</p>
 </div>
 
 <div id="headding">
- <a id="scanfolder" class="button"><span>Scan Folder</span></a>
- <span class="current_folder">Choose a folder to start</span>
+ <a id="scanfolder" class="button"><span><?php p($l->t('Scan Folder')); ?></span></a>
+ <span class="current_folder"><?php p($l->t('Choose a folder to start')); ?></span>
 </div>
 <div id="display-can"></div>
