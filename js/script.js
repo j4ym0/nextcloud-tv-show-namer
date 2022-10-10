@@ -157,12 +157,10 @@
     setTimeout(submit_selected_items, 100, selected ,0);
   }
   function submit_selected_items(items, i){
-    console.log(current_posts);
     if (i < items.length){
       if (current_posts < 6){
         var id = items[i].id;
         var file_path = items[i].file_name;
-        console.log(JSON.stringify(items[i]));
         get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
         i++;
       }
