@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.3.0
+  implement internationalization
   bug fixes
 
 ## v0.2.2
