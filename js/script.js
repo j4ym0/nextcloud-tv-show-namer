@@ -34,7 +34,7 @@
         checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
-        $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="'+t('tvshownamer', 'Rescan Folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
+        $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="'+t('tvshownamer', 'Rescan folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
     }else{
