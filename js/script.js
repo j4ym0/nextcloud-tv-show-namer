@@ -34,7 +34,6 @@
         checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
-        t('tvshownamer', '{name} is available. Get {linkstart}more information{linkend}', {name: 'Nextcloud 16', linkstart: '<a href="...">', linkend: '</a>'});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'click to open {path} in nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" class="reload" title="'+t('tvshownamer', 'Rescan Folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
       }
