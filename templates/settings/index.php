@@ -14,7 +14,7 @@
 			<input type="input" id="file_name_structure" class="input w-100" value="<?php p($_['file_name_structure']);?>">
 		</div>
 		<div class="mar-top-20">
-			<lable for="hide_matching"><?php p($l->t('Hide matching entrys')); ?></lable>
+			<lable for="hide_matching"><?php p($l->t('Hide matching entries')); ?></lable>
 			<label class="toggle a-right">
 				<input type="checkbox" id="hide_matching" <?php p($_['hide_matching']);?>>
 				<span class="slider"></span>
