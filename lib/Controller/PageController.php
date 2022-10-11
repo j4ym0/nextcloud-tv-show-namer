@@ -86,7 +86,7 @@ class PageController extends Controller {
 		if ($this->config->getAppValue(Application::APP_ID, $setting, '') == $data){
 			$response['success'] = true;
 		}else {
-			$response['message'] = $this->l->t("Oops, Something when wrong.");
+			$response['message'] = $this->l->t("Oops, something went wrong.");
 		}
 		switch ($setting){
 			case 'tmdb_api_key':
