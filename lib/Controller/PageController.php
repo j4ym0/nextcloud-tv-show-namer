@@ -209,7 +209,7 @@ class PageController extends Controller {
 							$response['message'] = $this->l->t('No results for "%1$s"',  [$response['name']]);
 						}
 				}else{
-					$response['message'] = $this->l->t("Can not scan home folder, Select a folder");
+					$response['message'] = $this->l->t("Cannot scan home folder. Select a folder");
 				}
 			}else{
 				$response['message'] = $this->l->t("Please select a folder");
