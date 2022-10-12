@@ -1,0 +1,10 @@
+{ "translations": {
+    "Next" : "بعدی",
+    "Select All" : "گزینش همه",
+    "File Name" : "نام پرونده",
+    "Select" : "گزینش<br>",
+    "Update" : "به‌روز رسانی",
+    "Episode not found" : "قسمت پیدا نشد",
+    "Settings" : "تنظیمات"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

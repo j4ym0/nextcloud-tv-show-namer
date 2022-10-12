@@ -1,0 +1,7 @@
+{ "translations": {
+    "Next" : "Sequente",
+    "Select" : "Selectionar",
+    "Update" : "Actualisation",
+    "Settings" : "Configurationes"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,5 +1,8 @@
 { "translations": {
+    "Next" : "次へ",
     "File Name" : "ファイル名",
+    "Select" : "選択",
+    "Update" : "更新",
     "Settings" : "設定"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

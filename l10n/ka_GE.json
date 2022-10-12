@@ -1,4 +1,7 @@
 { "translations": {
+    "Next" : "შემდეგი",
+    "Select" : "არჩევა",
+    "Update" : "განახლება",
     "Settings" : "პარამეტრები"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

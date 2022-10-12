@@ -1,5 +1,6 @@
 { "translations": {
     "Next" : "ถัดไป",
+    "Select" : "เลือก",
     "Update" : "อัปเดต",
     "Settings" : "การตั้งค่า"
 },"pluralForm" :"nplurals=1; plural=0;"

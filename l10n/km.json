@@ -1,4 +1,7 @@
 { "translations": {
+    "Next" : "បន្ទាប់",
+    "Select" : "Select",
+    "Update" : "ធ្វើ​បច្ចុប្បន្នភាព",
     "Settings" : "ការកំណត់"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

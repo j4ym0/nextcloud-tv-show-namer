@@ -1,4 +1,7 @@
 { "translations": {
+    "Next" : "Weider",
+    "Select" : "Select",
+    "Update" : "Update",
     "Settings" : "Astellungen"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

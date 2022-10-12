@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Next" : "Ďalšie",
     "File Name" : "Názov súboru",
+    "Select" : "Vybrať",
     "Update" : "Aktualizovať",
     "Settings" : "Nastavenia"
 },

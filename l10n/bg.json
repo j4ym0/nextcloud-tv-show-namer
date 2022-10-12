@@ -1,0 +1,8 @@
+{ "translations": {
+    "Next" : "Следващо",
+    "File Name" : "Име на файл",
+    "Select" : "Избери",
+    "Update" : "Обновяване",
+    "Settings" : "Настройки"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Next" : "Imbeniente",
     "File Name" : "Nùmene de s'archìviu",
+    "Select" : "Seletziona",
     "Update" : "Agiorna",
     "Settings" : "Impostatziones"
 },

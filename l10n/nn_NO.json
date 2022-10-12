@@ -1,5 +1,7 @@
 { "translations": {
     "Next" : "Neste",
+    "Select" : "Vel",
+    "Update" : "Oppdater",
     "Settings" : "Innstillingar"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

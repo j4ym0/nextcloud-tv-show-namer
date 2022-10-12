@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Next" : "Seguinte",
     "File Name" : "Nome do ficheiro",
+    "Select" : "Selecionar",
     "Update" : "Atualizar",
     "Settings" : "Definições"
 },

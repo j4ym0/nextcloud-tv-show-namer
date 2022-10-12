@@ -1,0 +1,8 @@
+{ "translations": {
+    "Next" : "Næsta",
+    "File Name" : "Skráarheiti",
+    "Select" : "Velja",
+    "Update" : "Uppfæra",
+    "Settings" : "Stillingar"
+},"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
+}
