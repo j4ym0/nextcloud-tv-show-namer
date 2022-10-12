@@ -2,6 +2,7 @@
 
 ## v0.3.0
   implement internationalization
+  gramma / language fixes
   bug fixes
 
 ## v0.2.2
