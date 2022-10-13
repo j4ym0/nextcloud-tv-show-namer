@@ -1,7 +1,11 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {path} in Nextcloud" : "在 Nextcloud 中開啟 {path}",
+    "Click to open {path} in Nextcloud" : "點擊以在 Nextcloud 中開啟 {path}",
+    "Rescan folder" : "重新掃描資料夾",
     "Rescan selected folder" : "重新掃描選定的資料夾",
+    "Unexpected error" : "意外錯誤",
     "Unable to find" : "找不到",
     "Not this one?" : "不是這個？",
     "Next" : "下一步",
@@ -13,6 +17,7 @@ OC.L10N.register(
     "Select" : "選取",
     "Update" : "更新",
     "Episode not found" : "找不到影集",
+    "Oops, something went wrong." : "糟糕，出了點問題。",
     "Updated your API Key" : "已更新您的 API 金鑰",
     "Updated file naming structure" : "已更新檔案命名結構",
     "Updated your preference" : "已更新偏好設定",
@@ -23,6 +28,7 @@ OC.L10N.register(
     "Please configure your API key in settings" : "請在設定中設定您的 API 金鑰",
     "No files found" : "找不到檔案",
     "No results for \"%1$s\"" : "「%1$s」無相關結果",
+    "Cannot scan home folder. Select a folder" : "無法掃描家資料夾。請選取資料夾",
     "Please select a folder" : "請選取資料夾",
     "Folder does not exsist" : "資料夾不存在",
     "TV Show Namer" : "電視節目命名程式",
@@ -35,6 +41,7 @@ OC.L10N.register(
     "API Key" : "API 金鑰",
     "Get your API key here" : "在此取得您的 API 金鑰",
     "Naming Structure" : "命名結構",
-    "Examples" : "範例"
+    "Examples" : "範例",
+    "Hide matching entries" : "隱藏相符條目"
 },
 "nplurals=1; plural=0;");

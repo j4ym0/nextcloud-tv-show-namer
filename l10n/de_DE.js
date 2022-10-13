@@ -1,7 +1,11 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {path} in Nextcloud" : "{path} in Nextcloud öffnen",
+    "Click to open {path} in Nextcloud" : "Klicken Sie hier, um {path} in Nextcloud zu öffnen",
+    "Rescan folder" : "Ordner neu einlesen",
     "Rescan selected folder" : "Ausgewählten Ordner neu einlesen",
+    "Unexpected error" : "Unerwarteter Fehler",
     "Unable to find" : "Kann nicht gefunden werden",
     "Not this one?" : "Nicht diese?",
     "Next" : "Nächste",
@@ -13,6 +17,7 @@ OC.L10N.register(
     "Select" : "Auswählen",
     "Update" : "Aktualisieren",
     "Episode not found" : "Folge nicht gefunden",
+    "Oops, something went wrong." : "Etwas ist schiefgelaufen.",
     "Updated your API Key" : "Ihr API-Schlüssel wurde aktualisiert",
     "Updated file naming structure" : "Dateinamensstruktur wurde aktualisiert",
     "Updated your preference" : "Ihre Einstellungen wurden aktualisiert",
@@ -23,6 +28,7 @@ OC.L10N.register(
     "Please configure your API key in settings" : "Bitte konfigurieren Sie Ihren API-Schlüssel in den Einstellungen",
     "No files found" : "Keine Dateien gefunden",
     "No results for \"%1$s\"" : "Keine Ergebnisse für \"%1$s\"",
+    "Cannot scan home folder. Select a folder" : "Home-Ordner kann nicht durchsucht werden, Wählen Sie einen Ordner aus",
     "Please select a folder" : "Bitte einen Ordner auswählen",
     "Folder does not exsist" : "Ordner existiert nicht",
     "TV Show Namer" : "TV-Show-Namer",
@@ -35,6 +41,7 @@ OC.L10N.register(
     "API Key" : "API-Schlüssel",
     "Get your API key here" : "Holen Sie sich hier Ihren API-Schlüssel",
     "Naming Structure" : "Struktur der Namensgebung",
-    "Examples" : "Beispiele"
+    "Examples" : "Beispiele",
+    "Hide matching entries" : "Übereinstimmende Einträge ausblenden"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,5 +1,9 @@
 { "translations": {
+    "Open {path} in Nextcloud" : "在 Nextcloud 中打開 {path}",
+    "Click to open {path} in Nextcloud" : "點擊以在 Nextcloud 中打開 {path} ",
+    "Rescan folder" : "重新掃描資料夾",
     "Rescan selected folder" : "重新掃描已選擇的資料夾",
+    "Unexpected error" : "發生意外錯誤",
     "Unable to find" : "無法找到",
     "Not this one?" : "不是這個嗎？",
     "Next" : "下一",
@@ -11,6 +15,7 @@
     "Select" : "選擇",
     "Update" : "更新",
     "Episode not found" : "找不到劇集",
+    "Oops, something went wrong." : "噢，出了點問題。",
     "Updated your API Key" : "更新了您的 API 密鑰",
     "Updated file naming structure" : "更新了檔案命名結構",
     "Updated your preference" : "更新了您的偏愛",
@@ -21,6 +26,7 @@
     "Please configure your API key in settings" : "請在設定中配置您的 API 密鑰",
     "No files found" : "無檔案",
     "No results for \"%1$s\"" : "\"%1$s\" 沒有結果",
+    "Cannot scan home folder. Select a folder" : "無法掃描主資料夾。請選取資料夾",
     "Please select a folder" : "請選擇資料夾",
     "Folder does not exsist" : "資料夾不存在",
     "TV Show Namer" : "電視節目命名",
@@ -32,6 +38,7 @@
     "API Key" : "API 密鑰",
     "Get your API key here" : "在此處獲取您的 API 密鑰",
     "Naming Structure" : "命名結構",
-    "Examples" : "例子"
+    "Examples" : "例子",
+    "Hide matching entries" : "隱藏相符條目"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
