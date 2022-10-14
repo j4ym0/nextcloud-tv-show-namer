@@ -1,7 +1,11 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {path} in Nextcloud" : "Відкрити {path} у Nextcloud",
+    "Click to open {path} in Nextcloud" : "Клацніть, щоб відкрити {path} у Nextcloud",
+    "Rescan folder" : "Пересканувати теку",
     "Rescan selected folder" : "Перескануйте вибрану папку",
+    "Unexpected error" : "Неочікувана помилка",
     "Unable to find" : "Не вдалося знайти",
     "Not this one?" : "Не цей?",
     "Next" : "Далі",
@@ -13,6 +17,7 @@ OC.L10N.register(
     "Select" : "Вибрати",
     "Update" : "Оновлення",
     "Episode not found" : "Епізод не знайдено",
+    "Oops, something went wrong." : "Ой, щось пішло не так.",
     "Updated your API Key" : "Оновлено ваш ключ API",
     "Updated file naming structure" : "Оновлена ​​структура імен файлів",
     "Updated your preference" : "Оновлено налаштування",
@@ -23,6 +28,7 @@ OC.L10N.register(
     "Please configure your API key in settings" : "Налаштуйте ключ API в налаштуваннях",
     "No files found" : "Файли не знайдено",
     "No results for \"%1$s\"" : "Немає результатів для \"%1$s\"",
+    "Cannot scan home folder. Select a folder" : "Неможливо сканувати домашню теку. Виберіть теку",
     "Please select a folder" : "Виберіть папку",
     "Folder does not exsist" : "Папка не існує",
     "TV Show Namer" : "Телешоу Намер",
@@ -35,6 +41,7 @@ OC.L10N.register(
     "API Key" : "Ключ API",
     "Get your API key here" : "Отримайте ключ API тут",
     "Naming Structure" : "Структура найменування",
-    "Examples" : "Приклади"
+    "Examples" : "Приклади",
+    "Hide matching entries" : "Сховати відповідні записи"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");
