@@ -1,8 +1,29 @@
 { "translations": {
+    "Unable to find" : "Ezin izan da aurkitu",
+    "Not this one?" : "Ez da hau?",
     "Next" : "Hurrengoa",
+    "Select All" : "Hautatu denak",
     "File Name" : "Fitxategi izena",
+    "Update Selected" : "Eguneratu hautatutakoak",
     "Select" : "Hautatu",
     "Update" : "Eguneratu",
-    "Settings" : "Ezarpenak"
+    "Updated your API Key" : "Zure API gakoa eguneratu da",
+    "Updated your preference" : "Zure ezarpenak aldatu dira",
+    "Unable rename the file" : "Ezin izan da fitxategia berrizendatu",
+    "File is locked or in use" : "Fitxategia blokeatuta edo erabiltzen ari da",
+    "File path invalid" : "Fitxategiaren bide-izena baliogabea da",
+    "Unable to find file. Try to refresh" : "Ezin izan da fitxategia aurkitu. Saiatu freskatzen",
+    "Please configure your API key in settings" : "Konfiguratu zure API gakoa ezarpenetan",
+    "No files found" : "Ez dira fitxategiak aurkitu",
+    "No results for \"%1$s\"" : "Ez dago emaitzarik \"%1$s\"(r)entzako",
+    "Please select a folder" : "Mesedez hautatu karpeta bat",
+    "Folder does not exsist" : "Karpeta ez da existitzen",
+    "Scan Folder" : "Eskaneatu karpeta",
+    "Choose a folder to start" : "Aukeratu karpeta bat hasteko",
+    "Settings" : "Ezarpenak",
+    "API Key" : "API gakoa",
+    "Get your API key here" : "Lortu zure API gakoa hemen",
+    "Naming Structure" : "Izendatze egitura",
+    "Examples" : "Adibideak"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

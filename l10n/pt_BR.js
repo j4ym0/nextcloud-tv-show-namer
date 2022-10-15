@@ -1,7 +1,11 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {path} in Nextcloud" : "Abrir {path} no Nextcloud",
+    "Click to open {path} in Nextcloud" : "Clique para abrir {path} no Nextcloud",
+    "Rescan folder" : "Reescanear pasta",
     "Rescan selected folder" : "Redigitalizar a pasta selecionada",
+    "Unexpected error" : "Erro inesperado",
     "Unable to find" : "Incapaz de encontrar",
     "Not this one?" : "Esse não?",
     "Next" : "Próxima",
@@ -13,6 +17,7 @@ OC.L10N.register(
     "Select" : "Selecionar",
     "Update" : "Atualizar",
     "Episode not found" : "Episódio não encontrado",
+    "Oops, something went wrong." : "Oops, algo deu errado.",
     "Updated your API Key" : "Atualizou sua chave de API",
     "Updated file naming structure" : "Estrutura de nomenclatura de arquivos atualizada",
     "Updated your preference" : "Atualizou sua preferência",
@@ -23,6 +28,7 @@ OC.L10N.register(
     "Please configure your API key in settings" : "Por favor, configure sua chave de API nas configurações",
     "No files found" : "Nenhum arquivo encontrado",
     "No results for \"%1$s\"" : "Nenhum resultado para \"%1$s\"",
+    "Cannot scan home folder. Select a folder" : "Impossível escanear pasta raíz. Selecione uma pasta",
     "Please select a folder" : "Selecione uma pasta",
     "Folder does not exsist" : "A pasta não existe",
     "TV Show Namer" : "Nomeador de programa de TV",
@@ -35,6 +41,7 @@ OC.L10N.register(
     "API Key" : "Chave API",
     "Get your API key here" : "Obtenha sua chave de API aqui",
     "Naming Structure" : "Estrutura de Nomenclatura",
-    "Examples" : "Exemplos"
+    "Examples" : "Exemplos",
+    "Hide matching entries" : "Esconder entradas correspondentes"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
