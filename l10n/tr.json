@@ -1,8 +1,23 @@
 { "translations": {
+    "Open {path} in Nextcloud" : "{path} yolunu Nextcloud ile aç",
+    "Click to open {path} in Nextcloud" : "{path} yolunu Nextcloud ile açmak için tıklayın",
+    "Rescan folder" : "Klasörü yeniden tara",
+    "Rescan selected folder" : "Seçilmiş klasörü yeniden tara",
+    "Unexpected error" : "Beklenmeyen bir sorun çıktı",
+    "Unable to find" : "Bulunamadı",
+    "Not this one?" : "Bu değil mi?",
     "Next" : "Sonraki",
+    "{show_name} poster, click to open the show in a new window" : "{show_name} posteri. Diziyi yeni pencerede açmak için tıklayın",
+    "Open {show_name} on {website}" : "{show_name} dizisini {website} web sitesinde aç",
+    "Select All" : "Tümünü seç",
     "File Name" : "Dosya adı",
-    "Select" : "Seçin",
+    "Update Selected" : "Seçilmişleri güncelle",
+    "Select" : "Seç",
     "Update" : "Güncelle",
+    "Episode not found" : "Bölüm bulunamadı",
+    "Oops, something went wrong." : "Ne yazık ki bir sorun çıktı.",
+    "Updated your API Key" : "API anahtarınız güncellendi",
+    "Updated file naming structure" : "Dosya adlandırma yapısı güncellendi",
     "Settings" : "Ayarlar"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
