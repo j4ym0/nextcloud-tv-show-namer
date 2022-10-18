@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.1
+  translations updates
+  typo fixes
+  Loading message changed to please wait  
+
 ## v0.3.0
   implement internationalization
   gramma / language fixes

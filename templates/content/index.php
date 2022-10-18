@@ -1,6 +1,6 @@
 <div id="loading-can" style="display: none;">
 	<div class="mask icon-loading"></div>
-  <p><?php p($l->t('Hang tight')); ?>...</p>
+  <p><?php p($l->t('Please wait')); ?>...</p>
 </div>
 
 <div id="headding">
