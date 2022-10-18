@@ -215,7 +215,7 @@ class PageController extends Controller {
 				$response['message'] = $this->l->t("Please select a folder");
 			}
 		}else{
-			$response['message'] = $this->l->t("Folder does not exsist");
+			$response['message'] = $this->l->t("Folder does not exist");
 		}
 
 		#return the json to render on client
