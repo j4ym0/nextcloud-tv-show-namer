@@ -19,7 +19,7 @@ OC.L10N.register(
     "No files found" : "Ez dira fitxategiak aurkitu",
     "No results for \"%1$s\"" : "Ez dago emaitzarik \"%1$s\"(r)entzako",
     "Please select a folder" : "Mesedez hautatu karpeta bat",
-    "Folder does not exsist" : "Karpeta ez da existitzen",
+    "Please wait" : "Itxaron mesedez",
     "Scan Folder" : "Eskaneatu karpeta",
     "Choose a folder to start" : "Aukeratu karpeta bat hasteko",
     "Settings" : "Ezarpenak",

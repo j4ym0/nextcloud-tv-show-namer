@@ -30,7 +30,6 @@ OC.L10N.register(
     "No results for \"%1$s\"" : "\"%1$s\" 沒有結果",
     "Cannot scan home folder. Select a folder" : "無法掃描主資料夾。請選取資料夾",
     "Please select a folder" : "請選擇資料夾",
-    "Folder does not exsist" : "資料夾不存在",
     "TV Show Namer" : "電視節目命名",
     "Organise you TV shows" : "整理你的電視節目",
     "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "電視節目命名器將您的電視節目、連續劇和季節組織成標準格式。它使用 themoviedb.org 抓取電視信息來組織您的資料夾。\n\n輕鬆將檔案從“some.show.s01e03.avi”重命名為“Some Show - S01E01 - Episode Name.avi”",

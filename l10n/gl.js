@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Nome do ficheiro",
     "Select" : "Seleccionar",
     "Update" : "Actualizar",
+    "Please wait" : "Agarde",
     "Settings" : "Axustes"
 },
 "nplurals=2; plural=(n != 1);");

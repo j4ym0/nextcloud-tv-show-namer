@@ -4,6 +4,7 @@ OC.L10N.register(
     "Next" : "Neste",
     "Select" : "Velg",
     "Update" : "Oppdater",
+    "Please wait" : "Vent",
     "Settings" : "Innstillinger"
 },
 "nplurals=2; plural=(n != 1);");

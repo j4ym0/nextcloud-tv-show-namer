@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "Ne yazık ki bir sorun çıktı.",
     "Updated your API Key" : "API anahtarınız güncellendi",
     "Updated file naming structure" : "Dosya adlandırma yapısı güncellendi",
+    "Please wait" : "Lütfen bekleyin",
     "Settings" : "Ayarlar"
 },
 "nplurals=2; plural=(n > 1);");

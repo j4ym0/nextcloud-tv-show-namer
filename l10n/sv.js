@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Filnamn",
     "Select" : "Välj",
     "Update" : "Uppdatera",
+    "Please wait" : "Vänligen vänta",
     "Settings" : "Inställningar"
 },
 "nplurals=2; plural=(n != 1);");

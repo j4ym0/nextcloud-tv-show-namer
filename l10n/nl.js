@@ -9,7 +9,7 @@ OC.L10N.register(
     "Select" : "Selecteer",
     "Update" : "Update",
     "Episode not found" : "Aflevering niet gevonden",
-    "Folder does not exsist" : "Map bestaat niet",
+    "Please wait" : "Even geduld",
     "Settings" : "Instellingen",
     "Examples" : "Voorbeelden"
 },

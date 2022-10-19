@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Failo pavadinimas",
     "Select" : "Pasirinkti",
     "Update" : "Atnaujinti",
+    "Please wait" : "Prašome palaukti",
     "Settings" : "Nustatymai",
     "API Key" : "API raktas",
     "Examples" : "Pavyzdžiai"

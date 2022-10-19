@@ -4,6 +4,7 @@ OC.L10N.register(
     "Next" : "შემდეგი",
     "Select" : "არჩევა",
     "Update" : "განახლება",
+    "Please wait" : "გთხოვთ მოითმინოთ",
     "Settings" : "პარამეტრები"
 },
 "nplurals=2; plural=(n!=1);");

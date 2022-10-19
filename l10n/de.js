@@ -13,7 +13,7 @@ OC.L10N.register(
     "File path invalid" : "Dateipfad ungültig",
     "No files found" : "Keine Dateien gefunden",
     "Please select a folder" : "Bitte einen Ordner auswählen",
-    "Folder does not exsist" : "Ordner existiert nicht",
+    "Please wait" : "Bitte warten",
     "Settings" : "Einstellungen",
     "API Key" : "API-Schlüssel",
     "Naming Structure" : "Struktur der Namensgebung",
