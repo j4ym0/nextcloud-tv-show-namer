@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Filnamn",
     "Select" : "Välj",
     "Update" : "Uppdatera",
+    "File is locked or in use" : "Filen är låst eller används",
     "Please wait" : "Vänligen vänta",
     "Settings" : "Inställningar"
 },

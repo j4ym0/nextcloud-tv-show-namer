@@ -18,6 +18,16 @@
     "Oops, something went wrong." : "Ne yazık ki bir sorun çıktı.",
     "Updated your API Key" : "API anahtarınız güncellendi",
     "Updated file naming structure" : "Dosya adlandırma yapısı güncellendi",
+    "Updated your preference" : "Tercihiniz güncellendi",
+    "Unable rename the file" : "Dosya yeninden adlandırılamadı",
+    "File is locked or in use" : "Dosya kilitli ya da kullanılıyor",
+    "File path invalid" : "Dosya yolu geçersiz",
+    "Unable to find file. Try to refresh" : "Dosya bulunamadı. Yenilemeyi deneyin",
+    "Please configure your API key in settings" : "Lütfen ayarlar bölümünden API anahtarınızı yapılandırın",
+    "No files found" : "Herhangi bir dosya bulunamadı",
+    "No results for \"%1$s\"" : "\"%1$s\" için bir sonuç bulunamadı",
+    "Cannot scan home folder. Select a folder" : "Giriş klasörü taranamaz. Bir klasör seçin",
+    "Please select a folder" : "Lütfen bir klasör seçin",
     "Please wait" : "Lütfen bekleyin",
     "Settings" : "Ayarlar"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"

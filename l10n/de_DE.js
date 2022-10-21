@@ -30,6 +30,7 @@ OC.L10N.register(
     "No results for \"%1$s\"" : "Keine Ergebnisse für \"%1$s\"",
     "Cannot scan home folder. Select a folder" : "Home-Ordner kann nicht durchsucht werden, Wählen Sie einen Ordner aus",
     "Please select a folder" : "Bitte einen Ordner auswählen",
+    "Folder does not exist" : "Ordner existiert nicht",
     "TV Show Namer" : "TV-Show-Namer",
     "Organise you TV shows" : "Organisieren Sie Ihre TV-Shows",
     "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "TV-Show-Namer organisiert Ihre TV-Shows, Serien und Staffeln in einem Standardformat. Es verwendet themoviedb.org, um TV-Informationen zu kratzen, um Ihre Ordner zu organisieren. Benennen Sie Dateien einfach von „some.show.s01e03.avi“ in „Some Show - S01E01 - Episode Name.avi“ um",
