@@ -5,7 +5,7 @@ OC.L10N.register(
     "File Name" : "Fájlnév",
     "Select" : "Kiválasztás",
     "Update" : "Frissítés",
-    "Please wait" : "Kérlek várj",
+    "Please wait" : "Kis türelmet",
     "Settings" : "Beállítások"
 },
 "nplurals=2; plural=(n != 1);");

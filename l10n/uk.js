@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Open {path} in Nextcloud" : "Відкрити {path} у Nextcloud",
     "Click to open {path} in Nextcloud" : "Клацніть, щоб відкрити {path} у Nextcloud",
-    "Rescan folder" : "Пересканувати теку",
+    "Rescan folder" : "Пересканувати каталог",
     "Rescan selected folder" : "Перескануйте вибрану папку",
     "Unexpected error" : "Неочікувана помилка",
     "Unable to find" : "Не вдалося знайти",
@@ -28,7 +28,7 @@ OC.L10N.register(
     "Please configure your API key in settings" : "Налаштуйте ключ API в налаштуваннях",
     "No files found" : "Файли не знайдено",
     "No results for \"%1$s\"" : "Немає результатів для \"%1$s\"",
-    "Cannot scan home folder. Select a folder" : "Неможливо сканувати домашню теку. Виберіть теку",
+    "Cannot scan home folder. Select a folder" : "Неможливо сканувати домашній каталог. Виберіть каталог",
     "Please select a folder" : "Виберіть папку",
     "TV Show Namer" : "Телешоу Намер",
     "Organise you TV shows" : "Організуйте телешоу",
