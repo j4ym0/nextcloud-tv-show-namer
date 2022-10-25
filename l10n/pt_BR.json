@@ -28,6 +28,7 @@
     "No results for \"%1$s\"" : "Nenhum resultado para \"%1$s\"",
     "Cannot scan home folder. Select a folder" : "Impossível escanear pasta raíz. Selecione uma pasta",
     "Please select a folder" : "Selecione uma pasta",
+    "Folder does not exist" : "A pasta não existe",
     "TV Show Namer" : "Nomeador de programa de TV",
     "Organise you TV shows" : "Organize seus programas de TV",
     "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "O nomeador do programa de TV organiza seus programas de TV, séries e temporadas em um formato padrão. Ele usa themoviedb.org para extrair informações da TV para organizar suas pastas.\n\nRenomeie arquivos de “some.show.s01e03.avi” para “Some Show - S01E01 - Episódio Name.avi” facilmente",

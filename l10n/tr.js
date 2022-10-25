@@ -30,7 +30,18 @@ OC.L10N.register(
     "No results for \"%1$s\"" : "\"%1$s\" için bir sonuç bulunamadı",
     "Cannot scan home folder. Select a folder" : "Giriş klasörü taranamaz. Bir klasör seçin",
     "Please select a folder" : "Lütfen bir klasör seçin",
+    "Folder does not exist" : "Klasör bulunamadı",
+    "TV Show Namer" : "TV programı adlandırıcı",
+    "Organise you TV shows" : "TV programlarınızı düzenleyin",
+    "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "TV programı adlandırıcı TV dizilerini bölümleri ve sezonları standart bir biçimde düzenler. Klasörleri düzenlemek için themoviedb.org sitesindeki TV bilgilerini kullanır.\n\n“Bir.dizi.s01e03.avi” adlı bir dosyayı kolayca “Bir dizi - S01E01 - Bölüm adı.avi” olarak yeniden adlandırır",
     "Please wait" : "Lütfen bekleyin",
-    "Settings" : "Ayarlar"
+    "Scan Folder" : "Klasörü tara",
+    "Choose a folder to start" : "Başlanacak klasörü seçin",
+    "Settings" : "Ayarlar",
+    "API Key" : "API anahtarı",
+    "Get your API key here" : "API anahtarınızı buradan alın",
+    "Naming Structure" : "Adlandırma yapısı",
+    "Examples" : "Örnekler",
+    "Hide matching entries" : "Eşleşen kayıtlar gizlensin"
 },
 "nplurals=2; plural=(n > 1);");
