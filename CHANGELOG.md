@@ -3,7 +3,8 @@
 ## v0.3.1
   translations updates
   typo fixes
-  Loading message changed to please wait  
+  Loading message changed to please wait
+  nextcloud 25 compatible  
 
 ## v0.3.0
   implement internationalization

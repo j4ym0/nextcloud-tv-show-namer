@@ -151,8 +151,8 @@ input:checked + .slider:before {
 
 /* hedding style */
 #headding{
-	margin-top: 15px;
-	margin-left: 10px;
+	padding-top: 15px;
+	padding-left: 10px;
 }
 .current_folder a:hover{
 	text-decoration: underline;
@@ -183,7 +183,6 @@ input:checked + .slider:before {
 	clear: both;
 }
 #content, #app{
-	width: 100%;
 }
 #display-can{
 	padding: 10px;
