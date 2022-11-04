@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unexpected error" : "Unerwarteter Fehler",
     "Not this one?" : "Nicht diese?",
     "Next" : "Nächste",
     "Open {show_name} on {website}" : "{show_name} auf {website} öffnen",
@@ -9,6 +10,7 @@ OC.L10N.register(
     "Select" : "Auswählen",
     "Update" : "Aktualisieren",
     "Episode not found" : "Folge nicht gefunden",
+    "Oops, something went wrong." : "Ups, etwas ist schiefgelaufen.",
     "Updated your API Key" : "Dein API-Schlüssel wurde aktualisiert.",
     "Updated your preference" : "Deine Einstellungen wurden aktualisiert.",
     "File is locked or in use" : "Datei ist gesperrt oder in Benutzung",
@@ -16,8 +18,11 @@ OC.L10N.register(
     "Please configure your API key in settings" : "Bitte konfiguriere Deinen API-Schlüssel in den Einstellungen.",
     "No files found" : "Keine Dateien gefunden",
     "Please select a folder" : "Bitte einen Ordner auswählen",
+    "Folder does not exist" : "Ordner existiert nicht",
     "Organise you TV shows" : "Organisiere deine TV-Shows",
     "Please wait" : "Bitte warten",
+    "Scan Folder" : "Ordner scannen",
+    "Choose a folder to start" : "Wähle zum Starten einen Ordner aus",
     "Settings" : "Einstellungen",
     "API Key" : "API-Schlüssel",
     "Naming Structure" : "Struktur der Namensgebung",
