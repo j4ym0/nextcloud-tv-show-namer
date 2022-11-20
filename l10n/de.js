@@ -20,11 +20,13 @@ OC.L10N.register(
     "Please select a folder" : "Bitte einen Ordner auswählen",
     "Folder does not exist" : "Ordner existiert nicht",
     "Organise you TV shows" : "Organisiere deine TV-Shows",
+    "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org to scrape TV information to organise your folders.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "TV-Show-Namer organisiert deine TV-Shows, Serien und Staffeln in einem Standardformat. Es verwendet themoviedb.org, um TV-Informationen zu erhalten, um deine Ordner zu organisieren.\nBenenne einfach Dateien z. B. von „some.show.s01e03.avi“ zu „Some Show - S01E01 - Episode Name.avi“ um.",
     "Please wait" : "Bitte warten",
     "Scan Folder" : "Ordner scannen",
     "Choose a folder to start" : "Wähle zum Starten einen Ordner aus",
     "Settings" : "Einstellungen",
     "API Key" : "API-Schlüssel",
+    "Get your API key here" : "Hole dir hier deinen API-Schlüssel",
     "Naming Structure" : "Struktur der Namensgebung",
     "Examples" : "Beispiele"
 },
