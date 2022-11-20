@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.3.2
+  fix issue #12 (non admins can not scan or rename)
+
 ## v0.3.1
   translations updates
   typo fixes

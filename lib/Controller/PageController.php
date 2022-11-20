@@ -65,6 +65,9 @@ class PageController extends Controller {
 
 	/**
 	*				load home page of TVSN
+	*
+	* @NoAdminRequired
+  * @NoCSRFRequired
 	*/
 	public function home() {
 		return new JSONResponse(['status' => 200]);
@@ -106,6 +109,8 @@ class PageController extends Controller {
 
 	/**
 	*				Retrieve list of show that can be renamed
+	*
+	* @NoAdminRequired
 	*/
 	public function rename() {
 		# init response
@@ -151,6 +156,8 @@ class PageController extends Controller {
 
 	/**
 	*				retreve list of show that can be renamed
+	*
+	* @NoAdminRequired
 	*/
 	public function scan() {
 		// start the response with defaults
