@@ -209,4 +209,17 @@ function scanFolderCallback(path){
     get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
     update_file_list();
   });
+  $("#dismiss").on("click", function(e) {
+    var id = $(e).data('id');
+    alert(id);
+    get_data('save_setting', {'setting' : 'hide_message', 'data' : id}, undefined, true);
+    $('.message#'+id).css("visibility", "hidden");
+  });
+  $("#exicute").on("click", function(e) {
+    var id = $(e).data('id');
+    get_data('execute', {'message' : id}, reload_page, true);
+  });
+  function reload_page(){
+    window.location.reload();
+  }
 })();

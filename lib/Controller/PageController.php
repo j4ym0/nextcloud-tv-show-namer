@@ -29,6 +29,10 @@ class PageController extends Controller {
 	private $postdata;
 	private $TMDB;
 	public $file_name_structure;
+	private $apiKey;
+	private $appApiKey;
+	private $app_file_name_structure;
+	private $app_hide_matching;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 	private $l;
 
@@ -47,13 +51,19 @@ class PageController extends Controller {
 			$this->initialStateService = $initialStateService;
 			$this->l = $l;
 
+			$this->appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
+			$this->app_file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
+			$this->app_hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
+
+			$this->apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
+
 			$this->postdata = json_decode(file_get_contents("php://input"));
-			$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
-			$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
-			$this->hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
+			$this->TMDB = new TMDB($apiKey);
+			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
+			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			if ($this->file_name_structure == ''){
 				$this->file_name_structure = self::$file_name_structure_default;
-				$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+				$this->config->setUserValue($this->userId, Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
 			}
 		}
 	}
@@ -77,6 +87,9 @@ class PageController extends Controller {
 
 	/**
 	*				Save settings changed in settings panel
+	*
+	* @NoAdminRequired
+  * @NoCSRFRequired
 	*/
 	public function saveSetting() {
 		# init response
@@ -86,9 +99,9 @@ class PageController extends Controller {
 		#get the setting to save
 		$setting = $this->postdata->setting;
 		$data = $this->postdata->data;
-		$this->config->setAppValue(Application::APP_ID, $setting, $data);
+		$this->config->setUserValue($this->userId, Application::APP_ID, $setting, $data);
 
-		if ($this->config->getAppValue(Application::APP_ID, $setting, '') == $data){
+		if ($this->config->getUserValue($this->userId, Application::APP_ID, $setting, '') == $data){
 			$response['success'] = true;
 		}else {
 			$response['message'] = $this->l->t("Oops, something went wrong.");
@@ -166,7 +179,7 @@ class PageController extends Controller {
 		$response = array('success' => false,
 											'message' => '');
 
-		if ($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '') == ''){
+		if ($this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '') == ''){
 			$response['message'] = $this->l->t("Please configure your API key in settings");
 			return new JSONResponse($response);
 		}
@@ -243,9 +256,27 @@ class PageController extends Controller {
  */
 	public function index() {
 
-		$perams =['tmdb_api_key' => $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''),
+		$message = '';
+
+		# Migrate old settings to new
+		if ($this->appApiKey != '' && $this->apiKey == ''){
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', $this->appApiKey);
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'file_name_structure', $this->app_file_name_structure);
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'hide_matching', $this->app_hide_matching);
+
+			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
+			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
+
+			$this->config->deleteAppValue(Application::APP_ID, 'tmdb_api_key');
+			$this->config->deleteAppValue(Application::APP_ID, 'file_name_structure');
+			$this->config->deleteAppValue(Application::APP_ID, 'hide_matching');
+		}
+
+
+		$perams =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
 							'file_name_structure' => $this->file_name_structure,
-							'hide_matching' => $this->hide_matching ? "checked" : ""];
+							'hide_matching' => $this->hide_matching ? "checked" : "",
+							'info_message' => $message];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}

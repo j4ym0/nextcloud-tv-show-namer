@@ -4,6 +4,7 @@ TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud 
 
 ### currently in development please report issues and suggestions
 
+### In v0.4.0 the way settings are stored has changed. Some users may need to re enter there API Key
 
 ## Try it
 
@@ -56,6 +57,6 @@ If you add a '#' to the season folder name, this will search themoviedb.org for 
  - Connect to DB
  - Cache API results
  - save poster to folders
- - select all and confirm rename
  - better file recognition
  - recent scanned folders
+ - organisation wide api key

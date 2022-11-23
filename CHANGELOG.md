@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.0
+  Per user Settings
+  migrate app settings to users
+  started adding messages on landing page
+
 ## v0.3.2
   fix issue #12 (non admins can not scan or rename)
 
