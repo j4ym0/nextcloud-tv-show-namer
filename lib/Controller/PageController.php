@@ -40,19 +40,21 @@ class PageController extends Controller {
 																IInitialStateService $initialStateService,
 																IL10N $l){
 		parent::__construct($AppName, $request);
-		$this->userId = ($userSession->getUser())->getUID();
-		$this->config = $Config;
-		$this->rootFolder = $rootFolder;
-		$this->initialStateService = $initialStateService;
-		$this->l = $l;
+		if ($userSession->isLoggedIn()){
+			$this->userId = ($userSession->getUser())->getUID();
+			$this->config = $Config;
+			$this->rootFolder = $rootFolder;
+			$this->initialStateService = $initialStateService;
+			$this->l = $l;
 
-		$this->postdata = json_decode(file_get_contents("php://input"));
-		$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
-		$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
-		$this->hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
-		if ($this->file_name_structure == ''){
-			$this->file_name_structure = self::$file_name_structure_default;
-			$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+			$this->postdata = json_decode(file_get_contents("php://input"));
+			$this->TMDB = new TMDB($this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', ''));
+			$this->file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
+			$this->hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
+			if ($this->file_name_structure == ''){
+				$this->file_name_structure = self::$file_name_structure_default;
+				$this->config->setAppValue(Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+			}
 		}
 	}
 
