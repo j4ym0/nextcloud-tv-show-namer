@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.4.1
+  fix not recognising shows
+
 ## v0.4.0
   Per user Settings
   migrate app settings to users
@@ -12,7 +15,7 @@
   translations updates
   typo fixes
   Loading message changed to please wait
-  nextcloud 25 compatible  
+  Nextcloud 25 compatible  
 
 ## v0.3.0
   implement internationalization

@@ -58,7 +58,7 @@ class PageController extends Controller {
 			$this->apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
 
 			$this->postdata = json_decode(file_get_contents("php://input"));
-			$this->TMDB = new TMDB($apiKey);
+			$this->TMDB = new TMDB($this->apiKey);
 			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			if ($this->file_name_structure == ''){
