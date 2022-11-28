@@ -47,7 +47,7 @@
   function build_show_header(json){
     if (json.show_info == null){
       return '<div class="show_can"">' +
-      '<div class="show_info"><span class="headding">'+t('tvshownamer', 'Unable to find')+' "'+json.name+'"</span><div class="not_this">'+t('tvshownamer', 'Not this one?')+' <button class="primary" id="next_title"  data-show_index="'+json.show_index+'">'+t('tvshownamer', 'Next')+'</button></div></div>' +
+      '<div class="show_info"><span class="headding nolink">'+t('tvshownamer', 'Unable to find')+' "'+json.name+'"</span></div>' +
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
