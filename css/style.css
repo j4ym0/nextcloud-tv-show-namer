@@ -74,6 +74,11 @@ input:checked + .slider:before {
 	cursor: pointer;
 	text-decoration: underline;
 }
+.show_info .headding.nolink, .show_info .headding.nolink:hover{
+	color: var(--color-main-text);
+	text-decoration: none;
+	cursor: auto;
+}
 .show_info .headding:hover{
 	color: #aaa;
 	text-decoration: none;
@@ -150,12 +155,13 @@ input:checked + .slider:before {
 	margin-bottom: 10px;
 }
 #loading-can{
+	background: rgba(255, 255, 255, 0.85);
 	position: absolute;
 	left: 50%;
 	top: 50vh;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	padding-top: 50px;
+	padding: 5px 15px 5px 5px;
 	z-index: 1000;
 }
 #loading-can.hidden{

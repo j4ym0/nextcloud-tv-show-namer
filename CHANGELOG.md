@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.2
+  removed link from usable to find
+  background to loading box
+
 ## v0.4.1
   fix not recognising shows
 
