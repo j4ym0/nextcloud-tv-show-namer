@@ -3,10 +3,10 @@ OC.L10N.register(
     {
     "Rescan selected folder" : "重新扫描选择的文件夾",
     "Unable to find" : "无法找到",
-    "Not this one?" : "不是这个吗？",
-    "Next" : "下一个",
     "{show_name} poster, click to open the show in a new window" : "{show_name} 海报，点击以在新窗口中打开节目",
     "Open {show_name} on {website}" : "在 {website} 上打开 {show_name}",
+    "Not this one?" : "不是这个吗？",
+    "Next" : "下一个",
     "Select All" : "全选",
     "File Name" : "文件名",
     "Update Selected" : "更新已选择项",

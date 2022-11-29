@@ -2,9 +2,9 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Unerwarteter Fehler",
+    "Open {show_name} on {website}" : "{show_name} auf {website} öffnen",
     "Not this one?" : "Nicht diese?",
     "Next" : "Nächste",
-    "Open {show_name} on {website}" : "{show_name} auf {website} öffnen",
     "Select All" : "Alle auswählen",
     "File Name" : "Dateiname",
     "Select" : "Auswählen",
