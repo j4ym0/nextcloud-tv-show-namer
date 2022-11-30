@@ -19,7 +19,7 @@ class TMDB {
   * @since 0.0.1
   * @return results as array
   */
-  public function searchTvShow($searchTurm) {
+  public function searchTvShow($searchTurm, $include_year) {
     # https://developers.themoviedb.org/3/search/search-tv-shows
 
     # try to filter out the year and present it to thetvdb.com
@@ -36,9 +36,10 @@ class TMDB {
     );
 
     # add the year to the search
-    if (isset($matches['year'])){
-      $perams['year'] = $matches['year'];
+    if (isset($matches['year']) && $include_year){
+      $perams['first_air_date_year'] = $matches['year'];
     }
+
     return $this->api_Fetch('/search/tv', $perams);
   }
 
