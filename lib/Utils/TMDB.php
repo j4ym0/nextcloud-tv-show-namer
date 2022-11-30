@@ -21,9 +21,24 @@ class TMDB {
   */
   public function searchTvShow($searchTurm) {
     # https://developers.themoviedb.org/3/search/search-tv-shows
+
+    # try to filter out the year and present it to thetvdb.com
+    preg_match('/^(?P<seriesname>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
+                $searchTurm,
+                $matches);
+
+    # update the search turm
+    if (isset($matches['seriesname'])){
+      $searchTurm = $matches['seriesname'];
+    }
     $perams = array(
       'query' => $searchTurm,
     );
+
+    # add the year to the search
+    if (isset($matches['year'])){
+      $perams['year'] = $matches['year'];
+    }
     return $this->api_Fetch('/search/tv', $perams);
   }
 
