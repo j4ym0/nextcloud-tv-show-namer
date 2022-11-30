@@ -3,6 +3,7 @@
 ## v0.4.2
   removed link from usable to find
   background to loading box
+  background on not this one
   pick out year from show name and use in search  
 
 ## v0.4.1

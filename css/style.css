@@ -87,7 +87,10 @@ input:checked + .slider:before {
 	color: #aaa;
 }
 .show_info .not_this, .restore{
+	background: rgba(255, 255, 255, 0.85);
 	position: absolute;
+	border-radius: 5px;
+	padding-left: 10px;
 	bottom: 5px;
 	right: 0px;
 }
