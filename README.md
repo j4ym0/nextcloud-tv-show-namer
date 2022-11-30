@@ -51,6 +51,7 @@ NOTE: Any incompatible symbols will be filleted out when renaming the file.
 ## Notes
 
 If you add a '#' to the season folder name, this will search themoviedb.org for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
+From v0.4.2 support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
 
 ## TODO
 
