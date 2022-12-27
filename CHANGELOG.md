@@ -1,6 +1,7 @@
 # Changelog
 
   Fix not this one background colour 
+  fix colours for imges when changing system theame
 
 ## v0.4.2
   removed link from usable to find
