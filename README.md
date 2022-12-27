@@ -38,6 +38,8 @@ When choosing your naming structure you can mix the below variables, letters and
 
   - {{Season_Name}} - The season name as from TMDB
   - {{Series_Name}} - Same as above
+  - {{Season_Year}} - The year the season aired from TMDB (e.g. 1954 or 2022)
+  - {{Series_Year}} - Same as above
   - {{Season_Number}} - The season number of the episode
   - {{Series_Number}} - Same as above
   - {{Season_Number_Padded}} - Same as above but 'Season 1' would be 'Season 01' and 'Season 10' would be 'Season 10'
