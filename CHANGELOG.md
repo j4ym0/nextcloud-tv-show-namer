@@ -1,5 +1,7 @@
 # Changelog
 
+  add {{Series_Year}} to name structure
+
 ## v0.4.2
   removed link from usable to find
   background to loading box
