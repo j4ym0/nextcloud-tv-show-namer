@@ -87,7 +87,7 @@ input:checked + .slider:before {
 	color: #aaa;
 }
 .show_info .not_this, .restore{
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(var(--color-main-background), 0.85);
 	position: absolute;
 	border-radius: 5px;
 	padding-left: 10px;
@@ -119,7 +119,7 @@ input:checked + .slider:before {
 }
 .file_list th {
 	font-size: 18px;
-	color: #767;
+	color: var(--color-primary-text);
 	padding: 0px;
 }
 .file_list th #update-all {
@@ -158,7 +158,7 @@ input:checked + .slider:before {
 	margin-bottom: 10px;
 }
 #loading-can{
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(var(--color-main-background), 0.85);
 	position: absolute;
 	border-radius: 5px;
 	left: 50%;
@@ -181,6 +181,7 @@ input:checked + .slider:before {
 	text-decoration: underline;
 }
 .icon-unknown{
+	color: var(--color-main-text);
 	background-image: url('../img/question-solid.svg');
 }
 .reload{
@@ -188,6 +189,7 @@ input:checked + .slider:before {
 	height: 10px;
 	display: inline-block;;
 	margin-left: 10px;
+	color: var(--color-main-text);
 	background-image: url('../img/reload.svg');
 	background-size: 10px 10px;
 }

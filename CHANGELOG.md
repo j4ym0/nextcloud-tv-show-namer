@@ -1,6 +1,10 @@
 # Changelog
 
+## v0.5.0
   add {{Series_Year}} to name structure
+  Fix not this one background colour 
+  fix colours for imges when changing system theame
+  fix table header colour
 
 ## v0.4.2
   removed link from usable to find
