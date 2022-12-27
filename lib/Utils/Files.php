@@ -106,7 +106,7 @@ class Files {
         # ok we have the episode index
         if ($episode_number > -1){
           #set the episode name
-          $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention'], $file_name_structure);
+          $collection['files'][$i]['new_name'] = self::filePathEncode($collection['show_info']['name'], substr($collection['show_info']['first_air_date'],0,4), $matches['seasonnumber'], $matches['episodenumberstart'], $epilist['episodes'][$episode_number]['name'], $matches['extention'], $file_name_structure);
         }
       }else{
         $collection['files'][$i]['seriesname'] = '';
@@ -124,15 +124,17 @@ class Files {
   /**
   * build a filename from the info avalable
   * @param title $title of the show
+  * @param year $season_year of the file
   * @param season $season_number of the file
   * @param episode $episode_number of the file
   * @param name $name of the episode
   * @param ext $extention of the file
   * @param file_structure $file_structure how the file should be named - Default in PageController
-  * @since 0.0.1
+  * @since 0.5.0
+  * @version 2
   * @return file named a directed
   */
-  public static function filePathEncode($season_name, $season_number, $episode_number, $episode_name, $file_ext, $file_structure = null){
+  public static function filePathEncode($season_name, $season_year, $season_number, $episode_number, $episode_name, $file_ext, $file_structure = null){
     #set default from PageController
     if (null === $file_structure) {
       $file_structure = PageController::$file_name_structure_default;
@@ -145,6 +147,8 @@ class Files {
     #build the episode nome from Settings
     $array = array('{{Series_Name}}' => $season_name,
                   '{{Season_Name}}' => $season_name,
+                  '{{Series_Year}}' => $season_year,
+                  '{{Season_Year}}' => $season_year,
                   '{{Series_Number}}' => $season_number,
                   '{{Season_Number}}' => $season_number,
                   '{{Series_Number_Padded}}' => $season_number_padded,
