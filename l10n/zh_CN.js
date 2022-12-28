@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Rescan folder" : "重新扫描文件夹",
     "Rescan selected folder" : "重新扫描选择的文件夾",
     "Unable to find" : "无法找到",
     "{show_name} poster, click to open the show in a new window" : "{show_name} 海报，点击以在新窗口中打开节目",
@@ -13,6 +14,7 @@ OC.L10N.register(
     "Select" : "选择",
     "Update" : "更新",
     "Episode not found" : "剧集未找到",
+    "Oops, something went wrong." : "噢，出错了。",
     "Updated your API Key" : "已更新您的 API 密匙",
     "Updated file naming structure" : "已更新文件命名结构",
     "Updated your preference" : "已更新您的喜好",

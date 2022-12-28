@@ -38,12 +38,14 @@ When choosing your naming structure you can mix the below variables, letters and
 
   - {{Season_Name}} - The season name as from TMDB
   - {{Series_Name}} - Same as above
+  - {{Season_Year}} - The year the season aired from TMDB (e.g. 1954 or 2022)
+  - {{Series_Year}} - Same as above
   - {{Season_Number}} - The season number of the episode
   - {{Series_Number}} - Same as above
-  - {{Season_Number_Padded}} - Same as above but 'Season 1' would be 'Season 01' and 'Season 10' would be 'Season 10'
+  - {{Season_Number_Padded}} - Same as above but Season '1' would be '01' and Season '10' would be '10'
   - {{Series_Number_Padded}} - Same as above
   - {{Episode_Number}} - The episode number of the episode
-  - {{Episode_Number_Padded}} - Same as above but 'Episode 1' would be 'Episode 01' and 'Episode 10' would be 'Episode 10'
+  - {{Episode_Number_Padded}} - Same as above but Episode '1' would be '01' and Episode '10' would be '10'
   - {{Episode_Name}} - The episode name from TMDB
 
 NOTE: Any incompatible symbols will be filleted out when renaming the file.
