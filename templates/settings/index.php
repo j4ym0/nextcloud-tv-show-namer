@@ -11,7 +11,6 @@
 		<div>
 			<label for="preferred-language"><?php p($l->t('Preferred Naming Language')); ?></label>
 			<select id="preferred-language" class="w-100">
-			<select id="account-setting-language" placeholder="Language">
 				<option value="en">English (US)</option>
 				<option value="es">Español (España)</option>
 				<option value="fr">Français</option>
