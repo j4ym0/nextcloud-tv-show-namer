@@ -119,6 +119,9 @@ class PageController extends Controller {
 			case 'file_name_structure':
 				$response['message'] = $this->l->t("Updated file naming structure");
 				break;
+			case 'preferred_language':
+				$response['message'] = $this->l->t("Updated your preferred language");
+				break;
 			case 'hide_matching':
 				$response['message'] = $this->l->t("Updated your preference");
 				break;
