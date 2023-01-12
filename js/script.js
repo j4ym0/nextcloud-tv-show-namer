@@ -173,9 +173,9 @@ function scanFolderCallback(path){
   get_data('scan', {'scan_folder' : path}, render);
 }
 function setSelectedValue(selectId, valueToSet) {
-  var selectObj = document.getElementById(selectId)
+  var selectObj = document.getElementById(selectId);
   for (var i = 0; i < selectObj.options.length; i++) {
-      if (selectObj.options[i].text== valueToSet) {
+    if (selectObj.options[i].value == valueToSet) {
           selectObj.options[i].selected = true;
           return;
       }
@@ -215,7 +215,7 @@ function setSelectedValue(selectId, valueToSet) {
   });
   $(document).ready(function () {
     setSelectedValue("preferred_language", $('#preferred_language').data('selected-value'));
-    $("#preferred_language").focusout(function(e) {
+    $("#preferred_language").change(function(e) {
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, message, false);
     });
   });
