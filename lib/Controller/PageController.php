@@ -34,15 +34,16 @@ class PageController extends Controller {
 	private $app_file_name_structure;
 	private $app_hide_matching;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
+	public static $preferred_language_default = 'en';
 	private $l;
 
 	public function __construct(	$AppName,
-																IRequest $request,
-                                IConfig $Config,
-																IUserSession $userSession,
-																IRootFolder $rootFolder,
-																IInitialStateService $initialStateService,
-																IL10N $l){
+									IRequest $request,
+									IConfig $Config,
+									IUserSession $userSession,
+									IRootFolder $rootFolder,
+									IInitialStateService $initialStateService,
+									IL10N $l){
 		parent::__construct($AppName, $request);
 		if ($userSession->isLoggedIn()){
 			$this->userId = ($userSession->getUser())->getUID();
@@ -59,11 +60,16 @@ class PageController extends Controller {
 
 			$this->postdata = json_decode(file_get_contents("php://input"));
 			$this->TMDB = new TMDB($this->apiKey);
-			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
+			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			if ($this->file_name_structure == ''){
 				$this->file_name_structure = self::$file_name_structure_default;
 				$this->config->setUserValue($this->userId, Application::APP_ID, 'file_name_structure', self::$file_name_structure_default);
+			}
+			$this->preferred_language = $this->config->getUserValue($this->userId, Application::APP_ID, 'preferred_language', '');
+			if ($this->preferred_language == ''){
+				$this->preferred_language = self::$preferred_language_default;
+				$this->config->setUserValue($this->userId, Application::APP_ID, 'preferred_language', self::$preferred_language_default);
 			}
 		}
 	}
@@ -276,6 +282,7 @@ class PageController extends Controller {
 		$perams =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
 							'file_name_structure' => $this->file_name_structure,
 							'hide_matching' => $this->hide_matching ? "checked" : "",
+							'preferred_language' => $this->preferred_language,
 							'info_message' => $message];
 
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);

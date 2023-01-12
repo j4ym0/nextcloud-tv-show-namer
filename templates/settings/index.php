@@ -9,8 +9,8 @@
 			<input type="input" id="tmdb_api_key" class="input w-100" value="<?php p($_['tmdb_api_key']);?>">
 		</div>
 		<div>
-			<label for="preferred-language"><?php p($l->t('Preferred Naming Language')); ?></label>
-			<select id="preferred-language" class="w-100">
+			<label for="preferred_language"><?php p($l->t('Preferred Naming Language')); ?></label>
+			<select id="preferred_language" class="w-100">
 				<option value="en">English</option>
 				<option value="es">Español (España)</option>
 				<option value="fr">Français</option>
