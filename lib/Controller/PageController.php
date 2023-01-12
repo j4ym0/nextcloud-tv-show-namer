@@ -288,7 +288,7 @@ class PageController extends Controller {
 		return new TemplateResponse(Application::APP_ID, 'index', $perams);
 	}
 
-	# just a place holder to get imags at the mo
+	# just a place holder to get images at the min
 	/**
 	* @PublicPage
 	* @NoCSRFRequired

@@ -10,7 +10,7 @@
 		</div>
 		<div>
 			<label for="preferred_language"><?php p($l->t('Preferred Naming Language')); ?></label>
-			<select id="preferred_language" class="w-100">
+			<select id="preferred_language" data-selected-value="<?php p($_['preferred_language']);?>" class="w-100">
 				<option value="en">English</option>
 				<option value="es">Español (España)</option>
 				<option value="fr">Français</option>

@@ -172,7 +172,15 @@
 function scanFolderCallback(path){
   get_data('scan', {'scan_folder' : path}, render);
 }
-
+function setSelectedValue(selectId, valueToSet) {
+  var selectObj = document.getElementById(selectId)
+  for (var i = 0; i < selectObj.options.length; i++) {
+      if (selectObj.options[i].text== valueToSet) {
+          selectObj.options[i].selected = true;
+          return;
+      }
+  }
+}
 
   function get_data(url, perams, callback, l = true){
     current_posts++;
@@ -204,6 +212,12 @@ function scanFolderCallback(path){
   });
   $("#file_name_structure").focusout(function(e) {
     get_data('save_setting', {'setting' : 'file_name_structure', 'data' : $('#file_name_structure').val()}, message, false);
+  });
+  $(document).ready(function () {
+    setSelectedValue("preferred_language", $('#preferred_language').data('selected-value'));
+    $("#preferred_language").focusout(function(e) {
+      get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, message, false);
+    });
   });
   $("#hide_matching").change(function(e) {
     get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
