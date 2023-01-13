@@ -67,11 +67,13 @@ class Files {
   * match the file names to the episode names from TMDB, uses a static var to update the files array
   * @param Data $collection of the show info and files must include the ['show_info', 'files']
   * @param TMDB $tmdb instance
+  * @param file_name_structure $file_name_structure
+  * @param lang $lang language to search - added 0.6.0
   * @since 0.0.1
   * @return none
   */
 
-  public static function matchFilesToEpisodes(&$collection, &$TMDB, $file_name_structure = null) {
+  public static function matchFilesToEpisodes(&$collection, &$TMDB, $file_name_structure = null, $lang = 'en') {
     #check for empty-Collection
     if (is_null($collection['files'])){return false;}
     # loop though all the files in the collection
@@ -93,7 +95,7 @@ class Files {
         $collection['files'][$i]['new_name'] = '';
 
         # get the episode list from tmdb
-        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename']);
+        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename'], $lang);
         $episode_number = -1;
         if (!is_null($epilist['episodes'])){
           for($e = 0; $e < count($epilist['episodes']); ++$e) {

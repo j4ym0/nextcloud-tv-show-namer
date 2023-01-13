@@ -220,7 +220,7 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false);
+						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language);
 						#check if there are enought results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search['results'][$show_index];
@@ -232,7 +232,7 @@ class PageController extends Controller {
 								$response['message'] = $this->l->t("No files found");
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure);
+								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure, $this->preferred_language);
 
 								$response['success'] = true;
 							}
