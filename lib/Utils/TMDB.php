@@ -36,7 +36,7 @@ class TMDB {
     }
     $perams = array(
       'query' => $searchTurm,
-      'language' => lang,
+      'language' => $lang,
     );
 
     # add the year to the search
@@ -59,7 +59,7 @@ class TMDB {
   public function getTvShowEpisodes($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
     $perams = array(
-      'language' => lang,
+      'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
@@ -83,7 +83,7 @@ class TMDB {
   public function getTvShowEpisode($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
     $perams = array(
-      'language' => lang,
+      'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
