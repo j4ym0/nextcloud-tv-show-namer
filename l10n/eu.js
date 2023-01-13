@@ -1,7 +1,9 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Rescan selected folder" : "Berriro eskaneatu hautatutako karpeta",
     "Unable to find" : "Ezin izan da aurkitu",
+    "Open {show_name} on {website}" : "Ireki {show_name} {website} webgunean",
     "Not this one?" : "Ez da hau?",
     "Next" : "Hurrengoa",
     "Select All" : "Hautatu denak",
@@ -9,7 +11,9 @@ OC.L10N.register(
     "Update Selected" : "Eguneratu hautatutakoak",
     "Select" : "Hautatu",
     "Update" : "Eguneratu",
+    "Episode not found" : "Ez da kapitulua aurkitu",
     "Updated your API Key" : "Zure API gakoa eguneratu da",
+    "Updated file naming structure" : "Fitxategien izen-egitura eguneratu da",
     "Updated your preference" : "Zure ezarpenak aldatu dira",
     "Unable rename the file" : "Ezin izan da fitxategia berrizendatu",
     "File is locked or in use" : "Fitxategia blokeatuta edo erabiltzen ari da",
@@ -19,6 +23,8 @@ OC.L10N.register(
     "No files found" : "Ez dira fitxategiak aurkitu",
     "No results for \"%1$s\"" : "Ez dago emaitzarik \"%1$s\"(r)entzako",
     "Please select a folder" : "Mesedez hautatu karpeta bat",
+    "TV Show Namer" : "Telesaio izendatzailea",
+    "Organise you TV shows" : "Kudeatu zure telesaioak",
     "Please wait" : "Itxaron mesedez",
     "Scan Folder" : "Eskaneatu karpeta",
     "Choose a folder to start" : "Aukeratu karpeta bat hasteko",
