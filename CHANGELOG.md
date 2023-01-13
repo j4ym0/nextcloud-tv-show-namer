@@ -1,5 +1,7 @@
 # Changelog
 
+  fix svg colours
+
 ## v0.5.0
   add {{Series_Year}} to name structure
   Fix not this one background colour 
