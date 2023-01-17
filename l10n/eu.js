@@ -23,6 +23,7 @@ OC.L10N.register(
     "No files found" : "Ez dira fitxategiak aurkitu",
     "No results for \"%1$s\"" : "Ez dago emaitzarik \"%1$s\"(r)entzako",
     "Please select a folder" : "Mesedez hautatu karpeta bat",
+    "Folder does not exist" : "Karpeta ez da existitzen",
     "TV Show Namer" : "Telesaio izendatzailea",
     "Organise you TV shows" : "Kudeatu zure telesaioak",
     "Please wait" : "Itxaron mesedez",
