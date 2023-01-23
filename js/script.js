@@ -149,8 +149,8 @@
         'id': id,
         'file_name': file_path});
       $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
-      $('#file'+id+' .confirm').css("visibility", "hidden");
-      $('#file'+id+' .confirm').removeClass('primary');
+      $('#file'+id+' #confirm').css("visibility", "hidden");
+      $('#file'+id+' #confirm').removeClass('primary');
       i++;
     });
     setTimeout(submit_selected_items, 100, selected ,0);

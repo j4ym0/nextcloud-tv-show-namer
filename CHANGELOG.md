@@ -4,6 +4,7 @@
   Preferred naming language
   fix svg colours
   fix header hover colour
+  fix hide update button on select all
 
 ## v0.5.0
   add {{Series_Year}} to name structure
