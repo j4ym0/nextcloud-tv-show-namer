@@ -119,7 +119,7 @@ input:checked + .slider:before {
 }
 .file_list th {
 	font-size: 18px;
-	color: var(--color-primary-text);
+	color: var(--color-main-text);
 	padding: 0px;
 }
 .file_list th #update-all {
