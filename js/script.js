@@ -57,11 +57,11 @@
     '</div>';
   }
   function build_file_list_header(){
-    return '<tr>' +
+    return '<thead><tr>' +
     '<th class="selection"><input id="select-all" type="checkbox" class="selectCheckBox checkbox select-all"><label for="select-all"><span class="hidden-visually">'+t('tvshownamer', 'Select All')+'</span></label></th>' +
     '<th class="file-name">'+t('tvshownamer', 'File Name')+'</th>' +
     '<th class="buttons"><div class="hidden" id="selected-button"><button class="primary" id="update-all">'+t('tvshownamer', 'Update Selected')+'</button></div></th>' +
-    '</tr>';
+    '</tr></thead>';
   }
   function build_file_list(item, hide){
     var tk = '<input id="select-files-'+item.file_id+'" data-fileid="'+item.file_id+'" data-filepath="'+item.path+'" type="checkbox" class="selectCheckBox checkbox select-file"><label for="select-files-'+item.file_id+'"><span class="hidden-visually">'+t('tvshownamer', 'Select')+'</span></label>';

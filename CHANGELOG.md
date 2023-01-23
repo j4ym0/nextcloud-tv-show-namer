@@ -3,6 +3,7 @@
 ## v0.6.0
   Preferred naming language
   fix svg colours
+  fix header hover colour
 
 ## v0.5.0
   add {{Series_Year}} to name structure
