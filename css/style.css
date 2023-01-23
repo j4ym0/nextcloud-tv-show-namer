@@ -87,7 +87,7 @@ input:checked + .slider:before {
 	color: #aaa;
 }
 .show_info .not_this, .restore{
-	background: rgba(var(--color-main-background), 0.85);
+	background: var(--color-main-background-blur);
 	position: absolute;
 	border-radius: 5px;
 	padding-left: 10px;
@@ -158,7 +158,7 @@ input:checked + .slider:before {
 	margin-bottom: 10px;
 }
 #loading-can{
-	background: rgba(var(--color-main-background), 0.85);
+	background: var(--color-main-background-blur);
 	position: absolute;
 	border-radius: 5px;
 	left: 50%;

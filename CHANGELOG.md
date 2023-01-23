@@ -5,6 +5,7 @@
   fix svg colours
   fix header hover colour
   fix hide update button on select all
+  fixes faded background
 
 ## v0.5.0
   add {{Series_Year}} to name structure
