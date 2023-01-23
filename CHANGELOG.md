@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.6.0
+  Preferred naming language
   fix svg colours
 
 ## v0.5.0
