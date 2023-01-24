@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Rescan selected folder" : "Berriro eskaneatu hautatutako karpeta",
+    "Unexpected error" : "Ustekabeko errorea",
     "Unable to find" : "Ezin izan da aurkitu",
     "Open {show_name} on {website}" : "Ireki {show_name} {website} webgunean",
     "Not this one?" : "Ez da hau?",
