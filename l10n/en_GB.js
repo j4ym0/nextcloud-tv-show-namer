@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "Oops, something went wrong.",
     "Updated your API Key" : "Updated your API Key",
     "Updated file naming structure" : "Updated file naming structure",
+    "Updated your preferred language" : "Updated your preferred language",
     "Updated your preference" : "Updated your preference",
     "Unable rename the file" : "Unable rename the file",
     "File is locked or in use" : "File is locked or in use",
@@ -40,6 +41,7 @@ OC.L10N.register(
     "Settings" : "Settings",
     "API Key" : "API Key",
     "Get your API key here" : "Get your API key here",
+    "Preferred Naming Language" : "Preferred Naming Language",
     "Naming Structure" : "Naming Structure",
     "Examples" : "Examples",
     "Hide matching entries" : "Hide matching entries"

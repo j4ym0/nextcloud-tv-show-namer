@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "Jejda, něco se pokazilo.",
     "Updated your API Key" : "Váš klíč API aktualizován",
     "Updated file naming structure" : "Struktura pojmenovávání souborů zaktualizována",
+    "Updated your preferred language" : "Nastavení vámi upřednostňovaného jazyka zaktualizováno",
     "Updated your preference" : "Vaše předvolby zaktualizovány",
     "Unable rename the file" : "Soubor se nepodařilo přejmenovat",
     "File is locked or in use" : "Soubor je uzamčen, nebo používán jinou aplikací",
@@ -40,6 +41,7 @@ OC.L10N.register(
     "Settings" : "Nastavení",
     "API Key" : "Klíč k API",
     "Get your API key here" : "Klíč k API pro vás získáte zde",
+    "Preferred Naming Language" : "Upřednostňovaný jazyk pro názvy",
     "Naming Structure" : "Struktura pojmenovávání",
     "Examples" : "Příklady",
     "Hide matching entries" : "Skrýt odpovídající položky"

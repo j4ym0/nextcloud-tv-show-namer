@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "噢，出了點問題。",
     "Updated your API Key" : "更新了您的 API 密鑰",
     "Updated file naming structure" : "更新了檔案命名結構",
+    "Updated your preferred language" : "更新了您的首選語言",
     "Updated your preference" : "更新了您的偏愛",
     "Unable rename the file" : "無法重新命名檔案",
     "File is locked or in use" : "檔案已被上鎖或正在使用中",
@@ -40,6 +41,7 @@ OC.L10N.register(
     "Settings" : "設定",
     "API Key" : "API 密鑰",
     "Get your API key here" : "在此處獲取您的 API 密鑰",
+    "Preferred Naming Language" : "首選命名語言",
     "Naming Structure" : "命名結構",
     "Examples" : "例子",
     "Hide matching entries" : "隱藏相符條目"

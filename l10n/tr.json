@@ -18,6 +18,7 @@
     "Oops, something went wrong." : "Ne yazık ki bir sorun çıktı.",
     "Updated your API Key" : "API anahtarınız güncellendi",
     "Updated file naming structure" : "Dosya adlandırma yapısı güncellendi",
+    "Updated your preferred language" : "Kullanmayı yeğlediğiniz dil güncellendi",
     "Updated your preference" : "Tercihiniz güncellendi",
     "Unable rename the file" : "Dosya yeninden adlandırılamadı",
     "File is locked or in use" : "Dosya kilitli ya da kullanılıyor",
@@ -38,6 +39,7 @@
     "Settings" : "Ayarlar",
     "API Key" : "API anahtarı",
     "Get your API key here" : "API anahtarınızı buradan alın",
+    "Preferred Naming Language" : "Yeğlenen adlandırma dili",
     "Naming Structure" : "Adlandırma yapısı",
     "Examples" : "Örnekler",
     "Hide matching entries" : "Eşleşen kayıtlar gizlensin"
