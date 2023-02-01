@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "Съжалявам нещо се обърка.",
     "Updated your API Key" : "Вашият API ключ е актуализиран",
     "Updated file naming structure" : "Актуализирана е структурата на имената на файловете",
+    "Updated your preferred language" : "Предпочитанията ви за език са актуализирани",
     "Updated your preference" : "Предпочитанията ви са актуализирани",
     "Unable rename the file" : "Невъзможност за преименуване на файла",
     "File is locked or in use" : "Файлът е заключен или се използва",
@@ -40,6 +41,7 @@ OC.L10N.register(
     "Settings" : "Настройки",
     "API Key" : "API ключ",
     "Get your API key here" : "Получете своя API ключ тук",
+    "Preferred Naming Language" : "Предпочитан език за наименуване",
     "Naming Structure" : "Структура на наименованията",
     "Examples" : "Примери",
     "Hide matching entries" : "Скриване на съответстващи записи"
