@@ -18,6 +18,7 @@
     "Oops, something went wrong." : "Ups, etwas ist schiefgelaufen.",
     "Updated your API Key" : "Dein API-Schlüssel wurde aktualisiert.",
     "Updated file naming structure" : "Dateinamensstruktur wurde aktualisiert",
+    "Updated your preferred language" : "Deine bevorzugte Sprache wurde aktualisiert",
     "Updated your preference" : "Deine Einstellungen wurden aktualisiert.",
     "Unable rename the file" : "Die Datei kann nicht umbenannt werden",
     "File is locked or in use" : "Datei ist gesperrt oder in Benutzung",
@@ -38,6 +39,7 @@
     "Settings" : "Einstellungen",
     "API Key" : "API-Schlüssel",
     "Get your API key here" : "Hole dir hier deinen API-Schlüssel",
+    "Preferred Naming Language" : "Bevorzugte Benennungssprache",
     "Naming Structure" : "Struktur der Namensgebung",
     "Examples" : "Beispiele",
     "Hide matching entries" : "Übereinstimmende Einträge ausblenden"
