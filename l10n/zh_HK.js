@@ -11,7 +11,7 @@ OC.L10N.register(
     "Open {show_name} on {website}" : "在 {website} 上打開 {show_name}",
     "Not this one?" : "不是這個嗎？",
     "Next" : "下一",
-    "Select All" : "選擇所有",
+    "Select All" : "全選",
     "File Name" : "檔案名稱",
     "Update Selected" : "已選擇更新",
     "Select" : "選擇",
