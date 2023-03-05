@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {path} in Nextcloud" : "Ireki {path} Nextclouden",
     "Rescan folder" : "Berriro eskaneatu karpeta",
     "Rescan selected folder" : "Berriro eskaneatu hautatutako karpeta",
     "Unexpected error" : "Ustekabeko errorea",
