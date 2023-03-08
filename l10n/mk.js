@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Next" : "Следна",
+    "Select All" : "Избери се",
     "Select" : "Select",
     "Update" : "Ажурирај",
     "Settings" : "Параметри"
