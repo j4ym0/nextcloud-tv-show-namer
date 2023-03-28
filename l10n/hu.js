@@ -20,6 +20,7 @@ OC.L10N.register(
     "Oops, something went wrong." : "Hoppá, valami hiba történt.",
     "Updated your API Key" : "API-kulcs frissítve",
     "Updated file naming structure" : "Elnevezési struktúra frissítve",
+    "Updated your preferred language" : "Frissítette az előnyben részesített nyelvet",
     "Updated your preference" : "Beállítás frissítve",
     "Unable rename the file" : "A fájl nem nevezhető át",
     "File is locked or in use" : "A fájl zárolt vagy használatban van",
@@ -40,6 +41,7 @@ OC.L10N.register(
     "Settings" : "Beállítások",
     "API Key" : "API-kulcs",
     "Get your API key here" : "Itt szerezze be az API-kulcsot",
+    "Preferred Naming Language" : "Előnyben részesített elnevezési nyelv",
     "Naming Structure" : "Elnevezési struktúra",
     "Examples" : "Példák",
     "Hide matching entries" : "Egyező bejegyzések elrejtése"
