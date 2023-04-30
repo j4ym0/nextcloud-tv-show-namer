@@ -30,7 +30,7 @@ OC.L10N.register(
     "No files found" : "Није пронађен ниједан фајл",
     "No results for \"%1$s\"" : "Нема резултата за „%1$s”",
     "Cannot scan home folder. Select a folder" : "Не може да се скенира почетни фолдер. Изаберите фолдер",
-    "Please select a folder" : "Молимо вас да изаберте фолдер",
+    "Please select a folder" : "Молимо вас да изаберете фолдер",
     "Folder does not exist" : "Фолдер не постоји",
     "TV Show Namer" : "TV Show Namer",
     "Organise you TV shows" : "Организујете своје ТВ емисије",
