@@ -1,7 +1,7 @@
 # Changelog
 
 ## v0.6.1
-  translations
+  translation updates
   v26 compatibility test
 
 ## v0.6.0
