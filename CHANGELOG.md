@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.1
+  translations
+  v26 compatibility test
+
 ## v0.6.0
   Preferred naming language
   fix svg colours
