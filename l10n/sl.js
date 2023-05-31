@@ -6,6 +6,7 @@ OC.L10N.register(
     "Rescan folder" : "Ponovno preberi mapo",
     "Unexpected error" : "Nepričakovana napaka",
     "Next" : "Naslednji",
+    "Select All" : "Izberi vse",
     "File Name" : "Ime datoteke",
     "Select" : "Izbor",
     "Update" : "Posodobi",
