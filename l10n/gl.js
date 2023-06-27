@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Nome do ficheiro",
     "Select" : "Seleccionar",
     "Update" : "Actualizar",
+    "Please select a folder" : "Seleccione un cartafol.",
     "Please wait" : "Agarde",
     "Settings" : "Axustes"
 },
