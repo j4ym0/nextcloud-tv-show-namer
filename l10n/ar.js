@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Next" : "التالي",
+    "File Name" : "اسم الملف",
     "Select" : "تحديد",
     "Update" : "تحديث",
     "Settings" : "الإعدادات"
