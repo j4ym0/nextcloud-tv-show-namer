@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.2
+  translation updates
+  v27 compatibility test
+
 ## v0.6.1
   translation updates
   v26 compatibility test
