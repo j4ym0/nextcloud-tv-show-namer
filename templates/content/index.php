@@ -3,7 +3,7 @@
   <p><?php p($l->t('Please wait')); ?>...</p>
 </div>
 
-<div id="headding">
+<div id="heading">
  <a id="scanfolder" class="button"><span><?php p($l->t('Scan Folder')); ?></span></a>
  <span class="current_folder"><?php p($l->t('Choose a folder to start')); ?></span>
 </div>

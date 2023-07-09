@@ -2,7 +2,8 @@
 
 ## v0.6.2
   translation updates
-  v27 compatibility test
+  v27 compatibility
+  fix settings not opening
 
 ## v0.6.1
   translation updates
