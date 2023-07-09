@@ -234,7 +234,7 @@ function setSelectedValue(selectId, valueToSet) {
     var id = $(e).data('id');
     get_data('execute', {'message' : id}, reload_page, true);
   });
-  $("#app-settings").on("click", function(e) {
+  $("#app-settings-button").on("click", function(e) {
     $('#app-settings').toggleClass('open');
   });
   function reload_page(){
