@@ -18,6 +18,7 @@
     "Oops, something went wrong." : "أوه، حدث خطأٌ ما.",
     "Updated your API Key" : "تمّ تحديث مفتاحك لـ API",
     "Updated file naming structure" : "تمّ تحديث بُنية مُسمّيَات الملفات naming structure",
+    "Updated your preferred language" : "تم تحديث لغتك المفضلة",
     "Updated your preference" : "تمّ تحديث تفضيلاتك",
     "Unable rename the file" : "تعذّر تغيير تسمية الملف",
     "File is locked or in use" : "الملف مُقْفَلٌ أو قيد الاستخدام",
@@ -38,6 +39,7 @@
     "Settings" : "الإعدادات",
     "API Key" : "مفتاح API",
     "Get your API key here" : "أُحصُل على مفتاحك لـ API هنا",
+    "Preferred Naming Language" : "لغة التسمية المفضلة",
     "Naming Structure" : "بُنيَة المُسمّيات Naming Structure",
     "Examples" : "أمثلة",
     "Hide matching entries" : "أخْفِ المداخِل المُطابِقة matching entries"
