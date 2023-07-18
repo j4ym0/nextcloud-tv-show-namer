@@ -7,10 +7,10 @@ $(document).ready(function () {
                 mime: 'dir',
                 permissions: OC.PERMISSION_UPDATE,
                 type: OCA.Files.FileActions.TYPE_DROPDOWN,
-                iconClass: 'video-icon',
+                iconClass: 'icon-tvsn',
                 actionHandler: function (folder, context) {
                     window.location = OC.generateUrl(
-                        'apps/tvshownamer?scan={dir}',
+                        'apps/tvshownamer/#scan=/{dir}',
                         { dir: folder });
                 }
             });

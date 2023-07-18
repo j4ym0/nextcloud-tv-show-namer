@@ -222,7 +222,7 @@ function setSelectedValue(selectId, valueToSet) {
     });
     var hash = window.location.hash.substr(1).split('&').reduce(function (res, item) {
         var parts = item.split('=');
-        res[parts[0]] = decodeURI(parts[1]);
+        res[parts[0]] = decodeURIComponent(parts[1]);
         return res;
     }, {});
     if (typeof hash['scan'] !== 'undefined'){
@@ -249,7 +249,4 @@ function setSelectedValue(selectId, valueToSet) {
   function reload_page(){
     window.location.reload();
   }
-
-
-
 })();
