@@ -171,6 +171,7 @@
 }
 function scanFolderCallback(path){
   get_data('scan', {'scan_folder' : path}, render);
+  window.location.hash = "scan=" + path;
 }
 function setSelectedValue(selectId, valueToSet) {
   var selectObj = document.getElementById(selectId);
