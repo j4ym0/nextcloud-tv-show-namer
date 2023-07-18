@@ -11,7 +11,7 @@ $(document).ready(function () {
                 actionHandler: function (folder, context) {
                     window.location = OC.generateUrl(
                         'apps/tvshownamer?scan={dir}',
-                        { dir: folder });;
+                        { dir: folder });
                 }
             });
 

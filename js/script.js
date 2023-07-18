@@ -220,6 +220,14 @@ function setSelectedValue(selectId, valueToSet) {
       var lang_exe = function (d) {message(d); $('#rescan').click();};
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
     });
+    var hash = window.location.hash.substr(1).split('&').reduce(function (res, item) {
+        var parts = item.split('=');
+        res[parts[0]] = decodeURI(parts[1]);
+        return res;
+    }, {});
+    if (typeof hash['scan'] !== 'undefined'){
+      scanFolderCallback(hash['scan']);
+    }
   });
   $("#hide_matching").change(function(e) {
     get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
@@ -241,4 +249,7 @@ function setSelectedValue(selectId, valueToSet) {
   function reload_page(){
     window.location.reload();
   }
+
+
+
 })();
