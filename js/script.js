@@ -4,6 +4,15 @@
   var loader = document.getElementById('loading-can');
   var header = document.getElementById('headding');
   var current_posts = 0;
+  var hash = window.location.hash.substr(1).split('&').reduce(function (res, item) {
+    var parts = item.split('=');
+    res[parts[0]] = decodeURIComponent(parts[1]);
+    return res;
+  }, {});
+  if (typeof hash['scan'] !== 'undefined'){
+    hide_loading(false);
+  }
+
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
@@ -220,11 +229,6 @@ function setSelectedValue(selectId, valueToSet) {
       var lang_exe = function (d) {message(d); $('#rescan').click();};
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
     });
-    var hash = window.location.hash.substr(1).split('&').reduce(function (res, item) {
-        var parts = item.split('=');
-        res[parts[0]] = decodeURIComponent(parts[1]);
-        return res;
-    }, {});
     if (typeof hash['scan'] !== 'undefined'){
       scanFolderCallback(hash['scan']);
     }
