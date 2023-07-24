@@ -1,3 +1,5 @@
+var tvsnjQ = jQuery.noConflict(true);
+
 (function () {
   var baseUrl = OC.generateUrl('/apps/tvshownamer');
   var can = document.getElementById('display-can');
@@ -5,8 +7,8 @@
   var header = document.getElementById('headding');
   var current_posts = 0;
   var checkElForCallback = function(el, callback) {
-    if ($(el).length) {
-      $(el).each(function() {$(this).click(function() {callback($(this))})});
+    if (tvsnjQ(el).length) {
+      tvsnjQ(el).each(function() {tvsnjQ(this).click(function() {callback(tvsnjQ(this))})});
 //    dont need this at the mo
 //    } else {
 //      setTimeout(function() { checkElForCallback(el, callback);}, 100);
@@ -15,10 +17,10 @@
 
 
   function render(data) {
-    var hide_matching = $('#hide_matching').prop('checked');
+    var hide_matching = tvsnjQ('#hide_matching').prop('checked');
     if (data.success){
       if (data.action === "update"){
-        $('#'+data.element).replaceWith(build_file_list(data.file[0]));
+        tvsnjQ('#'+data.element).replaceWith(build_file_list(data.file[0]));
       }else{
         var r = '';
         r += build_show_header(data);
@@ -34,8 +36,8 @@
         checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
-        $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" id="rescan" class="reload" title="'+t('tvshownamer', 'Rescan folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
-        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
+        tvsnjQ('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" id="rescan" class="reload" title="'+t('tvshownamer', 'Rescan folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
+        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : tvsnjQ(t).data('path')}, render);});
       }
     }else{
       message(data);
@@ -92,65 +94,65 @@
     }
   }
   function select_all() {
-    if($('input.select-all').is(":checked")){
-      $('input.select-file').each(function() {
-        $(this).prop('checked', true);
+    if(tvsnjQ('input.select-all').is(":checked")){
+      tvsnjQ('input.select-file').each(function() {
+        tvsnjQ(this).prop('checked', true);
       });
     }else{
-      $('input.select-file').each(function() {
-        $(this).prop('checked', false);
+      tvsnjQ('input.select-file').each(function() {
+        tvsnjQ(this).prop('checked', false);
       });
     }
     select_file();
   }
   function update_file_list(){
-    var hide_matching = $('#hide_matching').prop('checked');
-    $('.file').each(function(i) {
-      if (hide_matching && $(this).attr('data-match') == 'true') {
-        $(this).addClass('hidden');
+    var hide_matching = tvsnjQ('#hide_matching').prop('checked');
+    tvsnjQ('.file').each(function(i) {
+      if (hide_matching && tvsnjQ(this).attr('data-match') == 'true') {
+        tvsnjQ(this).addClass('hidden');
       }else {
-        $(this).removeClass('hidden');
+        tvsnjQ(this).removeClass('hidden');
       }
     });
 
   }
   function next_title(t){
-    get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index')}, render);
+    get_data('scan', {'scan_folder' : tvsnjQ(t).data('path'), 'show_index' : tvsnjQ(t).data('show_index')}, render);
   }
   function rename_file(t){
-    var id = $(t).data('fileid');
-    var file_path = $(t).data('filepath');
-    $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
-    $(t).css("visibility", "hidden");
-    $(t).removeClass('primary');
-    get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
+    var id = tvsnjQ(t).data('fileid');
+    var file_path = tvsnjQ(t).data('filepath');
+    tvsnjQ('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
+    tvsnjQ(t).css("visibility", "hidden");
+    tvsnjQ(t).removeClass('primary');
+    get_data('rename', {'file_id' : id, 'new_name' : tvsnjQ('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
   }
   function select_file(){
-    var s = $('input.select-file').filter(':checked').length;
+    var s = tvsnjQ('input.select-file').filter(':checked').length;
     if (s == 0){
-      $('.file_list .file-name').html('File Name');
-      $('.file_list #selected-button').addClass('hidden');
+      tvsnjQ('.file_list .file-name').html('File Name');
+      tvsnjQ('.file_list #selected-button').addClass('hidden');
     }else{
-      $('.file_list .file-name').html(s +' Selected');
-      $('.file_list #selected-button').removeClass('hidden');
+      tvsnjQ('.file_list .file-name').html(s +' Selected');
+      tvsnjQ('.file_list #selected-button').removeClass('hidden');
     }
   }
   function submit_selected(){
-    $('.file_list #select-all').css("visibility", "hidden");
-    $('.file_list #update-all').css("visibility", "hidden");
-    $('.file_list .file-name').html("Updateing...");
-    var list = $('input.select-file').filter(':checked');
+    tvsnjQ('.file_list #select-all').css("visibility", "hidden");
+    tvsnjQ('.file_list #update-all').css("visibility", "hidden");
+    tvsnjQ('.file_list .file-name').html("Updateing...");
+    var list = tvsnjQ('input.select-file').filter(':checked');
     var selected =  new Array();
     var i=0;
     list.each(function() {
-      var id = $(this).data('fileid');
-      var file_path = $(this).data('filepath');
+      var id = tvsnjQ(this).data('fileid');
+      var file_path = tvsnjQ(this).data('filepath');
       selected.push({
         'id': id,
         'file_name': file_path});
-      $('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
-      $('#file'+id+' #confirm').css("visibility", "hidden");
-      $('#file'+id+' #confirm').removeClass('primary');
+      tvsnjQ('#file'+id+' .selection').html('<div class="icon-loading-small"></div>');
+      tvsnjQ('#file'+id+' #confirm').css("visibility", "hidden");
+      tvsnjQ('#file'+id+' #confirm').removeClass('primary');
       i++;
     });
     setTimeout(submit_selected_items, 100, selected ,0);
@@ -160,13 +162,13 @@
       if (current_posts < 6){
         var id = items[i].id;
         var file_path = items[i].file_name;
-        get_data('rename', {'file_id' : id, 'new_name' : $('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
+        get_data('rename', {'file_id' : id, 'new_name' : tvsnjQ('#file'+id+' .to').text(), 'file_path' : file_path}, render, false);
         i++;
       }
       setTimeout(submit_selected_items, 50, items ,i);
     }else{
       select_file();
-      $('select-all').css("visibility", "visable");
+      tvsnjQ('select-all').css("visibility", "visable");
     }
 }
 function scanFolderCallback(path){
@@ -185,7 +187,7 @@ function setSelectedValue(selectId, valueToSet) {
   function get_data(url, perams, callback, l = true){
     current_posts++;
     if (perams === undefined || perams === null){
-     $.ajax({
+     tvsnjQ.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
       beforeSend: function() {if(l){hide_loading(false);}},
@@ -193,7 +195,7 @@ function setSelectedValue(selectId, valueToSet) {
       complete: function() {if(l){hide_loading(true);}current_posts--;}
      });
    }else{
-     $.ajax({
+     tvsnjQ.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
       type: "POST",
@@ -204,38 +206,38 @@ function setSelectedValue(selectId, valueToSet) {
      });
    }
   }
-  $("#scanfolder").on("click", function(e) {
+  tvsnjQ("#scanfolder").on("click", function(e) {
     OC.dialogs.filepicker('Select folder to scan', scanFolderCallback, false, ['httpd/unix-directory'] , false, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
   });
-  $("#tmdb_api_key").focusout(function(e) {
-    get_data('save_setting', {'setting' : 'tmdb_api_key', 'data' : $('#tmdb_api_key').val()}, message, false);
+  tvsnjQ("#tmdb_api_key").focusout(function(e) {
+    get_data('save_setting', {'setting' : 'tmdb_api_key', 'data' : tvsnjQ('#tmdb_api_key').val()}, message, false);
   });
-  $("#file_name_structure").focusout(function(e) {
-    get_data('save_setting', {'setting' : 'file_name_structure', 'data' : $('#file_name_structure').val()}, message, false);
+  tvsnjQ("#file_name_structure").focusout(function(e) {
+    get_data('save_setting', {'setting' : 'file_name_structure', 'data' : tvsnjQ('#file_name_structure').val()}, message, false);
   });
-  $(document).ready(function () {
-    setSelectedValue("preferred_language", $('#preferred_language').data('selected-value'));
-    $("#preferred_language").change(function(e) {
-      var lang_exe = function (d) {message(d); $('#rescan').click();};
-      get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
+  tvsnjQ(document).ready(function () {
+    setSelectedValue("preferred_language", tvsnjQ('#preferred_language').data('selected-value'));
+    tvsnjQ("#preferred_language").change(function(e) {
+      var lang_exe = function (d) {message(d); tvsnjQ('#rescan').click();};
+      get_data('save_setting', {'setting' : 'preferred_language', 'data' : tvsnjQ('#preferred_language').val()}, lang_exe, false);
     });
   });
-  $("#hide_matching").change(function(e) {
-    get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
+  tvsnjQ("#hide_matching").change(function(e) {
+    get_data('save_setting', {'setting' : 'hide_matching', 'data' : tvsnjQ('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
     update_file_list();
   });
-  $("#dismiss").on("click", function(e) {
-    var id = $(e).data('id');
+  tvsnjQ("#dismiss").on("click", function(e) {
+    var id = tvsnjQ(e).data('id');
     alert(id);
     get_data('save_setting', {'setting' : 'hide_message', 'data' : id}, undefined, true);
-    $('.message#'+id).css("visibility", "hidden");
+    tvsnjQ('.message#'+id).css("visibility", "hidden");
   });
-  $("#exicute").on("click", function(e) {
-    var id = $(e).data('id');
+  tvsnjQ("#exicute").on("click", function(e) {
+    var id = tvsnjQ(e).data('id');
     get_data('execute', {'message' : id}, reload_page, true);
   });
-  $("#app-settings-button").on("click", function(e) {
-    $('#app-settings').toggleClass('open');
+  tvsnjQ("#app-settings-button").on("click", function(e) {
+    tvsnjQ('#app-settings').toggleClass('open');
   });
   function reload_page(){
     window.location.reload();
