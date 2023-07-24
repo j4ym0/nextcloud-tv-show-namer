@@ -1,0 +1,9 @@
+{ "translations": {
+    "Next" : "Næste",
+    "File Name" : "Filnavn",
+    "Select" : "Vælg",
+    "Update" : "Opdater",
+    "Please wait" : "Vent venligst...",
+    "Settings" : "Indstillinger"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,8 @@
+{ "translations": {
+    "Next" : "Järgmine",
+    "Select" : "Vali",
+    "Update" : "Uuenda",
+    "Please wait" : "Palun oota",
+    "Settings" : "Seaded"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

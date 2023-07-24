@@ -4,6 +4,7 @@ TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud 
 
 ### currently in development please report issues and suggestions
 
+### In v0.4.0 the way settings are stored has changed. Some users may need to re enter there API Key
 
 ## Try it
 
@@ -17,7 +18,7 @@ Then run or extract the release zip into the folder:
 
 Next enable the app in the apps section in nextcloud
 
-The app should run on standard php installation, you will need a api key from themoviedb.org
+The app should run on standard php installation, but you will need a api key from themoviedb.org. See [here](#getting-your-api-key) to get an api key.
 
 ## Getting your API Key
 
@@ -37,22 +38,28 @@ When choosing your naming structure you can mix the below variables, letters and
 
   - {{Season_Name}} - The season name as from TMDB
   - {{Series_Name}} - Same as above
-  - {{Season_Number}} - The season number of the episode 
+  - {{Season_Year}} - The year the season aired from TMDB (e.g. 1954 or 2022)
+  - {{Series_Year}} - Same as above
+  - {{Season_Number}} - The season number of the episode
   - {{Series_Number}} - Same as above
-  - {{Season_Number_Padded}} - Same as above but 'Season 1' would be 'Season 01' and 'Season 10' would be 'Season 10'
+  - {{Season_Number_Padded}} - Same as above but Season '1' would be '01' and Season '10' would be '10'
   - {{Series_Number_Padded}} - Same as above
   - {{Episode_Number}} - The episode number of the episode
-  - {{Episode_Number_Padded}} - Same as above but 'Episode 1' would be 'Episode 01' and 'Episode 10' would be 'Episode 10'
+  - {{Episode_Number_Padded}} - Same as above but Episode '1' would be '01' and Episode '10' would be '10'
   - {{Episode_Name}} - The episode name from TMDB
 
 NOTE: Any incompatible symbols will be filleted out when renaming the file.
 
+## Notes
+
+If you add a '#' to the season folder name, this will search themoviedb.org for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
+From v0.4.2 support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
 
 ## TODO
 
  - Connect to DB
  - Cache API results
  - save poster to folders
- - select all and confirm rename
  - better file recognition
  - recent scanned folders
+ - organisation wide api key

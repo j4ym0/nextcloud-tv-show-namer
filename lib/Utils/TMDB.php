@@ -15,15 +15,35 @@ class TMDB {
 
   /**
   * search the movie database for TV show
+  *
   * @param searchTurm $searchTurm you wish to search
+  * @param include_year $include_year ture or false - added 0.4.2
+  * @param lang $lang language to search - added 0.6.0
   * @since 0.0.1
   * @return results as array
   */
-  public function searchTvShow($searchTurm) {
+  public function searchTvShow($searchTurm, $include_year, $lang = 'en') {
     # https://developers.themoviedb.org/3/search/search-tv-shows
+
+    # try to filter out the year and present it to thetvdb.com
+    preg_match('/^(?P<seriesname>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
+                $searchTurm,
+                $matches);
+
+    # update the search turm
+    if (isset($matches['seriesname'])){
+      $searchTurm = $matches['seriesname'];
+    }
     $perams = array(
       'query' => $searchTurm,
+      'language' => $lang,
     );
+
+    # add the year to the search
+    if (isset($matches['year']) && $include_year){
+      $perams['first_air_date_year'] = $matches['year'];
+    }
+
     return $this->api_Fetch('/search/tv', $perams);
   }
 
@@ -31,12 +51,15 @@ class TMDB {
   * get a list of the episodes for a show season
   * @param show $show id for the episode list
   * @param season $season number
-  * @since 0.0.1
+  * @param episode $episode number
+  * @param lang $lang language to search - added 0.6.0
+  * @since 0.1.3
   * @return results as array
   */
-  public function getTvShowEpisodes($show, $season) {
+  public function getTvShowEpisodes($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
     $perams = array(
+      'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
@@ -49,16 +72,18 @@ class TMDB {
   }
 
   /**
-  * get a detailes of a episodes for a show season
+  * get a details of a episodes for a show season
   * @param show $show id for the episode list
   * @param season $season number
   * @param episode $episode number
+  * @param lang $lang language to search - added 0.6.0
   * @since 0.0.1
   * @return results as array
   */
-  public function getTvShowEpisode($show, $season, $episode) {
+  public function getTvShowEpisode($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
     $perams = array(
+      'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
@@ -73,7 +98,7 @@ class TMDB {
 
 
   /**
-  * fehch the data from the TMDB api
+  * fetch the data from the TMDB api
   * @param path $url of the api to query
   * @param peramiters $perams in a key => value format, will be phrased in func
   * @since 0.0.1
