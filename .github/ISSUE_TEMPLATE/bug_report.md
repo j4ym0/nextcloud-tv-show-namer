@@ -18,6 +18,10 @@ Steps to reproduce:
 4. After 'Please Wait' the TV show displayed is incorrect
 
 **Nextcloud Version (please add if known):**
+v**.*.*
+
+**Have you added you TMDB API Key to settings:**
+Yes/No (Don't add you key)
 
 **Folder name and file name (please copy and paste the following):**
 Folder Name (e.g. "American Gods"):
