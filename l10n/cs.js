@@ -27,7 +27,7 @@ OC.L10N.register(
     "File path invalid" : "Neplatný popis umístění souboru",
     "Unable to find file. Try to refresh" : "Soubor se nedaří nalézt. Zkuste načíst znovu",
     "Please configure your API key in settings" : "Do nastavení zadejte váš klíč k API",
-    "No files found" : "Nebyly nalezeny žádné soubory",
+    "No files found" : "Nenalezeny žádné soubory",
     "No results for \"%1$s\"" : "Žádné výsledky pro „%1$s",
     "Cannot scan home folder. Select a folder" : "Nedaří se proskenovat domovskou složku – vyberte nějakou složku",
     "Please select a folder" : "Vyberte složku",
