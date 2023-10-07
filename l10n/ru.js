@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Next" : "Далее",
+    "Select All" : "Выбрать все",
     "File Name" : "Имя файла",
     "Select" : "Выбрать",
     "Update" : "Обновить",
