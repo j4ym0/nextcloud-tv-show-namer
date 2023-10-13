@@ -1,6 +1,6 @@
 # Nextcloud TV Show Namer
 
-TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses themoviedb.org to rename your files, you can setup a api key with the guide below.
+TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files, you can setup a api key with the guide below. This product uses the TMDB API but is not endorsed or certified by TMDB.
 
 ### currently in development please report issues and suggestions
 
@@ -63,3 +63,4 @@ From v0.4.2 support for years in the show name has been implemented. This will s
  - better file recognition
  - recent scanned folders
  - organisation wide api key
+
