@@ -1,3 +1,6 @@
 .icon-tvsn{
 	background-image: url('../img/app.svg');
 }
+[data-themes*=light] .icon-tvsn{
+	background-image: url('../img/app_dark.svg');
+}
