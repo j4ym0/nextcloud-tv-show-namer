@@ -4,7 +4,7 @@
 	</div>
 	<div id="app-datasource-content">
 		<div class="tvdb">
-			<div class="powered"><span>TheTVDB</span><a href="https://thetvdb.com/subscribe" target="_blank" class="help"><img src="<?php echo \OC::$server->getURLGenerator()->imagePath('tvshownamer', 'tvdb.svg') ?>" height="20px" title="<?php p($l->t('Metadata provided by TheTVDB. Please consider adding missing information or subscribing.')); ?>" /></a></div>
+			<div class="powered"><span>TheTVDB</span><a href="https://thetvdb.com/subscribe" target="_blank" class="help"><img src="<?php echo \OC::$server->getURLGenerator()->imagePath('tvshownamer', 'tvdb_dark.png') ?>" height="20px" title="<?php p($l->t('Metadata provided by TheTVDB. Please consider adding missing information or subscribing.')); ?>" /></a></div>
 			<div  class="label-group">
 				<label for="enable_tvdb" title="<?php p($l->t('Enable')); ?> TheTVDB <?php p($l->t('data source')); ?>"><?php p($l->t('Search')); ?> TheTVDB</label>
 				<label class="toggle a-right">
