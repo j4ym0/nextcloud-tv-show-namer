@@ -1,13 +1,39 @@
 <div id="app-settings">
 	<div id="app-settings-header">
+		<button type="button" class="settings-button" id="app-datasource-button" data-apps-slide-toggle="#app-datasource-content"><?php p($l->t('Data Source')); ?></button>
+	</div>
+	<div id="app-datasource-content">
+		<div class="tvdb">
+			<div class="powered"><span>TheTVDB</span><a href="https://thetvdb.com/subscribe" target="_blank" class="help"><img src="<?php echo \OC::$server->getURLGenerator()->imagePath('tvshownamer', 'tvdb.svg') ?>" height="20px" title="<?php p($l->t('Metadata provided by TheTVDB. Please consider adding missing information or subscribing.')); ?>" /></a></div>
+			<div  class="label-group">
+				<label for="enable_tvdb" title="<?php p($l->t('Enable')); ?> TheTVDB <?php p($l->t('data source')); ?>"><?php p($l->t('Search')); ?> TheTVDB</label>
+				<label class="toggle a-right">
+					<input type="checkbox" name="enable_tvdb" class="setting_toggle" data-setting="enable_tvdb" <?php p($_['enable_tvdb']);?>>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="spacer"></div>
+		<div class="tmdb">
+			<div class="powered"><span>The Movie DB</span><a href="https://www.themoviedb.org/" target="_blank" class="help"><img src="<?php echo \OC::$server->getURLGenerator()->imagePath('tvshownamer', 'tmdb.svg') ?>" height="20px" title="TV Show Namer <?php p($l->t('uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.')); ?>" /></a></div>
+			<div class="label-group">
+				<label for="enable_tmdb" title="<?php p($l->t('Enable')); ?> The Movie DB <?php p($l->t('data source')); ?>"><?php p($l->t('Search')); ?> TMDB</label>
+				<label class="toggle a-right">
+					<input type="checkbox" name="enable_tmdb" class="setting_toggle" data-setting="enable_tmdb" <?php p($_['enable_tmdb']);?>>
+					<span class="slider"></span>
+				</label>
+			</div>
+			<div class="label-group">
+				<label for="tmdb_api_key" title="<?php p($l->t('Search')); ?> The Movie DB <?php p($l->t('using your own personal API Key (Not required)')); ?>"><?php p($l->t('Personal API Key')); ?></label>
+				<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#getting-your-api-key" target="_blank" class="help"><?php p($l->t('Personal API key help')); ?></a>
+				<input type="input" id="tmdb_api_key" class="input w-100" value="<?php p($_['tmdb_api_key']);?>">
+			</div>
+		</div>
+	</div>
+	<div id="app-settings-header">
 		<button type="button" class="settings-button" id="app-settings-button" data-apps-slide-toggle="#app-settings-content"><?php p($l->t('Settings')); ?></button>
 	</div>
 	<div id="app-settings-content">
-		<div>
-			<label for="tmdb_api_key"><?php p($l->t('API Key')); ?></label>
-			<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#getting-your-api-key" target="_blank" class="help"><?php p($l->t('Get your API key here')); ?></a>
-			<input type="input" id="tmdb_api_key" class="input w-100" value="<?php p($_['tmdb_api_key']);?>">
-		</div>
 		<div>
 			<label for="preferred_language"><?php p($l->t('Preferred Naming Language')); ?></label>
 			<select id="preferred_language" data-selected-value="<?php p($_['preferred_language']);?>" class="w-100">
@@ -88,9 +114,9 @@
 			<input type="input" id="file_name_structure" class="input w-100" value="<?php p($_['file_name_structure']);?>">
 		</div>
 		<div class="mar-top-20">
-			<label for="hide_matching"><?php p($l->t('Hide matching entries')); ?></lable>
+			<label for="hide_matching"><?php p($l->t('Hide matching entries')); ?></label>
 			<label class="toggle a-right">
-				<input type="checkbox" id="hide_matching" <?php p($_['hide_matching']);?>>
+				<input type="checkbox" name="hide_matching" class="setting_toggle" data-setting="hide_matching" <?php p($_['hide_matching']);?>>
 				<span class="slider"></span>
 			</label>
 		</div>

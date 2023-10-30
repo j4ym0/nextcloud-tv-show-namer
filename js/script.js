@@ -220,8 +220,8 @@ function setSelectedValue(selectId, valueToSet) {
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
     });
   });
-  $("#hide_matching").change(function(e) {
-    get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
+  $(".setting_toggle").change(function(e) {
+    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, message, false);
     update_file_list();
   });
   $("#dismiss").on("click", function(e) {
@@ -235,7 +235,10 @@ function setSelectedValue(selectId, valueToSet) {
     get_data('execute', {'message' : id}, reload_page, true);
   });
   $("#app-settings-button").on("click", function(e) {
-    $('#app-settings').toggleClass('open');
+    $('#app-settings-content').toggleClass('open');
+  });
+  $("#app-datasource-button").on("click", function(e) {
+    $('#app-datasource-content').toggleClass('open');
   });
   function reload_page(){
     window.location.reload();

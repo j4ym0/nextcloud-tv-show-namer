@@ -33,6 +33,9 @@ class PageController extends Controller {
 	private $appApiKey;
 	private $app_file_name_structure;
 	private $app_hide_matching;
+	private $hide_matching;
+	private $enable_tvdb;
+	private $enable_tmdb;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 	public static $preferred_language_default = 'en';
 	private $l;
@@ -53,10 +56,14 @@ class PageController extends Controller {
 			$this->l = $l;
 
 			$this->appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
+
 			$this->app_file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
 			$this->app_hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
 
 			$this->apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
+			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
+			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
+			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
 			$this->postdata = json_decode(file_get_contents("php://input"));
 			$this->TMDB = new TMDB($this->apiKey);
@@ -125,7 +132,21 @@ class PageController extends Controller {
 			case 'hide_matching':
 				$response['message'] = $this->l->t("Updated your preference");
 				break;
-		}
+			case 'enable_tvdb':
+				if ($data == "checked"){
+					$response['message'] = $this->l->t("Enabled The TV DB Datasource");
+				}else{
+					$response['message'] = $this->l->t("Disabled The TV DB Datasource");
+				}
+				break;
+			case 'enable_tmdb':
+				if ($data == "checked"){
+					$response['message'] = $this->l->t("Enabled The Movie DB Datasource");
+				}else{
+					$response['message'] = $this->l->t("Disabled The Movie DB Datasource");
+				}
+				break;
+			}
 
 		# return the json to render on client
 		return new JSONResponse($response);
@@ -281,10 +302,11 @@ class PageController extends Controller {
 			$this->config->deleteAppValue(Application::APP_ID, 'hide_matching');
 		}
 
-
 		$perams =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
 							'file_name_structure' => $this->file_name_structure,
-							'hide_matching' => $this->hide_matching ? "checked" : "",
+							'hide_matching' => $this->hide_matching,
+							'enable_tvdb' => $this->enable_tvdb,
+							'enable_tmdb' => $this->enable_tmdb,
 							'preferred_language' => $this->preferred_language,
 							'info_message' => $message];
 
