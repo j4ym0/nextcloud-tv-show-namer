@@ -25,7 +25,7 @@ class TMDB {
   public function searchTvShow($searchTurm, $include_year, $lang = 'en') {
     # https://developers.themoviedb.org/3/search/search-tv-shows
 
-    # try to filter out the year and present it to thetvdb.com
+    # try to filter out the year and present it to thetmdb.com
     preg_match('/^(?P<seriesname>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
                 $searchTurm,
                 $matches);
