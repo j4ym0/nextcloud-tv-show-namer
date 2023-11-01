@@ -9,7 +9,7 @@ TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud 
     - added TVDB ([thetvdb.com](https://thetvdb.com/)) datasource
     - API Keys are no longer required by you, but your personal TMDB API Key can be added in the datasource section
  - v0.4.2
-
+    - Support for years in the show name. Add the year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020'
  - v0.4.0 
     - the way settings are stored has changed. Some users may need to re enter there API Key
 
@@ -66,7 +66,6 @@ NOTE: Any incompatible symbols will be filleted out when renaming the file.
 ## Notes
 
 If you add a '#' to the season folder name, this will search the datasources for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
-From  support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
 
 
 ## TODO
