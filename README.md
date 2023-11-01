@@ -1,10 +1,18 @@
 # Nextcloud TV Show Namer
 
-TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files, you can setup a api key with the guide below. This product uses the TMDB API but is not endorsed or certified by TMDB.
+TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses TVDB ([thetvdb.com](https://thetvdb.com/)) and TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files.
 
 ### currently in development please report issues and suggestions
 
-### In v0.4.0 the way settings are stored has changed. Some users may need to re enter there API Key
+## Important updates
+ - v1.0.0 
+    - added TVDB ([thetvdb.com](https://thetvdb.com/)) datasource
+    - API Keys are no longer required by you, but your personal TMDB API Key can be added in the datasource section
+ - v0.4.2
+
+ - v0.4.0 
+    - the way settings are stored has changed. Some users may need to re enter there API Key
+
 
 ## Try it
 
@@ -18,9 +26,13 @@ Then run or extract the release zip into the folder:
 
 Next enable the app in the apps section in nextcloud
 
-The app should run on standard php installation, but you will need a api key from themoviedb.org. See [here](#getting-your-api-key) to get an api key.
+The app should run on standard php installation
 
-## Getting your API Key
+
+## Getting a personal API Key for TMDB
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+As of v1.0.0 you do not need your own API Key to use the TMDB datasource. If you would like to use your own API Key, enter it in datasource.
 
  - Signup for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
  - [Click here for api page](https://www.themoviedb.org/settings/api) or
@@ -50,10 +62,12 @@ When choosing your naming structure you can mix the below variables, letters and
 
 NOTE: Any incompatible symbols will be filleted out when renaming the file.
 
+
 ## Notes
 
-If you add a '#' to the season folder name, this will search themoviedb.org for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
-From v0.4.2 support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
+If you add a '#' to the season folder name, this will search the datasources for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
+From  support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
+
 
 ## TODO
 
