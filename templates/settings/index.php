@@ -8,7 +8,7 @@
 			<div  class="label-group">
 				<label for="enable_tvdb" title="<?php p($l->t('Enable')); ?> TheTVDB <?php p($l->t('data source')); ?>"><?php p($l->t('Search')); ?> TheTVDB</label>
 				<label class="toggle a-right">
-					<input type="checkbox" name="enable_tvdb" class="setting_toggle" data-setting="enable_tvdb" <?php p($_['enable_tvdb']);?>>
+					<input type="checkbox" name="enable_tvdb" id="enable_tvdb" class="setting_toggle" data-setting="enable_tvdb" <?php p($_['enable_tvdb']);?>>
 					<span class="slider"></span>
 				</label>
 			</div>
@@ -19,7 +19,7 @@
 			<div class="label-group">
 				<label for="enable_tmdb" title="<?php p($l->t('Enable')); ?> The Movie DB <?php p($l->t('data source')); ?>"><?php p($l->t('Search')); ?> TMDB</label>
 				<label class="toggle a-right">
-					<input type="checkbox" name="enable_tmdb" class="setting_toggle" data-setting="enable_tmdb" <?php p($_['enable_tmdb']);?>>
+					<input type="checkbox" name="enable_tmdb" id="enable_tmdb" class="setting_toggle" data-setting="enable_tmdb" <?php p($_['enable_tmdb']);?>>
 					<span class="slider"></span>
 				</label>
 			</div>
@@ -116,7 +116,7 @@
 		<div class="mar-top-20">
 			<label for="hide_matching"><?php p($l->t('Hide matching entries')); ?></label>
 			<label class="toggle a-right">
-				<input type="checkbox" name="hide_matching" class="setting_toggle" data-setting="hide_matching" <?php p($_['hide_matching']);?>>
+				<input type="checkbox" name="hide_matching" id="hide_matching" class="setting_toggle" data-setting="hide_matching" <?php p($_['hide_matching']);?>>
 				<span class="slider"></span>
 			</label>
 		</div>

@@ -10,6 +10,7 @@ use OCP\IL10N;
 use OCA\TVShowNamer\AppInfo\Application;
 use OCA\TVShowNamer\Utils\Files;
 use OCA\TVShowNamer\Utils\TMDB;
+use OCA\TVShowNamer\Utils\TVDB;
 
 use OCP\AppFramework\Http\StreamResponse;
 
@@ -28,6 +29,7 @@ class PageController extends Controller {
 	private $initialStateService;
 	private $postdata;
 	private $TMDB;
+	private $TVDB;
 	public $file_name_structure;
 	private $apiKey;
 	private $appApiKey;
@@ -36,6 +38,8 @@ class PageController extends Controller {
 	private $hide_matching;
 	private $enable_tvdb;
 	private $enable_tmdb;
+	private $tvdb_active;
+	private $tmdb_active;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 	public static $preferred_language_default = 'en';
 	private $l;
@@ -65,8 +69,13 @@ class PageController extends Controller {
 			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
 			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
+			$active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tvdb');
+			$this->tvdb_active = $active_datasource == 'tvdb' ? 'active' : '';
+			$this->tmdb_active = $active_datasource == 'tmdb' ? 'active' : '';
+
 			$this->postdata = json_decode(file_get_contents("php://input"));
 			$this->TMDB = new TMDB($this->apiKey);
+			$this->TVDB = new TVDB();
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			if ($this->file_name_structure == ''){
@@ -134,20 +143,26 @@ class PageController extends Controller {
 				break;
 			case 'enable_tvdb':
 				if ($data == "checked"){
-					$response['message'] = $this->l->t("Enabled The TV DB Datasource");
+					$response['message'] = $this->l->t("Enabled") . " The TV DB " . $this->l->t("Datasource");
 				}else{
-					$response['message'] = $this->l->t("Disabled The TV DB Datasource");
+					$response['message'] = $this->l->t("Disabled") . " The TV DB " . $this->l->t("Datasource");
 				}
 				break;
 			case 'enable_tmdb':
 				if ($data == "checked"){
-					$response['message'] = $this->l->t("Enabled The Movie DB Datasource");
+					$response['message'] = $this->l->t("Enabled") . " The Movie DB " . $this->l->t("Datasource");
 				}else{
-					$response['message'] = $this->l->t("Disabled The Movie DB Datasource");
+					$response['message'] = $this->l->t("Disabled") . " The Movie DB " . $this->l->t("Datasource");
 				}
 				break;
-			}
-
+			case 'active_datasource':
+				if ($data == "tvdb"){
+					$response['message'] = $this->l->t("Switching datasource to") . " The TV DB";
+				}else{
+					$response['message'] = $this->l->t("Switching datasource to") . " The Movie DB";
+				}
+				break;
+		}
 		# return the json to render on client
 		return new JSONResponse($response);
 	}
@@ -200,7 +215,7 @@ class PageController extends Controller {
 
 
 	/**
-	*				retreve list of show that can be renamed
+	*				retrieve list of show that can be renamed
 	*
 	* @NoAdminRequired
 	*/
@@ -245,6 +260,7 @@ class PageController extends Controller {
 						#check if there are enought results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search['results'][$show_index];
+							$response['show_info']['source'] = 'tmdb';
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);
 
@@ -307,6 +323,8 @@ class PageController extends Controller {
 							'hide_matching' => $this->hide_matching,
 							'enable_tvdb' => $this->enable_tvdb,
 							'enable_tmdb' => $this->enable_tmdb,
+							'tvdb_active' => $this->tvdb_active,
+							'tmdb_active' => $this->tmdb_active,
 							'preferred_language' => $this->preferred_language,
 							'info_message' => $message];
 

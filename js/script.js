@@ -29,6 +29,7 @@
         }
         r+='</table>';
         can.innerHTML=r;
+        set_active_datasource(data.show_info.source);
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('input.select-file', function(t){select_file();});
         checkElForCallback('input.select-all', function(t){select_all();});
@@ -44,15 +45,20 @@
   function message(json = null){
     OC.Notification.showTemporary(json.message != null ? json.message : t('tvshownamer', 'Unexpected error'));
   }
+  function simple_message(msg){
+    OC.Notification.showTemporary(msg);
+  }
   function build_show_header(json){
-    if (json.show_info == null){
+    if (json.show_info == null || typeof json.show_info.id == "undefined"){
       return '<div class="show_can"">' +
       '<div class="show_info"><span class="headding nolink">'+t('tvshownamer', 'Unable to find')+' "'+json.name+'"</span></div>' +
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
     '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name} on {website}', {show_name: json.show_info.name, website: 'themoviedb.org'})+'"/></a>' +
-    '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span><p>'+json.show_info.overview+'</p>'+
+    '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span>' +
+    '' +
+    '<p>'+json.show_info.overview+'</p>'+
     '<div class="not_this">'+t('tvshownamer', 'Not this one?')+' <button class="primary" id="next_title" data-show_index="'+json.show_index+'" data-path="'+json.path+'">'+t('tvshownamer', 'Next')+'</button></div></div>' +
     '</div>';
   }
@@ -116,6 +122,14 @@
   }
   function next_title(t){
     get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index')}, render);
+  }
+  function source_select(t){
+    $('.source_button').each(function(i) {
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      }
+    });
+    $(t).addClass('active');
   }
   function rename_file(t){
     var id = $(t).data('fileid');
@@ -181,7 +195,44 @@ function setSelectedValue(selectId, valueToSet) {
       }
   }
 }
-
+  function set_active_datasource(ds){
+    if ($('#source_tvdb').hasClass('active')) {
+      $('#source_tvdb').removeClass('active');
+    }
+    if ($('#source_tmdb').hasClass('active')) {
+      $('#source_tmdb').removeClass('active');
+    }
+    if (ds == 'tvdb'){
+      $('#source_tvdb').addClass("active");
+    }
+    if (ds == 'tmdb'){
+      $('#source_tmdb').addClass("active");
+    }
+  }
+  function validate_settings(e){
+    if (!$('#enable_tmdb').is(':checked') && !$('#enable_tvdb').is(':checked') ){
+      simple_message(t('tvshownamer', 'Unable to disable both data sources'));
+      $(e).prop('checked', true);
+    }
+    if (!$('#enable_tmdb').is(':checked')){
+      $('#source_tmdb').addClass("hide");
+      if ($('#source_tmdb').hasClass('active')) {
+        $('#source_tmdb').removeClass('active');
+        $('#source_tvdb').addClass("active");
+      }
+    }else{
+      $('#source_tmdb').removeClass("hide");
+    }
+    if (!$('#enable_tvdb').is(':checked')){
+      $('#source_tvdb').addClass("hide");
+      if ($('#source_tvdb').hasClass('active')) {
+        $('#source_tvdb').removeClass('active');
+        $('#source_tmdb').addClass("active");
+      }
+    }else{
+      $('#source_tvdb').removeClass("hide");
+    }
+  }
   function get_data(url, perams, callback, l = true){
     current_posts++;
     if (perams === undefined || perams === null){
@@ -221,18 +272,23 @@ function setSelectedValue(selectId, valueToSet) {
     });
   });
   $(".setting_toggle").change(function(e) {
+    validate_settings(this);
     get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, message, false);
     update_file_list();
   });
   $("#dismiss").on("click", function(e) {
     var id = $(e).data('id');
-    alert(id);
     get_data('save_setting', {'setting' : 'hide_message', 'data' : id}, undefined, true);
     $('.message#'+id).css("visibility", "hidden");
   });
   $("#exicute").on("click", function(e) {
     var id = $(e).data('id');
     get_data('execute', {'message' : id}, reload_page, true);
+  });
+  $(".source_button").on("click", function(e) {
+    source_select(this);
+    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).data('source')}, message, false);
+    get_data('scan', {'scan_folder' : $('a.reload').data('path')}, render);
   });
   $("#app-settings-button").on("click", function(e) {
     $('#app-settings-content').toggleClass('open');
