@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Rescan folder" : "重新扫描文件夹",
     "Rescan selected folder" : "重新扫描选择的文件夾",
+    "Unexpected error" : "意外错误",
     "Unable to find" : "无法找到",
     "{show_name} poster, click to open the show in a new window" : "{show_name} 海报，点击以在新窗口中打开节目",
     "Open {show_name} on {website}" : "在 {website} 上打开 {show_name}",
