@@ -29,7 +29,10 @@
         }
         r+='</table>';
         can.innerHTML=r;
-        set_active_datasource(data.show_info.source);
+        if (data.show_info != null){
+          if (typeof data.show_info.id != "undefined"){
+            set_active_datasource(data.show_info.source);
+        }}
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('input.select-file', function(t){select_file();});
         checkElForCallback('input.select-all', function(t){select_all();});
@@ -55,7 +58,7 @@
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
-    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name} on {website}', {show_name: json.show_info.name, website: 'themoviedb.org'})+'"/></a>' +
+    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="'+json.show_info.img_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name} on {website}', {show_name: json.show_info.name, website: 'themoviedb.org'})+'"/></a>' +
     '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span>' +
     '' +
     '<p>'+json.show_info.overview+'</p>'+

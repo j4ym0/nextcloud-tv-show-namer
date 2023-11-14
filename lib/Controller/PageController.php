@@ -256,11 +256,10 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language);
+						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
 						#check if there are enought results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
-							$response['show_info'] = $search['results'][$show_index];
-							$response['show_info']['source'] = 'tmdb';
+							$response['show_info'] = $search;
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);
 
@@ -336,10 +335,15 @@ class PageController extends Controller {
 	* @PublicPage
 	* @NoCSRFRequired
 	*/
-  public function image($img){
-		$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
+	public function image($src, $img){
+		if ($src == 'tmdb'){
+			$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
+		}
+		if ($src == 'tvdb'){
+			$res = new StreamResponse(fopen("https://artworks.thetvdb.com/banners/posters/" . $img, 'r'));
+		}
 		$res->addHeader('Content-type', "image/jpeg; charset=utf-8");
 		return $res;
-  }
+	}
 
 }

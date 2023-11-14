@@ -19,10 +19,11 @@ class TMDB {
   * @param searchTurm $searchTurm you wish to search
   * @param include_year $include_year ture or false - added 0.4.2
   * @param lang $lang language to search - added 0.6.0
+  * @param show_index $show_index to select - added 1.0.0
   * @since 0.0.1
   * @return results as array
   */
-  public function searchTvShow($searchTurm, $include_year, $lang = 'en') {
+  public function searchTvShow($searchTurm, $include_year, $lang = 'en', $show_index = 0) {
     # https://developers.themoviedb.org/3/search/search-tv-shows
 
     # try to filter out the year and present it to thetmdb.com
@@ -44,7 +45,22 @@ class TMDB {
       $perams['first_air_date_year'] = $matches['year'];
     }
 
-    return $this->api_Fetch('/search/tv', $perams);
+    $results = $this->api_Fetch('/search/tv', $perams);
+    if ($show_index >= $results['total_results']){
+      $data = null;
+    }else{
+      $data = array(
+        'source' => 'tmdb',
+        'adult' => $results['results'][$show_index]['adult'],
+        'id' => $results['results'][$show_index]['id'],
+        'overview' => $results['results'][$show_index]['overview'],
+        'name' => $results['results'][$show_index]['name'],
+        'first_air_date' => $results['results'][$show_index]['first_air_date'],
+        'img_path' => 'tmdb/image' . $results['results'][$show_index]['poster_path'],
+        'total_results' => $results['total_results'],
+      );
+    }
+    return $data;
   }
 
   /**
