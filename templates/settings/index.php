@@ -26,7 +26,7 @@
 			<div class="label-group">
 				<label for="tmdb_api_key" title="<?php p($l->t('Search')); ?> The Movie DB <?php p($l->t('using your own personal API Key (Not required)')); ?>"><?php p($l->t('Personal API Key')); ?></label>
 				<a href="https://github.com/j4ym0/nextcloud-tv-show-namer/tree/main#getting-your-api-key" target="_blank" class="help"><?php p($l->t('Personal API key help')); ?></a>
-				<input type="input" id="tmdb_api_key" class="input w-100" value="<?php p($_['tmdb_api_key']);?>">
+				<input type="input" id="tmdb_api_key" class="input w-100" placeholder="<?php p($l->t('Personal API key')); ?>" value="<?php p($_['tmdb_api_key']);?>">
 			</div>
 		</div>
 	</div>
