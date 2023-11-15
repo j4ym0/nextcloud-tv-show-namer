@@ -4,6 +4,7 @@
   var loader = document.getElementById('loading-can');
   var header = document.getElementById('headding');
   var current_posts = 0;
+  var datasource = '';
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
@@ -39,7 +40,7 @@
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" id="rescan" class="reload" title="'+t('tvshownamer', 'Rescan folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
-        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
+        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path'), 'datasource': datasource}, render);});
       }
     }else{
       message(data);
@@ -124,7 +125,7 @@
 
   }
   function next_title(t){
-    get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index')}, render);
+    get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index'), 'datasource': datasource}, render);
   }
   function source_select(t){
     $('.source_button').each(function(i) {
@@ -187,7 +188,12 @@
     }
 }
 function scanFolderCallback(path){
-  get_data('scan', {'scan_folder' : path}, render);
+  if (datasource == ''){
+    $(".source_button").each(function(i, el) {
+      datasource = $(el).data('source');
+    });
+  }
+  get_data('scan', {'scan_folder' : path, 'datasource': datasource}, render);
 }
 function setSelectedValue(selectId, valueToSet) {
   var selectObj = document.getElementById(selectId);
@@ -290,8 +296,9 @@ function setSelectedValue(selectId, valueToSet) {
   });
   $(".source_button").on("click", function(e) {
     source_select(this);
+    datasource = $(this).data('source');
     get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).data('source')}, message, false);
-    get_data('scan', {'scan_folder' : $('a.reload').data('path')}, render);
+    get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
   });
   $("#app-settings-button").on("click", function(e) {
     $('#app-settings-content').toggleClass('open');
