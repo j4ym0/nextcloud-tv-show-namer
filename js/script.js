@@ -53,9 +53,15 @@
     OC.Notification.showTemporary(msg);
   }
   function build_show_header(json){
-    if (json.show_info == null || typeof json.show_info.id == "undefined"){
+    if (json.show_info == null || typeof json.show_info.id === "undefined"){
+      msg = t('tvshownamer', 'Unable to find')+' "'+json.name;
+      if (json.show_info != null){
+        if (typeof json.show_info.status_message !== "undefined"){
+          msg = json.show_info.status_message;
+        }
+      }
       return '<div class="show_can"">' +
-      '<div class="show_info"><span class="headding nolink">'+t('tvshownamer', 'Unable to find')+' "'+json.name+'"</span></div>' +
+      '<div class="show_info"><span class="headding nolink">'+msg+'</span></div>' +
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +

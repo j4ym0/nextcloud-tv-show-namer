@@ -20,6 +20,7 @@ class Tools {
         $request = ['http' => 
             [
                 'method' => 'GET',
+                'ignore_errors' => true,
             ],
         ];
         $query_string = '';

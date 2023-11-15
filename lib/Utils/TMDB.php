@@ -35,18 +35,23 @@ class TMDB {
     if (isset($matches['seriesname'])){
       $searchTurm = $matches['seriesname'];
     }
-    $perams = array(
+    $params = array(
       'query' => $searchTurm,
       'language' => $lang,
     );
 
     # add the year to the search
     if (isset($matches['year']) && $include_year){
-      $perams['first_air_date_year'] = $matches['year'];
+      $params['first_air_date_year'] = $matches['year'];
     }
 
-    $results = $this->api_Fetch('/search/tv', $perams);
-    if ($show_index >= $results['total_results']){
+    $results = $this->api_Fetch('/search/tv', $params);
+    if (!$results['success'] && array_key_exists('success', $results)){
+      $data = array(
+        'source' => 'tmdb',
+        'status_message' => $results['status_message'],
+      );
+    }elseif ($show_index >= $results['total_results']){
       $data = null;
     }else{
       $data = array(
@@ -74,12 +79,12 @@ class TMDB {
   */
   public function getTvShowEpisodes($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
-    $perams = array(
+    $params = array(
       'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $perams);
+      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $params);
       $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
       return $data;
     }else{
@@ -98,12 +103,12 @@ class TMDB {
   */
   public function getTvShowEpisode($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
-    $perams = array(
+    $params = array(
       'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $perams);
+      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $params);
       $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
       return $data;
     }else{
@@ -116,17 +121,17 @@ class TMDB {
   /**
   * fetch the data from the TMDB api
   * @param path $url of the api to query
-  * @param peramiters $perams in a key => value format, will be phrased in func
+  * @param peramiters $params in a key => value format, will be phrased in func
   * @since 0.0.1
   * @return results as json
   */
 
-  public function api_Fetch($path, $perams = null) {
+  public function api_Fetch($path, $params = null) {
     # Moved to tools
     if (strlen($this->api_key) > 40){
-      return Tools::api_call($this->base_url . $path, null, $this->api_key, $perams);
+      return Tools::api_call($this->base_url . $path, null, $this->api_key, $params);
     }else{
-      return Tools::api_call($this->base_url . $path, $this->api_key, null, $perams);
+      return Tools::api_call($this->base_url . $path, $this->api_key, null, $params);
     }
   }
 }
