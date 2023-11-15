@@ -127,13 +127,35 @@ class TMDB {
       $path = substr($path, 1);
     }
 
-    $querystring = '?api_key=' . $this->api_key;
-    if ($perams != null){
-      foreach ($perams as $key => $value){
-        $querystring .= '&' . $key . '=' . urlencode($value);
+    $querystring = '';
+
+    // check for reed / RW token
+    if (strlen($this->api_key) > 40){
+      $headers = [
+        'Authorization: Bearer ' . $this->api_key,
+      ];
+      $context = stream_context_create(['http' => ['header' => $headers]]);
+      if ($perams != null){
+        foreach ($perams as $key => $value){
+          // check for previous keys added to query string
+          if (strlen($querystring) > 0){
+            $querystring .= '&';
+          }else{
+            $querystring .= '?';
+          }
+          $querystring .= $key . '=' . urlencode($value);
+        }
       }
+      $json = file_get_contents($this->base_url . $path . $querystring, false, $context);
+    }else{
+      $querystring = '?api_key=' . $this->api_key;
+      if ($perams != null){
+        foreach ($perams as $key => $value){
+          $querystring .= '&' . $key . '=' . urlencode($value);
+        }
+      }
+      $json = file_get_contents($this->base_url . $path . $querystring);
     }
-    $json = file_get_contents($this->base_url . $path . $querystring);
     return json_decode($json, true);
   }
 

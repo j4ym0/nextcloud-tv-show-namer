@@ -74,8 +74,8 @@ class PageController extends Controller {
 			$this->tmdb_active = $active_datasource == 'tmdb' ? 'active' : '';
 
 			$this->postdata = json_decode(file_get_contents("php://input"));
-			$this->TMDB = new TMDB($this->apiKey);
-			$this->TVDB = new TVDB();
+			$this->TMDB = new TMDB($this->apiKey == '' ? Application::get_tmdb_api_key() : $this->apiKey);
+			$this->TVDB = new TVDB(Application::get_tvdb_api_key());
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			if ($this->file_name_structure == ''){
@@ -224,10 +224,11 @@ class PageController extends Controller {
 		$response = array('success' => false,
 											'message' => '');
 
-		if ($this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '') == ''){
-			$response['message'] = $this->l->t("Please configure your API key in settings");
-			return new JSONResponse($response);
-		}
+		// old check for api key can be removed
+		//if ($this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '') == ''){
+		//	$response['message'] = $this->l->t("Please configure your API key in settings");
+		//	return new JSONResponse($response);
+		//}
 
 		// is there a show index
 		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
