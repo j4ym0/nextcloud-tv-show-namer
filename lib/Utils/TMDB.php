@@ -1,7 +1,7 @@
 <?php
 namespace OCA\TVShowNamer\Utils;
 
-
+use OCA\TVShowNamer\Utils\Tools;
 
 class TMDB {
 
@@ -122,41 +122,11 @@ class TMDB {
   */
 
   public function api_Fetch($path, $perams = null) {
-    # remove first / if there
-    if (substr($path, 0, 1) === '/'){
-      $path = substr($path, 1);
-    }
-
-    $querystring = '';
-
-    // check for reed / RW token
+    # Moved to tools
     if (strlen($this->api_key) > 40){
-      $headers = [
-        'Authorization: Bearer ' . $this->api_key,
-      ];
-      $context = stream_context_create(['http' => ['header' => $headers]]);
-      if ($perams != null){
-        foreach ($perams as $key => $value){
-          // check for previous keys added to query string
-          if (strlen($querystring) > 0){
-            $querystring .= '&';
-          }else{
-            $querystring .= '?';
-          }
-          $querystring .= $key . '=' . urlencode($value);
-        }
-      }
-      $json = file_get_contents($this->base_url . $path . $querystring, false, $context);
+      return Tools::api_call($this->base_url . $path, null, $this->api_key, $perams);
     }else{
-      $querystring = '?api_key=' . $this->api_key;
-      if ($perams != null){
-        foreach ($perams as $key => $value){
-          $querystring .= '&' . $key . '=' . urlencode($value);
-        }
-      }
-      $json = file_get_contents($this->base_url . $path . $querystring);
+      return Tools::api_call($this->base_url . $path, $this->api_key, null, $perams);
     }
-    return json_decode($json, true);
   }
-
 }
