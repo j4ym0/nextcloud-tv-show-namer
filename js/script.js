@@ -190,7 +190,9 @@
 function scanFolderCallback(path){
   if (datasource == ''){
     $(".source_button").each(function(i, el) {
-      datasource = $(el).data('source');
+      if ($(el).hasClass('active')) {
+        datasource = $(el).data('source');
+      }
     });
   }
   get_data('scan', {'scan_folder' : path, 'datasource': datasource}, render);
@@ -211,12 +213,15 @@ function setSelectedValue(selectId, valueToSet) {
     if ($('#source_tmdb').hasClass('active')) {
       $('#source_tmdb').removeClass('active');
     }
+    var el = $('#source_tmdb');
     if (ds == 'tvdb'){
-      $('#source_tvdb').addClass("active");
+      el = $('#source_tmdb');
     }
     if (ds == 'tmdb'){
-      $('#source_tmdb').addClass("active");
+      el = $('#source_tmdb');
     }
+    el.addClass("active");
+    datasource = $(el).data('source');
   }
   function validate_settings(e){
     if (!$('#enable_tmdb').is(':checked') && !$('#enable_tvdb').is(':checked') ){
