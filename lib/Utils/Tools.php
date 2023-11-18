@@ -11,7 +11,7 @@ class Tools {
     * @since 1.0.0
     * @return results as json
     */
-    static function api_call($path, $api_key = null, $bearer_token = null, $params = null, $data = null){
+    static function api_call($path, $api_key = null, $bearer_token = null, $params = null, $data = null, $data_type = null){
         # remove first / if there
         if (substr($path, 0, 1) === '/'){
             $path = substr($path, 1);
@@ -50,7 +50,14 @@ class Tools {
         # build post data if available
         if ($data != null){
             $request['http']['method'] = 'POST';
-            $request['http']['content'] = http_build_query($data);
+
+            # check if the data is json
+            if ($data_type == 'json'){
+                $headers = array_merge(['Content-type: application/json',], $headers);
+                $request['http']['content'] = json_encode($data);
+            }else{
+                $request['http']['content'] = http_build_query($data);
+            }
         }
   
         $request['http']['header'] = implode("\r\n", $headers);
