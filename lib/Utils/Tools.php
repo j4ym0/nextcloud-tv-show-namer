@@ -66,4 +66,27 @@ class Tools {
         $json = file_get_contents($path . $query_string, false, $context);
         return json_decode($json, true);
     }
+
+    /**
+    * convert ISO 639-1 to ISO 639-2
+    * @param language_code_2 the language code in 2 char to convert
+    * @since 1.0.0
+    * @return results ISO 639-2
+    */
+    static function convert_2_to_3($language_code_2){
+        # language codes
+        $languageCodes = array(
+            'en' => 'eng', 'es' => 'spa', 'fr' => 'fra', 'de' => 'deu', 'ja' => 'jpn', 'ar' => 'ara', 'ru' => 'rus', 'nl' => 'nld', 'it' => 'ita', 'pt' => 'por',
+            'da' => 'dan', 'sv' => 'swe', 'tr' => 'tur', 'zh' => 'zho', 'ko' => 'kor', 'id' => 'ind', 'br' => 'bre', 'ca' => 'cat', 'et' => 'est', 'eo' => 'epo',
+            'eu' => 'eus', 'gl' => 'glg', 'hr' => 'hrv', 'lv' => 'lav', 'lt' => 'lit', 'hu' => 'hun', 'nb' => 'nob', 'oc' => 'oci', 'pl' => 'pol', 'ro' => 'ron',
+            'sk' => 'slk', 'sl' => 'slv', 'vi' => 'vie', 'sc' => 'srd', 'fi' => 'fin', 'is' => 'isl', 'cs' => 'ces', 'el' => 'ell', 'bg' => 'bul', 'mk' => 'mkd',
+            'sr' => 'srp', 'uk' => 'ukr', 'he' => 'heb', 'fa' => 'fas', 'th' => 'tha', 'lo' => 'lao',);
+        if (isset($languageCodes[$selectedLanguageCode])) {
+            # return the 3 char language code
+            return $languageCodes[$language_code_2];
+        } else {
+            # return a default of english if not found
+            return 'eng';
+        }
+    }
 }
