@@ -31,7 +31,7 @@ class PageController extends Controller {
 	private $TMDB;
 	private $TVDB;
 	public $file_name_structure;
-	private $apiKey;
+	private $tmdb_apiKey;
 	private $app_file_name_structure;
 	private $app_hide_matching;
 	private $hide_matching;
@@ -64,7 +64,7 @@ class PageController extends Controller {
 			$this->app_file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
 			$this->app_hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
 
-			$this->apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
+			$this->tmdb_apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
 			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
 			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
@@ -72,7 +72,7 @@ class PageController extends Controller {
 			$this->tvdb_active = $active_datasource == 'tvdb' ? 'active' : '';
 			$this->tmdb_active = $active_datasource == 'tmdb' ? 'active' : '';
 
-			$this->TMDB = new TMDB($this->apiKey == '' ? Application::get_tmdb_api_key() : $this->apiKey);
+			$this->TMDB = new TMDB($this->tmdb_apiKey == '' ? Application::get_tmdb_api_key() : $this->tmdb_apiKey);
 			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token);
 			if ($this->tvdb_token != $this->TVDB->token){
 				$this->tvdb_token = $this->config->setAppValue(Application::APP_ID, 'tvdb_token', $this->TVDB->token);
@@ -309,7 +309,7 @@ class PageController extends Controller {
 		$appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
 
 		# Migrate old settings to new
-		if ($appApiKey != '' && $this->apiKey == ''){
+		if ($appApiKey != '' && $this->tmdb_apiKey == ''){
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', $appApiKey);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'file_name_structure', $this->app_file_name_structure);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'hide_matching', $this->app_hide_matching);
