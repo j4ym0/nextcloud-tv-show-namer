@@ -59,6 +59,7 @@ class PageController extends Controller {
 			$this->rootFolder = $rootFolder;
 			$this->initialStateService = $initialStateService;
 			$this->l = $l;
+			$this->postdata = json_decode(file_get_contents("php://input"));
 
 			$this->appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
 			$this->tvdb_token = $this->config->getAppValue(Application::APP_ID, 'tvdb_token', '')
@@ -74,7 +75,6 @@ class PageController extends Controller {
 			$this->tvdb_active = $active_datasource == 'tvdb' ? 'active' : '';
 			$this->tmdb_active = $active_datasource == 'tmdb' ? 'active' : '';
 
-			$this->postdata = json_decode(file_get_contents("php://input"));
 			$this->TMDB = new TMDB($this->apiKey == '' ? Application::get_tmdb_api_key() : $this->apiKey);
 			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token);
 			if ($this->tvdb_token != $this->TVDB->token){
