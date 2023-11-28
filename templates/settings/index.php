@@ -38,50 +38,31 @@
 			<label for="preferred_language"><?php p($l->t('Preferred Naming Language')); ?></label>
 			<select id="preferred_language" data-selected-value="<?php p($_['preferred_language']);?>" class="w-100">
 				<option value="en">English</option>
-				<option value="es">Español (España)</option>
+				<option value="es">Español</option>
 				<option value="fr">Français</option>
-				<option value="de">Deutsch (Persönlich: Du)</option>
-				<option value="de-DE">Deutsch (Förmlich: Sie)</option>
+				<option value="de">Deutsch</option>
 				<option value="ja">Japanese (日本語)</option>
 				<option value="ar">اللغة العربية</option>
 				<option value="ru">Русский</option>
 				<option value="nl">Nederlands</option>
 				<option value="it">Italiano</option>
-				<option value="pt-BR">Português Brasileiro</option>
-				<option value="pt-PT">Português</option>
+				<option value="pt">Português</option>
 				<option value="da">Dansk</option>
 				<option value="sv">Svenska</option>
 				<option value="tr">Türkçe</option>
-				<option value="zh-CN">简体中文</option>
+				<option value="zh">简体中文</option>
 				<option value="ko">한국어</option>
 				<option disabled="disabled">──────────</option>
 				<option value="id">Bahasa Indonesia</option>
 				<option value="br">Brezhoneg</option>
 				<option value="ca">Català</option>
-				<option value="et-EE">Eesti</option>
-				<option value="en-GB">English (British English)</option>
-				<option value="es-AR">Español (Argentina)</option>
-				<option value="es-CL">Español (Chile)</option>
-				<option value="es-CO">Español (Colombia)</option>
-				<option value="es-CR">Español (Costa Rica)</option>
-				<option value="es-DO">Español (Dominican Republic)</option>
-				<option value="es-EC">Español (Ecuador)</option>
-				<option value="es-SV">Español (El Salvador)</option>
-				<option value="es-GT">Español (Guatemala)</option>
-				<option value="es-HN">Español (Honduras)</option>
-				<option value="es-MX">Español (México)</option>
-				<option value="es-NI">Español (Nicaragua)</option>
-				<option value="es-PA">Español (Panama)</option>
-				<option value="es-PY">Español (Paraguay)</option>
-				<option value="es-PE">Español (Peru)</option>
-				<option value="es-PR">Español (Puerto Rico)</option>
-				<option value="es-UY">Español (Uruguay)</option>
+				<option value="et">Eesti</option>
 				<option value="eo">Esperanto</option>
 				<option value="eu">Euskara</option>
 				<option value="gl">Galego</option>
 				<option value="hr">Hrvatski</option>
 				<option value="lv">Latviešu</option>
-				<option value="lt-LT">Lietuvių</option>
+				<option value="lt">Lietuvių</option>
 				<option value="hu">Magyar</option>
 				<option value="nb">Norsk bokmål</option>
 				<option value="oc">Occitan</option>
@@ -103,9 +84,6 @@
 				<option value="fa">فارسى</option>
 				<option value="th">ภาษาไทย - Thai</option>
 				<option value="lo">ຂີ້ຕົວະ</option>
-				<option value="ka-GE">ქართული</option>
-				<option value="zh-TW">正體中文（臺灣）</option>
-				<option value="zh-HK">正體中文（香港）</option>
 			</select>
 		</div>
 		<div>
