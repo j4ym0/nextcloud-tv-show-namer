@@ -6,7 +6,7 @@ use OCA\TVShowNamer\Utils\Tools;
 class TMDB {
 
   private $api_key = "";
-  private $base_url = "https://api.themoviedb.org/3/";
+  private $base_url = "https://api.themoviedb.org/3";
   private $cache = array();
 
   public function __construct($api_key){
