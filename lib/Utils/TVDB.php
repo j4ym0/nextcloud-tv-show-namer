@@ -33,49 +33,57 @@ class TVDB {
   /**
   * search the tv database for TV show
   *
-  * @param searchTurm $searchTurm you wish to search
-  * @param include_year $include_year ture or false - added 0.4.2
+  * @param searchTerm $searchTerm you wish to search
+  * @param include_year $include_year true or false - added 0.4.2
   * @param lang $lang language to search - added 0.6.0
   * @param show_index $show_index to select - added 1.0.0
-  * @since 0.0.1
+  * @since 1.0.0
   * @return results as array
   */
-  public function searchTvShow($searchTurm, $include_year, $lang = 'en', $show_index = 0) {
+  public function searchTvShow($searchTerm, $include_year, $lang = 'eng', $show_index = 0) {
     # https://developers.themoviedb.org/3/search/search-tv-shows
 
+    $lang = Tools::convert_2_to_3($lang);
+
     # try to filter out the year and present it to thetmdb.com
-    preg_match('/^(?P<seriesname>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
-                $searchTurm,
+    preg_match('/^(?P<series_name>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
+                $searchTerm,
                 $matches);
 
-    # update the search turm
-    if (isset($matches['seriesname'])){
-      $searchTurm = $matches['seriesname'];
+    # update the search term
+    if (isset($matches['series_name'])){
+      $searchTerm = $matches['series_name'];
     }
-    $perams = array(
-      'query' => $searchTurm,
-      'language' => $lang,
+    $params = array(
+      'query' => $searchTerm,
+      'type' => 'series',
     );
 
     # add the year to the search
     if (isset($matches['year']) && $include_year){
-      $perams['first_air_date_year'] = $matches['year'];
+      $params['year'] = $matches['year'];
     }
 
-    $results = $this->api_Fetch('/search/tv', $perams);
-    if ($show_index >= $results['total_results']){
-      $data = null;
-    }else{
+    $results = Tools::api_call($this->base_url . 'search', null, $this->token, $params);
+    if ($results['status'] == 'success' && $results['links']['total_items'] > $show_index){
       $data = array(
-        'source' => 'tmdb',
-        'adult' => $results['results'][$show_index]['adult'],
-        'id' => $results['results'][$show_index]['id'],
-        'overview' => $results['results'][$show_index]['overview'],
-        'name' => $results['results'][$show_index]['name'],
-        'first_air_date' => $results['results'][$show_index]['first_air_date'],
-        'img_path' => 'tmdb/image' . $results['results'][$show_index]['poster_path'],
-        'total_results' => $results['total_results'],
+        'source' => 'tvdb',
+        'adult' => '',
+        'id' => $results['data'][$show_index]['id'],
+        'overview' => $results['data'][$show_index]['overview'],
+        'name' => $results['data'][$show_index]['name'],
+        'first_air_date' => $results['data'][$show_index]['first_air_time'],
+        'img_path' => 'tvdb/image' . str_replace('https://artworks.thetvdb.com/banners/posters/', '/', $results['data'][$show_index]['image_url']),
+        'total_results' => $results['links']['total_items'],
       );
+      if (isset($results['data'][$show_index]['overviews'][$lang])){
+        $data['overview'] = $results['data'][$show_index]['overviews'][$lang];
+      }
+      if (isset($results['data'][$show_index]['translations'][$lang])){
+        $data['name'] = $results['data'][$show_index]['translations'][$lang];
+      }
+    }else{
+      $data = null;
     }
     return $data;
   }
@@ -91,12 +99,12 @@ class TVDB {
   */
   public function getTvShowEpisodes($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
-    $perams = array(
+    $params = array(
       'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $perams);
+      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $params);
       $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
       return $data;
     }else{
@@ -115,12 +123,12 @@ class TVDB {
   */
   public function getTvShowEpisode($show, $season, $episode, $lang = 'en') {
     # https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
-    $perams = array(
+    $params = array(
       'language' => $lang,
     );
     #check cache for results - save recalling the api
     if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $perams);
+      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $params);
       $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
       return $data;
     }else{
