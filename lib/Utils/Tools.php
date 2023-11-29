@@ -81,7 +81,7 @@ class Tools {
             'eu' => 'eus', 'gl' => 'glg', 'hr' => 'hrv', 'lv' => 'lav', 'lt' => 'lit', 'hu' => 'hun', 'nb' => 'nob', 'oc' => 'oci', 'pl' => 'pol', 'ro' => 'ron',
             'sk' => 'slk', 'sl' => 'slv', 'vi' => 'vie', 'sc' => 'srd', 'fi' => 'fin', 'is' => 'isl', 'cs' => 'ces', 'el' => 'ell', 'bg' => 'bul', 'mk' => 'mkd',
             'sr' => 'srp', 'uk' => 'ukr', 'he' => 'heb', 'fa' => 'fas', 'th' => 'tha', 'lo' => 'lao',);
-        if (isset($languageCodes[$selectedLanguageCode])) {
+        if (isset($languageCodes[$language_code_2])) {
             # return the 3 char language code
             return $languageCodes[$language_code_2];
         } else {
