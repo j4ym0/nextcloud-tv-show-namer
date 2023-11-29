@@ -16,27 +16,27 @@ class TMDB {
   /**
   * search the movie database for TV show
   *
-  * @param searchTurm $searchTurm you wish to search
-  * @param include_year $include_year ture or false - added 0.4.2
+  * @param searchTerm $searchTerm you wish to search
+  * @param include_year $include_year true or false - added 0.4.2
   * @param lang $lang language to search - added 0.6.0
   * @param show_index $show_index to select - added 1.0.0
   * @since 0.0.1
   * @return results as array
   */
-  public function searchTvShow($searchTurm, $include_year, $lang = 'en', $show_index = 0) {
+  public function searchTvShow($searchTerm, $include_year, $lang = 'en', $show_index = 0) {
     # https://developers.themoviedb.org/3/search/search-tv-shows
 
     # try to filter out the year and present it to thetmdb.com
-    preg_match('/^(?P<seriesname>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
-                $searchTurm,
+    preg_match('/^(?P<series_name>.*?)[ \._\-]{0,3}(?P<year>19|20[0-9][0-9])?$/',
+                $searchTerm,
                 $matches);
 
-    # update the search turm
-    if (isset($matches['seriesname'])){
-      $searchTurm = $matches['seriesname'];
+    # update the search term
+    if (isset($matches['series_name'])){
+      $searchTerm = $matches['series_name'];
     }
     $params = array(
-      'query' => $searchTurm,
+      'query' => $searchTerm,
       'language' => $lang,
     );
 
@@ -121,7 +121,7 @@ class TMDB {
   /**
   * fetch the data from the TMDB api
   * @param path $url of the api to query
-  * @param peramiters $params in a key => value format, will be phrased in func
+  * @param parameters $params in a key => value format, will be phrased in func
   * @since 0.0.1
   * @return results as json
   */
