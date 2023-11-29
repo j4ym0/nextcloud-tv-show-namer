@@ -31,7 +31,7 @@
         r+='</table>';
         can.innerHTML=r;
         if (data.show_info != null){
-          if (typeof data.show_info.id != "undefined"){
+          if (typeof data.show_info.source != "undefined"){
             set_active_datasource(data.show_info.source);
         }}
         checkElForCallback('button#confirm', function(t){rename_file(t);});
@@ -213,6 +213,7 @@ function setSelectedValue(selectId, valueToSet) {
   }
 }
   function set_active_datasource(ds){
+    alert(ds);
     if ($('#source_tvdb').hasClass('active')) {
       $('#source_tvdb').removeClass('active');
     }
@@ -221,7 +222,7 @@ function setSelectedValue(selectId, valueToSet) {
     }
     var el = $('#source_tmdb');
     if (ds == 'tvdb'){
-      el = $('#source_tmdb');
+      el = $('#source_tvdb');
     }
     if (ds == 'tmdb'){
       el = $('#source_tmdb');
