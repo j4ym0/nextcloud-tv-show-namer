@@ -8,18 +8,18 @@ class TVDB {
   public $token = "";
   private $key = "";
   public $api_msg = "";
-  private $base_url = "https://api4.thetvdb.com/v4/";
+  private $base_url = "https://api4.thetvdb.com/v4";
   private $cache = array();
 
   public function __construct($api_key, $token = null){
     $this->key = $key;
-    if ($token == null){
+    if ($token == null || $token == ''){
       $data = array(
         'apikey' => $api_key,
         'pin' => '',
       );
   
-      $token_data = Tools::api_call($this->base_url . 'login', null, null, null, $data, 'json');
+      $token_data = Tools::api_call($this->base_url . '/login', null, null, null, $data, 'json');
       if ($token_data['status'] == 'success'){
         $this->token = $token_data['data']['token'];
       }else{
@@ -41,8 +41,9 @@ class TVDB {
   * @return results as array
   */
   public function searchTvShow($searchTerm, $include_year, $lang = 'eng', $show_index = 0) {
-    # https://developers.themoviedb.org/3/search/search-tv-shows
+    # https://thetvdb.github.io/v4-api/#/Search
 
+    #convert the dropdown ISO 639-1 to ISO 639-2
     $lang = Tools::convert_2_to_3($lang);
 
     # try to filter out the year and present it to thetmdb.com
@@ -64,7 +65,7 @@ class TVDB {
       $params['year'] = $matches['year'];
     }
 
-    $results = Tools::api_call($this->base_url . 'search', null, $this->token, $params);
+    $results = Tools::api_call($this->base_url . '/search', null, $this->token, $params);
     if ($results['status'] == 'success' && $results['links']['total_items'] > $show_index){
       $data = array(
         'source' => 'tvdb',
@@ -98,41 +99,76 @@ class TVDB {
   * @return results as array
   */
   public function getTvShowEpisodes($show, $season, $episode, $lang = 'en') {
-    # https://developers.themoviedb.org/3/tv-seasons/get-tv-season-details
+    # https://thetvdb.github.io/v4-api/#/Series/getSeriesSeasonEpisodesTranslated
+
+    #convert the dropdown ISO 639-1 to ISO 639-2
+    $lang = Tools::convert_2_to_3($lang);
+
     $params = array(
-      'language' => $lang,
+      'lang' => $lang,
     );
+
     #check cache for results - save recalling the api
-    if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $params);
-      $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
+    if (!array_key_exists($show.'/'.$season.'/'.$lang, $this->cache)){
+      $results = Tools::api_call($this->base_url . '/series/' . str_replace('series-', '', $show) . '/episodes/default/' . $lang, null, $this->token, $params);
+      
+      $data = array(
+        'episodes' => array(),
+      );
+
+      foreach ($results['data']['episodes'] as $episode_info) {
+        if ($episode_info['seasonNumber'] == $season){
+          array_push($data['episodes'], array('episode_number' => $episode_info['number'], 'name' => $episode_info['name']));
+        }
+      }
+      $this->cache[$show.'/'.$season.'/'.$lang] = $data;
+
       return $data;
     }else{
-      return json_decode($this->cache[$show.'/'.$season.'/0']);
+      return $this->cache[$show.'/'.$season.'/'.$lang];
     }
   }
 
   /**
-  * get a details of a episodes for a show season
+  * get a details of a episode for a show season
   * @param show $show id for the episode list
   * @param season $season number
   * @param episode $episode number
-  * @param lang $lang language to search - added 0.6.0
-  * @since 0.0.1
+  * @param lang $lang language to search
+  * @since 1.0.0
   * @return results as array
   */
   public function getTvShowEpisode($show, $season, $episode, $lang = 'en') {
-    # https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
+    # https://thetvdb.github.io/v4-api/#/Series/getSeriesSeasonEpisodesTranslated
+
+    #convert the dropdown ISO 639-1 to ISO 639-2
+    $lang = Tools::convert_2_to_3($lang);
+
     $params = array(
-      'language' => $lang,
+      'lang' => $lang,
     );
+
     #check cache for results - save recalling the api
-    if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $params);
-      $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
+    if (!array_key_exists($show.'/'.$season.'/'.$episode.'/'.$lang, $this->cache)){
+      $results = Tools::api_call($this->base_url . '/series/' . str_replace('series-', '', $show) . '/episodes/default/' . $lang, null, $this->token, $params);
+      
+      $data = array(
+        'episodes' => array(),
+      );
+
+      foreach ($results['data']['episodes'] as $episode_info) {
+        if ($episode_info['seasonNumber'] == $season){
+          if ($episode_info['number'] == $episode){
+            array_push($data['episodes'], array('episode_number' => $episode_info['number'], 'name' => $episode_info['name']));
+            break;
+          }
+        }
+      }
+      $this->cache[$show.'/'.$season.'/'.$episode.'/'.$lang] = $data;
+
       return $data;
     }else{
-      return json_decode($show.'/'.$this->cache[$season.'/'.$episode]);
+      return $this->cache[$show.'/'.$season.'/'.$episode.'/'.$lang];
     }
   }
 
