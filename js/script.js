@@ -213,7 +213,6 @@ function setSelectedValue(selectId, valueToSet) {
   }
 }
   function set_active_datasource(ds){
-    alert(ds);
     if ($('#source_tvdb').hasClass('active')) {
       $('#source_tvdb').removeClass('active');
     }
