@@ -11,7 +11,7 @@ use OCA\TVShowNamer\Controller\PageController;
 class Files {
 
   /**
-  * retern all files in the folder and do it recursive
+  * return all files in the folder and do it recursive
   * @param results $results use the & to preserve the results
   * @param path $path to scan
   * @param type $type array to filter the tiles returned
@@ -39,7 +39,7 @@ class Files {
   }
 
   /**
-  * retern file info
+  * return file info
   * @param path $path of the file
   * @since 0.0.1
   * @return results of search
@@ -123,13 +123,13 @@ class Files {
   }
 
   /**
-  * build a filename from the info avalable
+  * build a filename from the info available
   * @param title $title of the show
   * @param year $season_year of the file
   * @param season $season_number of the file
   * @param episode $episode_number of the file
   * @param name $name of the episode
-  * @param ext $extention of the file
+  * @param ext $file_ext of the file
   * @param file_structure $file_structure how the file should be named - Default in PageController
   * @since 0.5.0
   * @version 2
@@ -164,9 +164,9 @@ class Files {
   }
 
   /**
-  * sanatize the string for renameing as a filename
+  * sanitize the string for renaming as a filename
   * @param str $string to be sanitized
-  * @param replace $replace charicter to replace the iligal char with
+  * @param replace $replace character to replace the illegal char with
   * @since 0.0.1
   * @return string sanitized
   */
@@ -199,7 +199,7 @@ class Files {
   }
 
   /**
-  * Function to remove everyting after a string
+  * Function to remove everything after a string
   * @param string $string to be check
   * @param trimAt $startAt where to start the trim
   * @since 0.1.3
