@@ -61,7 +61,7 @@ class TMDB {
         'overview' => $results['results'][$show_index]['overview'],
         'name' => $results['results'][$show_index]['name'],
         'first_air_date' => $results['results'][$show_index]['first_air_date'],
-        'img_path' => 'tmdb/image' . $results['results'][$show_index]['poster_path'],
+        'img_path' => 'tmdb/image?' . $results['results'][$show_index]['poster_path'],
         'total_results' => $results['total_results'],
       );
     }

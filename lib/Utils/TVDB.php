@@ -74,7 +74,7 @@ class TVDB {
         'overview' => $results['data'][$show_index]['overview'],
         'name' => $results['data'][$show_index]['name'],
         'first_air_date' => $results['data'][$show_index]['first_air_time'],
-        'img_path' => 'tvdb/image' . str_replace('https://artworks.thetvdb.com/banners/posters/', '/', $results['data'][$show_index]['image_url']),
+        'img_path' => 'tvdb/image?' . str_replace('https://artworks.thetvdb.com/', '', $results['data'][$show_index]['image_url']),
         'total_results' => $results['links']['total_items'],
       );
       if (isset($results['data'][$show_index]['overviews'][$lang])){
