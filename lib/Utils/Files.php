@@ -175,7 +175,7 @@ class Files {
   }
 
   /**
-  * Function to check string startingwith given substring
+  * Function to check string starting with given substring
   * @param string $string to be check
   * @param startString $startString the start of the string to check
   * @since 0.0.1
