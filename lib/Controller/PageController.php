@@ -240,7 +240,7 @@ class PageController extends Controller {
 		$path = $this->postdata->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
 
-		#check to make sure the folder exsist
+		#check to make sure the folder exists
 		$path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
 		if ($userHome->nodeExists($path)) {
 			$folder_to_scan = $userHome->get($path);
