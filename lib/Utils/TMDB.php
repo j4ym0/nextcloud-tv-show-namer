@@ -58,6 +58,7 @@ class TMDB {
         'source' => 'tmdb',
         'adult' => $results['results'][$show_index]['adult'],
         'id' => $results['results'][$show_index]['id'],
+        'link' => 'https://www.themoviedb.org/tv/' . $results['results'][$show_index]['id'],
         'overview' => $results['results'][$show_index]['overview'],
         'name' => $results['results'][$show_index]['name'],
         'first_air_date' => $results['results'][$show_index]['first_air_date'],

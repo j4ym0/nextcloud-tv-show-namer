@@ -65,8 +65,8 @@
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
-    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="'+json.show_info.img_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name} on {website}', {show_name: json.show_info.name, website: 'themoviedb.org'})+'"/></a>' +
-    '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span>' +
+    '<a href="'+json.show_info.link+'" target="_blank"><img class="poster" height="150px" src="'+json.show_info.img_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name}', {show_name: json.show_info.name})+'"/></a>' +
+    '<div class="show_info"><a href="'+json.show_info.link+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span>' +
     '' +
     '<p>'+json.show_info.overview+'</p>'+
     '<div class="not_this">'+t('tvshownamer', 'Not this one?')+' <button class="primary" id="next_title" data-show_index="'+json.show_index+'" data-path="'+json.path+'">'+t('tvshownamer', 'Next')+'</button></div></div>' +

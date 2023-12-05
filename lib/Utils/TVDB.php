@@ -71,6 +71,7 @@ class TVDB {
         'source' => 'tvdb',
         'adult' => '',
         'id' => $results['data'][$show_index]['id'],
+        'link' => 'https://thetvdb.com/series/' . $results['data'][$show_index]['slug'],
         'overview' => $results['data'][$show_index]['overview'],
         'name' => $results['data'][$show_index]['name'],
         'first_air_date' => $results['data'][$show_index]['first_air_time'],
