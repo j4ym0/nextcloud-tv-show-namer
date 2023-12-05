@@ -74,8 +74,9 @@ class PageController extends Controller {
 
 			$this->TMDB = new TMDB($this->tmdb_apiKey == '' ? Application::get_tmdb_api_key() : $this->tmdb_apiKey);
 			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token);
-			if ($this->tvdb_token != $this->TVDB->token){
-				$this->tvdb_token = $this->config->setAppValue(Application::APP_ID, 'tvdb_token', $this->TVDB->token);
+
+			if ($tvdb_token != $this->TVDB->token){
+				$this->config->setAppValue(Application::APP_ID, 'tvdb_token', $this->TVDB->token);
 			}
 
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
@@ -259,8 +260,8 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
-						#check if there are enought results
+						$search = $this->TVDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
+						#check if there are enough results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search;
 							$response['show_index'] = $show_index;
@@ -271,7 +272,7 @@ class PageController extends Controller {
 								$response['message'] = $this->l->t("No files found");
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure, $this->preferred_language);
+								Files::matchFilesToEpisodes($response, $this->TVDB, $this->file_name_structure, $this->preferred_language);
 
 								$response['success'] = true;
 							}
@@ -340,12 +341,13 @@ class PageController extends Controller {
 	* @PublicPage
 	* @NoCSRFRequired
 	*/
-	public function image($src, $img){
+	public function image($src){
+		$img = $_SERVER["QUERY_STRING"];
 		if ($src == 'tmdb'){
 			$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
 		}
 		if ($src == 'tvdb'){
-			$res = new StreamResponse(fopen("https://artworks.thetvdb.com/banners/posters/" . $img, 'r'));
+			$res = new StreamResponse(fopen("https://artworks.thetvdb.com/" . $img, 'r'));
 		}
 		$res->addHeader('Content-type', "image/jpeg; charset=utf-8");
 		return $res;
