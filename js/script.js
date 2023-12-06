@@ -162,7 +162,7 @@
   function submit_selected(){
     $('.file_list #select-all').css("visibility", "hidden");
     $('.file_list #update-all').css("visibility", "hidden");
-    $('.file_list .file-name').html("Updateing...");
+    $('.file_list .file-name').html("Updating...");
     var list = $('input.select-file').filter(':checked');
     var selected =  new Array();
     var i=0;
@@ -190,7 +190,7 @@
       setTimeout(submit_selected_items, 50, items ,i);
     }else{
       select_file();
-      $('select-all').css("visibility", "visable");
+      $('select-all').css("visibility", "visible");
     }
 }
 function scanFolderCallback(path){
@@ -212,24 +212,24 @@ function setSelectedValue(selectId, valueToSet) {
       }
   }
 }
-  function set_active_datasource(ds){
+ function set_active_datasource(ds){
     if ($('#source_tvdb').hasClass('active')) {
-      $('#source_tvdb').removeClass('active');
+        $('#source_tvdb').removeClass('active');
+      }
+      if ($('#source_tmdb').hasClass('active')) {
+        $('#source_tmdb').removeClass('active');
+      }
+      var el = $('#source_tmdb');
+      if (ds == 'tvdb'){
+        el = $('#source_tvdb');
+      }
+      if (ds == 'tmdb'){
+        el = $('#source_tmdb');
+      }
+      el.addClass("active");
+      datasource = $(el).data('source');
     }
-    if ($('#source_tmdb').hasClass('active')) {
-      $('#source_tmdb').removeClass('active');
-    }
-    var el = $('#source_tmdb');
-    if (ds == 'tvdb'){
-      el = $('#source_tvdb');
-    }
-    if (ds == 'tmdb'){
-      el = $('#source_tmdb');
-    }
-    el.addClass("active");
-    datasource = $(el).data('source');
-  }
-  function validate_settings(e){
+    function validate_settings(e){
     if (!$('#enable_tmdb').is(':checked') && !$('#enable_tvdb').is(':checked') ){
       simple_message(t('tvshownamer', 'Unable to disable both data sources'));
       $(e).prop('checked', true);
@@ -295,8 +295,12 @@ function setSelectedValue(selectId, valueToSet) {
     validate_settings(this);
     job = function(data){
       message(data);
-      get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
-    };
+      if (!$('#enable_'+datasource).is(':checked')){
+        get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
+      }else{
+        update_file_list();
+      }  
+    }
     get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, job, false);
   });
   $("#dismiss").on("click", function(e) {
