@@ -8,7 +8,7 @@
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
-//    dont need this at the mo
+//    don't need this at the mo
 //    } else {
 //      setTimeout(function() { checkElForCallback(el, callback);}, 100);
     }
@@ -253,9 +253,9 @@ function setSelectedValue(selectId, valueToSet) {
       $('#source_tvdb').removeClass("hide");
     }
   }
-  function get_data(url, perams, callback, l = true){
+  function get_data(url, params, callback, l = true){
     current_posts++;
-    if (perams === undefined || perams === null){
+    if (params === undefined || params === null){
      $.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
@@ -268,7 +268,7 @@ function setSelectedValue(selectId, valueToSet) {
       url: baseUrl + '/' + url,
       dataType: "json",
       type: "POST",
-      data: JSON.stringify(perams),
+      data: JSON.stringify(params),
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
       complete: function() {if(l){hide_loading(true);}current_posts--;}
