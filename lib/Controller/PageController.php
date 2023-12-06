@@ -39,6 +39,7 @@ class PageController extends Controller {
 	private $enable_tmdb;
 	private $tvdb_active;
 	private $tmdb_active;
+	private $active_datasource;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 	public static $preferred_language_default = 'en';
 	private $l;
@@ -68,9 +69,9 @@ class PageController extends Controller {
 			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
 			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
-			$active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tvdb');
-			$this->tvdb_active = $active_datasource == 'tvdb' ? 'active' : '';
-			$this->tmdb_active = $active_datasource == 'tmdb' ? 'active' : '';
+			$this->active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tvdb');
+			$this->tvdb_active = $this->active_datasource == 'tvdb' ? 'active' : '';
+			$this->tmdb_active = $this->active_datasource == 'tmdb' ? 'active' : '';
 
 			$this->TMDB = new TMDB($this->tmdb_apiKey == '' ? Application::get_tmdb_api_key() : $this->tmdb_apiKey);
 			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token);
@@ -236,6 +237,23 @@ class PageController extends Controller {
 		// is there a show index
 		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
 
+		// is there a selected datasource
+		$datasource = property_exists($this->postdata, 'datasource') ? $this->postdata->datasource : $this->active_datasource;
+		$DS = $this->TVDB;
+		if ($datasource == 'tvdb'){
+			if ($this->enable_tvdb == 'checked'){
+				$DS = $this->TVDB;
+			}else{
+				$DS = $this->TMDB;
+			}
+		}else{
+			if ($this->enable_tmdb == 'checked'){
+				$DS = $this->TMDB;
+			}else{
+				$DS = $this->TVDB;
+			}	
+		}
+
 		// get the folder path
 		$path = $this->postdata->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
@@ -260,7 +278,7 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TVDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
+						$search = $DS->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
 						#check if there are enough results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
 							$response['show_info'] = $search;
@@ -272,7 +290,7 @@ class PageController extends Controller {
 								$response['message'] = $this->l->t("No files found");
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TVDB, $this->file_name_structure, $this->preferred_language);
+								Files::matchFilesToEpisodes($response, $DS, $this->file_name_structure, $this->preferred_language);
 
 								$response['success'] = true;
 							}

@@ -293,8 +293,11 @@ function setSelectedValue(selectId, valueToSet) {
   });
   $(".setting_toggle").change(function(e) {
     validate_settings(this);
-    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, message, false);
-    update_file_list();
+    job = function(data){
+      message(data);
+      get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
+    };
+    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, job, false);
   });
   $("#dismiss").on("click", function(e) {
     var id = $(e).data('id');
