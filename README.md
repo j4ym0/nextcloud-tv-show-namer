@@ -1,13 +1,13 @@
 # Nextcloud TV Show Namer
 
-TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses TVDB ([thetvdb.com](https://thetvdb.com/)) and TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files.
+TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your personal cloud and organise them into a standard format. TV Show Namer uses TVDB ([thetvdb.com](https://thetvdb.com/)) and TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files.
 
 ### currently in development please report issues and suggestions
 
 ## Important updates
  - v1.0.0 
-    - added TVDB ([thetvdb.com](https://thetvdb.com/)) datasource
-    - API Keys are no longer required by you, but your personal TMDB API Key can be added in the datasource section
+    - added TVDB ([thetvdb.com](https://thetvdb.com/)) data source
+    - API Keys are no longer required by you. You can use a personal TMDB API Key by adding it in the data source section
  - v0.4.2
     - Support for years in the show name. Add the year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020'
  - v0.4.0 
@@ -15,6 +15,8 @@ TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud 
 
 
 ## Try it
+
+Download it form the Apps section in Nextcloud 
 
 To install it change into your Nextcloud's apps directory:
 
@@ -32,7 +34,7 @@ The app should run on standard php installation
 ## Getting a personal API Key for TMDB
 This product uses the TMDB API but is not endorsed or certified by TMDB.
 
-As of v1.0.0 you do not need your own API Key to use the TMDB datasource. If you would like to use your own API Key, enter it in datasource.
+As of v1.0.0 you do not need your own API Key to use the TMDB data source. If you would like to use your own API Key, enter it in data source.
 
  - Signup for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
  - [Click here for api page](https://www.themoviedb.org/settings/api) or
@@ -65,7 +67,7 @@ NOTE: Any incompatible symbols will be filleted out when renaming the file.
 
 ## Notes
 
-If you add a '#' to the season folder name, this will search the datasources for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
+If you add a '#' to the season folder name, everything after the '#' will be discounted when searching the data sources. This is useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
 
 
 ## TODO
@@ -75,5 +77,4 @@ If you add a '#' to the season folder name, this will search the datasources for
  - save poster to folders
  - better file recognition
  - recent scanned folders
- - organisation wide api key
 
