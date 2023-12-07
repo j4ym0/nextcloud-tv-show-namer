@@ -154,6 +154,9 @@ ul.menu li a:after {
     transition: all .1s ease-in-out;
     opacity: 1;
 }
+[data-themes*=light] .source_selector #source_tvdb button::after{
+    background-image: url('../img/tvdb_dark.png') !important;
+}
 .source_selector #source_tvdb button::after{
     content: "";
     background-image: url('../img/tvdb_dark.png');
@@ -320,9 +323,6 @@ ul.menu li a:after {
 #app-datasource-button::before {
     background-image: var(--icon-projects-dark) !important;
 }
-[data-themes*=dark] #app-datasource-button::before {
-    background-image: var(--icon-projects-white) !important;
-}
 #app-datasource-content{
     display: none;
     padding: calc(var(--default-grid-baseline)*2);
@@ -341,15 +341,21 @@ ul.menu li a:after {
 #app-datasource-content .powered img{
 	float: right;
 }
-[data-theme-dark] #app-datasource-content .tvdb .powered img{
-	content:url(../img/tvdb.png);
-}
-#app-datasource-content .tvdb{
-}
-#app-datasource-content .tmdb{
-}
 #app-datasource-content .spacer{
 	border-top: solid 1px #000;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+[data-themes*=light] #app-datasource-content .tvdb .powered img{
+	content:url(../img/tvdb_dark.png);
+}
+
+@media (prefers-color-scheme: dark){
+	#app-datasource-content .tvdb .powered img{
+		content:url(../img/tvdb.png);
+	}
+	.source_selector #source_tvdb button::after{
+		background-image: url('../img/tvdb.png');
+	}
+	
 }
