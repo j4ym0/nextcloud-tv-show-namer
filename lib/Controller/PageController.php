@@ -161,9 +161,9 @@ class PageController extends Controller {
 				break;
 			case 'active_datasource':
 				if ($data == "tvdb"){
-					$response['message'] = $this->l->t("Switching datasource to") . " The TV DB";
+					$response['message'] = $this->l->t("Switching data source to") . " The TV DB";
 				}else{
-					$response['message'] = $this->l->t("Switching datasource to") . " The Movie DB";
+					$response['message'] = $this->l->t("Switching data source to") . " The Movie DB";
 				}
 				break;
 		}
