@@ -84,12 +84,23 @@ class TMDB {
       'language' => $lang,
     );
     #check cache for results - save recalling the api
-    if (!array_key_exists($show.'/'.$season.'/0', $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $params);
-      $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
+    if (!array_key_exists($show.'/'.$season.'/'.$lang, $this->cache)){
+      $results = $this->api_Fetch('/tv/' . $show . '/season/' . $season, $params);
+
+      $data = array(
+        'episodes' => array(),
+      );
+
+      foreach ($results['episodes'] as $episode_info) {
+        if ($episode_info['season_number'] == $season){
+          array_push($data['episodes'], array('episode_number' => $episode_info['episode_number'], 'name' => $episode_info['name']));
+        }
+      }
+
+      $this->cache[$show.'/'.$season.'/'.$lang] = $data;
       return $data;
     }else{
-      return json_decode($this->cache[$show.'/'.$season.'/0']);
+      return $this->cache[$show.'/'.$season.'/'.$lang];
     }
   }
 
@@ -108,12 +119,23 @@ class TMDB {
       'language' => $lang,
     );
     #check cache for results - save recalling the api
-    if (!array_key_exists($show.'/'.$season.'/'.$episode, $this->cache)){
-      $data = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $params);
-      $this->cache[$show.'/'.$season.'/'.$episode] = json_encode($data);
+    if (!array_key_exists($show.'/'.$season.'/'.$episode.'/'.$lang, $this->cache)){
+      $results = $this->api_Fetch('/tv/' . $show . '/season/' . $season . '/episode/' . $episode, $params);
+
+      $data = array(
+        'episodes' => array(),
+      );
+
+      foreach ($results['data']['episodes'] as $episode_info) {
+        if ($episode_info['seasonNumber'] == $season){
+          array_push($data['episodes'], array('episode_number' => $episode_info['episode_number'], 'name' => $episode_info['name']));
+        }
+      }
+
+      $this->cache[$show.'/'.$season.'/'.$episode.'/'.$lang] = $data;
       return $data;
     }else{
-      return json_decode($show.'/'.$this->cache[$season.'/'.$episode]);
+      return $this->cache[$show.'/'.$season.'/'.$episode.'/'.$lang];
     }
   }
 
