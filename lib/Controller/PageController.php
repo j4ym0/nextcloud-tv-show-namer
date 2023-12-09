@@ -27,7 +27,7 @@ class PageController extends Controller {
 	private $config;
 	private $rootFolder;
 	private $initialStateService;
-	private $postdata;
+	private $post_data;
 	private $TMDB;
 	private $TVDB;
 	public $file_name_structure;
@@ -58,7 +58,7 @@ class PageController extends Controller {
 			$this->rootFolder = $rootFolder;
 			$this->initialStateService = $initialStateService;
 			$this->l = $l;
-			$this->postdata = json_decode(file_get_contents("php://input"));
+			$this->post_data = json_decode(file_get_contents("php://input"));
 
 			$tvdb_token = $this->config->getAppValue(Application::APP_ID, 'tvdb_token', '');
 
@@ -102,7 +102,7 @@ class PageController extends Controller {
 	}
 
 	/**
-	*				load home page of TVSN
+	*				load home page
 	*
 	* @NoAdminRequired
   * @NoCSRFRequired
@@ -123,8 +123,8 @@ class PageController extends Controller {
 											'message' => '');
 
 		#get the setting to save
-		$setting = $this->postdata->setting;
-		$data = $this->postdata->data;
+		$setting = $this->post_data->setting;
+		$data = $this->post_data->data;
 		$this->config->setUserValue($this->userId, Application::APP_ID, $setting, $data);
 
 		if ($this->config->getUserValue($this->userId, Application::APP_ID, $setting, '') == $data){
@@ -182,9 +182,9 @@ class PageController extends Controller {
 											'message' => '');
 
 		# get the posted vars we need
-		$file_id = $this->postdata->file_id;
-		$file_path = $this->postdata->file_path;
-		$new_file_name = $this->postdata->new_name;
+		$file_id = $this->post_data->file_id;
+		$file_path = $this->post_data->file_path;
+		$new_file_name = $this->post_data->new_name;
 
 		# init OC Files
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
@@ -235,10 +235,10 @@ class PageController extends Controller {
 		//}
 
 		// is there a show index
-		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
+		$show_index = property_exists($this->post_data, 'show_index') ? $this->post_data->show_index+1 : 0;
 
 		// is there a selected datasource
-		$datasource = property_exists($this->postdata, 'datasource') ? $this->postdata->datasource : $this->active_datasource;
+		$datasource = property_exists($this->post_data, 'datasource') ? $this->post_data->datasource : $this->active_datasource;
 		$DS = $this->TVDB;
 		if ($datasource == 'tvdb'){
 			if ($this->enable_tvdb == 'checked'){
@@ -255,7 +255,7 @@ class PageController extends Controller {
 		}
 
 		// get the folder path
-		$path = $this->postdata->scan_folder;
+		$path = $this->post_data->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
 
 		#check to make sure the folder exists
@@ -341,7 +341,7 @@ class PageController extends Controller {
 			$this->config->deleteAppValue(Application::APP_ID, 'hide_matching');
 		}
 
-		$perams =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
+		$params =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
 							'file_name_structure' => $this->file_name_structure,
 							'hide_matching' => $this->hide_matching,
 							'enable_tvdb' => $this->enable_tvdb,
@@ -351,7 +351,7 @@ class PageController extends Controller {
 							'preferred_language' => $this->preferred_language,
 							'info_message' => $message];
 
-		return new TemplateResponse(Application::APP_ID, 'index', $perams);
+		return new TemplateResponse(Application::APP_ID, 'index', $params);
 	}
 
 	# just a place holder to get images at the min
