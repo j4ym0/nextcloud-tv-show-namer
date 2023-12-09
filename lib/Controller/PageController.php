@@ -69,7 +69,7 @@ class PageController extends Controller {
 			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
 			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
-			$this->active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tvdb');
+			$this->active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tmdb');
 			$this->tvdb_active = $this->active_datasource == 'tvdb' ? 'active' : '';
 			$this->tmdb_active = $this->active_datasource == 'tmdb' ? 'active' : '';
 
