@@ -18,7 +18,7 @@ TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your person
 
 Download it form the Apps section in Nextcloud 
 
-To install it change into your Nextcloud's apps directory:
+To install it change into your Nextcloud apps directory:
 
     cd nextcloud/apps
 
@@ -26,7 +26,7 @@ Then run or extract the release zip into the folder:
 
     git clone https://github.com/j4ym0/nextcloud-tv-namer tvshownamer
 
-Next enable the app in the apps section in nextcloud
+Next enable the app in the apps section in Nextcloud
 
 The app should run on standard php installation
 
@@ -36,7 +36,7 @@ This product uses the TMDB API but is not endorsed or certified by TMDB.
 
 As of v1.0.0 you do not need your own API Key to use the TMDB data source. If you would like to use your own API Key, enter it in data source.
 
- - Signup for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
+ - Sign up for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
  - [Click here for api page](https://www.themoviedb.org/settings/api) or
      - Click on your avatar or initials in the main navigation
      - Click the "Settings" link
