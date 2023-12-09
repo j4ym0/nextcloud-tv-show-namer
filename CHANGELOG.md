@@ -1,15 +1,5 @@
 # Changelog
 
-## v1.0.0
-  added TVDB data source
-  no need for api keys
-  data source selection
-  your TMDB api key can still be used as a personal api key
-  better cache for quicker searching
-  reduced languages for better comparability
-  fixes for light/bark theme
-  spelling and grammar fixes
-
 ## v0.6.2
   translation updates
   v27 compatibility
