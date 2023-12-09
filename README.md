@@ -33,7 +33,7 @@ The app should run on standard php installation
 
 # Using TV Show Namer
 
-After version 1.0.0 there is no need to get your own API keys from TVDB ([thetvdb.com](https://thetvdb.com/)) or TMDB ([themoviedb.org](https://www.themoviedb.org/)) although if you wish to use an existing or your own API key for TMDB you can add this in the data source section on the bottom left.
+v1.0.0 and later versions of TV Show Namer no longer need you to enter API keys from TVDB ([thetvdb.com](https://thetvdb.com/)) or TMDB ([themoviedb.org](https://www.themoviedb.org/)) Although if you wish to use an existing or your own API key for TMDB you can add this in the data source section on the bottom left.
 
 Start by clicking Scan Folder, now select your folder with the name for the TV Show, not the Season folder and click Choose. After scanning the folder for video file and matching these with the data source selected. There will be a list shown with matching files. Update the filename by clicking Update to the right of the file listed.
 
