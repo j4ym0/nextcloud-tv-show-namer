@@ -4,4 +4,4 @@ signature.txt
 *.db*
 *.tmp
 *.ini
-.vscode
+.vscode/
