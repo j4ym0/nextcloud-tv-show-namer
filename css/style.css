@@ -33,6 +33,9 @@
   -webkit-transition: .4s;
   transition: .4s;
 }
+[data-themes*=dark] .slider{
+	background-color: #212121;
+}
 .slider:before {
   position: absolute;
   content: "";
@@ -85,6 +88,94 @@ input:checked + .slider:before {
 }
 .show_info .air_date{
 	color: #aaa;
+}
+.source_selector {
+	float: right;
+	margin-right: 20px;
+	margin-top: -10px;
+}
+.source_selector .hide{
+	display: none;
+}
+.source_selector li{
+	float: right;
+	top: 0;
+	margin-left: 5px;
+	padding-bottom: 7px;
+	right: 3px;
+	position: relative;
+}
+.source_selector button{
+	display: flex;
+	align-items: center;
+	height: 20px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: rgba(0,0,0,0);
+	box-shadow: none;
+	border: 0;
+	border-radius: calc(var(--default-clickable-area)/2);
+	text-align: right;
+	font-weight: normal;
+	font-size: 100%;
+	cursor: pointer;
+	color: var(--color-main-text);
+}
+ul.menu li a:after {
+	content: "";
+	display: block;
+	width: 50%;
+	height: 2px;
+	background-color: #3498db;
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: all 0.3s;
+}
+.source_selector li:hover::before {
+	opacity: 1;
+}
+.source_selector li.active:before{
+    content: " ";
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #006aa3;
+	background-color: #006aa3;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 5px;
+    border-radius: 3px;
+    left: 50%;
+    bottom: 6px;
+    display: block;
+    transition: all .1s ease-in-out;
+    opacity: 1;
+}
+[data-themes*=light] .source_selector #source_tvdb button::after{
+    background-image: url('../img/tvdb_dark.png') !important;
+}
+.source_selector #source_tvdb button::after{
+    content: "";
+    background-image: url('../img/tvdb_dark.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+	width: 37px;
+    margin-left: 5px;
+}
+.source_selector #source_tmdb button::after{
+    content: "";
+    background-image: url('../img/tmdb.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+	width: 47px;
+    margin-left: 5px;
 }
 .show_info .not_this, .restore{
 	background: var(--color-main-background-blur);
@@ -215,13 +306,56 @@ input:checked + .slider:before {
 #display-can{
 	padding: 10px;
 }
-#app-settings-content a.help{
-	float: right;
-}
-#app-settings-content a{
+#app-settings a, #app-settings a{
 	font-size: 10px;
 	text-decoration: underline;
+	text-align: right;
 }
-#app-settings-content a:hover{
+#app-settings a:hover{
 	color: #aaa;
+}
+#app-settings a.help, #app-settings a{
+	float: right;
+}
+#app-settings .label-group{
+	padding-top: 10px;
+}
+#app-datasource-button::before {
+    background-image: var(--icon-projects-dark) !important;
+}
+#app-datasource-content{
+    display: none;
+    padding: calc(var(--default-grid-baseline)*2);
+    padding-top: 0;
+    padding-left: calc(var(--default-grid-baseline)*4);
+    max-height: 300px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+#app-datasource-content .powered{
+	display: block;
+}
+#app-datasource-content .powered span{
+	font-weight: bold;
+}
+#app-datasource-content .powered img{
+	float: right;
+}
+#app-datasource-content .spacer{
+	border-top: solid 1px #000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+[data-themes*=light] #app-datasource-content .tvdb .powered img{
+	content:url(../img/tvdb_dark.png);
+}
+
+@media (prefers-color-scheme: dark){
+	#app-datasource-content .tvdb .powered img{
+		content:url(../img/tvdb.png);
+	}
+	.source_selector #source_tvdb button::after{
+		background-image: url('../img/tvdb.png');
+	}
+	
 }

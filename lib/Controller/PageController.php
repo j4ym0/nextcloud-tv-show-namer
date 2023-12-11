@@ -10,6 +10,7 @@ use OCP\IL10N;
 use OCA\TVShowNamer\AppInfo\Application;
 use OCA\TVShowNamer\Utils\Files;
 use OCA\TVShowNamer\Utils\TMDB;
+use OCA\TVShowNamer\Utils\TVDB;
 
 use OCP\AppFramework\Http\StreamResponse;
 
@@ -26,13 +27,19 @@ class PageController extends Controller {
 	private $config;
 	private $rootFolder;
 	private $initialStateService;
-	private $postdata;
+	private $post_data;
 	private $TMDB;
+	private $TVDB;
 	public $file_name_structure;
-	private $apiKey;
-	private $appApiKey;
+	private $tmdb_apiKey;
 	private $app_file_name_structure;
 	private $app_hide_matching;
+	private $hide_matching;
+	private $enable_tvdb;
+	private $enable_tmdb;
+	private $tvdb_active;
+	private $tmdb_active;
+	private $active_datasource;
 	public static $file_name_structure_default = '{{Season_Name}} S{{Season_Number_Padded}}E{{Episode_Number_Padded}} - {{Episode_Name}}';
 	public static $preferred_language_default = 'en';
 	private $l;
@@ -51,15 +58,22 @@ class PageController extends Controller {
 			$this->rootFolder = $rootFolder;
 			$this->initialStateService = $initialStateService;
 			$this->l = $l;
+			$this->post_data = json_decode(file_get_contents("php://input"));
 
-			$this->appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
 			$this->app_file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
 			$this->app_hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
 
-			$this->apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
+			$this->tmdb_apiKey = $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '');
+			$this->enable_tvdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tvdb', 'checked');
+			$this->enable_tmdb = $this->config->getUserValue($this->userId, Application::APP_ID, 'enable_tmdb', 'checked');
 
-			$this->postdata = json_decode(file_get_contents("php://input"));
-			$this->TMDB = new TMDB($this->apiKey);
+			$this->active_datasource = $this->config->getUserValue($this->userId, Application::APP_ID, 'active_datasource', 'tmdb');
+			$this->tvdb_active = $this->active_datasource == 'tvdb' ? 'active' : '';
+			$this->tmdb_active = $this->active_datasource == 'tmdb' ? 'active' : '';
+
+			$this->TMDB = new TMDB($this->tmdb_apiKey == '' ? Application::get_tmdb_api_key() : $this->tmdb_apiKey);
+			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token, $this->config);
+
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
 			if ($this->file_name_structure == ''){
@@ -82,7 +96,7 @@ class PageController extends Controller {
 	}
 
 	/**
-	*				load home page of TVSN
+	*				load home page
 	*
 	* @NoAdminRequired
   * @NoCSRFRequired
@@ -103,8 +117,8 @@ class PageController extends Controller {
 											'message' => '');
 
 		#get the setting to save
-		$setting = $this->postdata->setting;
-		$data = $this->postdata->data;
+		$setting = $this->post_data->setting;
+		$data = $this->post_data->data;
 		$this->config->setUserValue($this->userId, Application::APP_ID, $setting, $data);
 
 		if ($this->config->getUserValue($this->userId, Application::APP_ID, $setting, '') == $data){
@@ -125,8 +139,28 @@ class PageController extends Controller {
 			case 'hide_matching':
 				$response['message'] = $this->l->t("Updated your preference");
 				break;
+			case 'enable_tvdb':
+				if ($data == "checked"){
+					$response['message'] = $this->l->t("Enabled") . " The TV DB " . $this->l->t("Datasource");
+				}else{
+					$response['message'] = $this->l->t("Disabled") . " The TV DB " . $this->l->t("Datasource");
+				}
+				break;
+			case 'enable_tmdb':
+				if ($data == "checked"){
+					$response['message'] = $this->l->t("Enabled") . " The Movie DB " . $this->l->t("Datasource");
+				}else{
+					$response['message'] = $this->l->t("Disabled") . " The Movie DB " . $this->l->t("Datasource");
+				}
+				break;
+			case 'active_datasource':
+				if ($data == "tvdb"){
+					$response['message'] = $this->l->t("Switching data source to") . " The TV DB";
+				}else{
+					$response['message'] = $this->l->t("Switching data source to") . " The Movie DB";
+				}
+				break;
 		}
-
 		# return the json to render on client
 		return new JSONResponse($response);
 	}
@@ -142,9 +176,9 @@ class PageController extends Controller {
 											'message' => '');
 
 		# get the posted vars we need
-		$file_id = $this->postdata->file_id;
-		$file_path = $this->postdata->file_path;
-		$new_file_name = $this->postdata->new_name;
+		$file_id = $this->post_data->file_id;
+		$file_path = $this->post_data->file_path;
+		$new_file_name = $this->post_data->new_name;
 
 		# init OC Files
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
@@ -179,7 +213,7 @@ class PageController extends Controller {
 
 
 	/**
-	*				retreve list of show that can be renamed
+	*				retrieve list of show that can be renamed
 	*
 	* @NoAdminRequired
 	*/
@@ -188,19 +222,37 @@ class PageController extends Controller {
 		$response = array('success' => false,
 											'message' => '');
 
-		if ($this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '') == ''){
-			$response['message'] = $this->l->t("Please configure your API key in settings");
-			return new JSONResponse($response);
-		}
+		// old check for api key can be removed
+		//if ($this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', '') == ''){
+		//	$response['message'] = $this->l->t("Please configure your API key in settings");
+		//	return new JSONResponse($response);
+		//}
 
 		// is there a show index
-		$show_index = property_exists($this->postdata, 'show_index') ? $this->postdata->show_index+1 : 0;
+		$show_index = property_exists($this->post_data, 'show_index') ? $this->post_data->show_index+1 : 0;
+
+		// is there a selected datasource
+		$datasource = property_exists($this->post_data, 'datasource') ? $this->post_data->datasource : $this->active_datasource;
+		$DS = $this->TVDB;
+		if ($datasource == 'tvdb'){
+			if ($this->enable_tvdb == 'checked'){
+				$DS = $this->TVDB;
+			}else{
+				$DS = $this->TMDB;
+			}
+		}else{
+			if ($this->enable_tmdb == 'checked'){
+				$DS = $this->TMDB;
+			}else{
+				$DS = $this->TVDB;
+			}	
+		}
 
 		// get the folder path
-		$path = $this->postdata->scan_folder;
+		$path = $this->post_data->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
 
-		#check to make sure the folder exsist
+		#check to make sure the folder exists
 		$path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
 		if ($userHome->nodeExists($path)) {
 			$folder_to_scan = $userHome->get($path);
@@ -220,10 +272,10 @@ class PageController extends Controller {
 #						$response['absolute_path'] = $folder_to_scan->getPath();
 						$response['path'] = $path;
 
-						$search = $this->TMDB->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language);
-						#check if there are enought results
+						$search = $DS->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
+						#check if there are enough results
 						if ($search !== "" && (string)$search['total_results'] != '0'){
-							$response['show_info'] = $search['results'][$show_index];
+							$response['show_info'] = $search;
 							$response['show_index'] = $show_index;
 							$response['files'] = Files::getFilesRecursive($path);
 
@@ -232,7 +284,7 @@ class PageController extends Controller {
 								$response['message'] = $this->l->t("No files found");
 							}else{
 							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $this->TMDB, $this->file_name_structure, $this->preferred_language);
+								Files::matchFilesToEpisodes($response, $DS, $this->file_name_structure, $this->preferred_language);
 
 								$response['success'] = true;
 							}
@@ -267,9 +319,11 @@ class PageController extends Controller {
 
 		$message = '';
 
+		$appApiKey = $this->config->getAppValue(Application::APP_ID, 'tmdb_api_key', '');
+
 		# Migrate old settings to new
-		if ($this->appApiKey != '' && $this->apiKey == ''){
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', $this->appApiKey);
+		if ($appApiKey != '' && $this->tmdb_apiKey == ''){
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', $appApiKey);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'file_name_structure', $this->app_file_name_structure);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'hide_matching', $this->app_hide_matching);
 
@@ -281,14 +335,17 @@ class PageController extends Controller {
 			$this->config->deleteAppValue(Application::APP_ID, 'hide_matching');
 		}
 
-
-		$perams =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
+		$params =['tmdb_api_key' => $this->config->getUserValue($this->userId, Application::APP_ID, 'tmdb_api_key', ''),
 							'file_name_structure' => $this->file_name_structure,
-							'hide_matching' => $this->hide_matching ? "checked" : "",
+							'hide_matching' => $this->hide_matching,
+							'enable_tvdb' => $this->enable_tvdb,
+							'enable_tmdb' => $this->enable_tmdb,
+							'tvdb_active' => $this->tvdb_active,
+							'tmdb_active' => $this->tmdb_active,
 							'preferred_language' => $this->preferred_language,
 							'info_message' => $message];
 
-		return new TemplateResponse(Application::APP_ID, 'index', $perams);
+		return new TemplateResponse(Application::APP_ID, 'index', $params);
 	}
 
 	# just a place holder to get images at the min
@@ -296,10 +353,16 @@ class PageController extends Controller {
 	* @PublicPage
 	* @NoCSRFRequired
 	*/
-  public function image($img){
-		$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
+	public function image($src){
+		$img = $_SERVER["QUERY_STRING"];
+		if ($src == 'tmdb'){
+			$res = new StreamResponse(fopen("https://image.tmdb.org/t/p/w500/" . $img, 'r'));
+		}
+		if ($src == 'tvdb'){
+			$res = new StreamResponse(fopen("https://artworks.thetvdb.com/" . $img, 'r'));
+		}
 		$res->addHeader('Content-type', "image/jpeg; charset=utf-8");
 		return $res;
-  }
+	}
 
 }

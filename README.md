@@ -1,14 +1,24 @@
 # Nextcloud TV Show Namer
 
-TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your cloud and organise them into a standard format. TV Show Namer uses TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files, you can setup a api key with the guide below. This product uses the TMDB API but is not endorsed or certified by TMDB.
+TV Show Namer for ownCloud and Nextcloud. Scan video files stored in your personal cloud and organise them into a standard format. TV Show Namer uses TVDB ([thetvdb.com](https://thetvdb.com/)) and TMDB ([themoviedb.org](https://www.themoviedb.org/)) to rename your files.
 
 ### currently in development please report issues and suggestions
 
-### In v0.4.0 the way settings are stored has changed. Some users may need to re enter there API Key
+## Important updates
+ - v1.0.0 
+    - added TVDB ([thetvdb.com](https://thetvdb.com/)) data source
+    - API Keys are no longer required by you. You can use a personal TMDB API Key by adding it in the data source section
+ - v0.4.2
+    - Support for years in the show name. Add the year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020'
+ - v0.4.0 
+    - the way settings are stored has changed. Some users may need to re enter there API Key
+
 
 ## Try it
 
-To install it change into your Nextcloud's apps directory:
+Download it form the Apps section in Nextcloud 
+
+To install it change into your Nextcloud apps directory:
 
     cd nextcloud/apps
 
@@ -16,13 +26,26 @@ Then run or extract the release zip into the folder:
 
     git clone https://github.com/j4ym0/nextcloud-tv-namer tvshownamer
 
-Next enable the app in the apps section in nextcloud
+Next enable the app in the apps section in Nextcloud
 
-The app should run on standard php installation, but you will need a api key from themoviedb.org. See [here](#getting-your-api-key) to get an api key.
+The app should run on standard php installation
 
-## Getting your API Key
 
- - Signup for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
+# Using TV Show Namer
+
+v1.0.0 and later versions of TV Show Namer no longer need you to enter API keys from TVDB ([thetvdb.com](https://thetvdb.com/)) or TMDB ([themoviedb.org](https://www.themoviedb.org/)) Although if you wish to use an existing or your own API key for TMDB you can add this in the data source section on the bottom left.
+
+Start by clicking Scan Folder, now select your folder with the name for the TV Show, not the Season folder and click Choose. After scanning the folder for video file and matching these with the data source selected. There will be a list shown with matching files. Update the filename by clicking Update to the right of the file listed.
+
+You can select the data source on the top right of the screen by clicking the data source logo.
+
+
+## Getting a personal API Key for TMDB
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+As of v1.0.0 you do not need your own API Key to use the TMDB data source. If you would like to use your own API Key, enter it in data source.
+
+ - Sign up for an account with [themoviedb.org](https://www.themoviedb.org/signup) at https://www.themoviedb.org/signup
  - [Click here for api page](https://www.themoviedb.org/settings/api) or
      - Click on your avatar or initials in the main navigation
      - Click the "Settings" link
@@ -50,10 +73,11 @@ When choosing your naming structure you can mix the below variables, letters and
 
 NOTE: Any incompatible symbols will be filleted out when renaming the file.
 
+
 ## Notes
 
-If you add a '#' to the season folder name, this will search themoviedb.org for everything before the '#'. This is particularly useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
-From v0.4.2 support for years in the show name has been implemented. This will search the show tiles for a year at the end of then name e.g. 'Spitting Image 2020' or 'Spitting Image - 2020' and use the year to search themoviedb.org. If no year is found in the show name then the full name will be searched.
+If you add a '#' to the season folder name, everything after the '#' will be discounted when searching the data sources. This is useful if there are 2 programs with the same name. e.g. Spitting image and Spitting image 2020, Both are listed as 'Spitting image'. So 'Spitting image 2020' can become 'Spitting image #2020'
+
 
 ## TODO
 
@@ -62,5 +86,4 @@ From v0.4.2 support for years in the show name has been implemented. This will s
  - save poster to folders
  - better file recognition
  - recent scanned folders
- - organisation wide api key
 

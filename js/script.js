@@ -4,10 +4,11 @@
   var loader = document.getElementById('loading-can');
   var header = document.getElementById('headding');
   var current_posts = 0;
+  var datasource = '';
   var checkElForCallback = function(el, callback) {
     if ($(el).length) {
       $(el).each(function() {$(this).click(function() {callback($(this))})});
-//    dont need this at the mo
+//    don't need this at the mo
 //    } else {
 //      setTimeout(function() { checkElForCallback(el, callback);}, 100);
     }
@@ -29,13 +30,17 @@
         }
         r+='</table>';
         can.innerHTML=r;
+        if (data.show_info != null){
+          if (typeof data.show_info.source != "undefined"){
+            set_active_datasource(data.show_info.source);
+        }}
         checkElForCallback('button#confirm', function(t){rename_file(t);});
         checkElForCallback('input.select-file', function(t){select_file();});
         checkElForCallback('input.select-all', function(t){select_all();});
         checkElForCallback('button#next_title', function(t){next_title(t);});
         checkElForCallback('button#update-all', function(){submit_selected();});
         $('.current_folder').html('<a href="../files/?dir=' + data.path + '" title="'+t('tvshownamer', 'Open {path} in Nextcloud', {path: data.path})+'" alt="'+t('tvshownamer', 'Click to open {path} in Nextcloud', {path: data.path})+'">' + data.path + '</a><a data-path="'+data.path +'" id="rescan" class="reload" title="'+t('tvshownamer', 'Rescan folder')+'" alt="'+t('tvshownamer', 'Rescan selected folder')+'"></a>');
-        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path')}, render);});
+        checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path'), 'datasource': datasource}, render);});
       }
     }else{
       message(data);
@@ -44,15 +49,26 @@
   function message(json = null){
     OC.Notification.showTemporary(json.message != null ? json.message : t('tvshownamer', 'Unexpected error'));
   }
+  function simple_message(msg){
+    OC.Notification.showTemporary(msg);
+  }
   function build_show_header(json){
-    if (json.show_info == null){
+    if (json.show_info == null || typeof json.show_info.id === "undefined"){
+      msg = t('tvshownamer', 'Unable to find')+' "'+json.name;
+      if (json.show_info != null){
+        if (typeof json.show_info.status_message !== "undefined"){
+          msg = json.show_info.status_message;
+        }
+      }
       return '<div class="show_can"">' +
-      '<div class="show_info"><span class="headding nolink">'+t('tvshownamer', 'Unable to find')+' "'+json.name+'"</span></div>' +
+      '<div class="show_info"><span class="headding nolink">'+msg+'</span></div>' +
       '</div>';
     }
     return '<div class="show_can" data-id="'+json.show_info.id+'">' +
-    '<a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank"><img class="poster" height="150px" src="image'+json.show_info.poster_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name} on {website}', {show_name: json.show_info.name, website: 'themoviedb.org'})+'"/></a>' +
-    '<div class="show_info"><a href="https://www.themoviedb.org/tv/'+json.show_info.id+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span><p>'+json.show_info.overview+'</p>'+
+    '<a href="'+json.show_info.link+'" target="_blank"><img class="poster" height="150px" src="'+json.show_info.img_path+'" alt="'+t('tvshownamer', '{show_name} poster, click to open the show in a new window', {show_name: json.show_info.name})+'" title="'+t('tvshownamer', 'Open {show_name}', {show_name: json.show_info.name})+'"/></a>' +
+    '<div class="show_info"><a href="'+json.show_info.link+'" target="_blank" class="headding">'+json.show_info.name+'</a> <span class="air_date">('+json.show_info.first_air_date.substring(0,4)+')</span>' +
+    '' +
+    '<p>'+json.show_info.overview+'</p>'+
     '<div class="not_this">'+t('tvshownamer', 'Not this one?')+' <button class="primary" id="next_title" data-show_index="'+json.show_index+'" data-path="'+json.path+'">'+t('tvshownamer', 'Next')+'</button></div></div>' +
     '</div>';
   }
@@ -115,7 +131,15 @@
 
   }
   function next_title(t){
-    get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index')}, render);
+    get_data('scan', {'scan_folder' : $(t).data('path'), 'show_index' : $(t).data('show_index'), 'datasource': datasource}, render);
+  }
+  function source_select(t){
+    $('.source_button').each(function(i) {
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      }
+    });
+    $(t).addClass('active');
   }
   function rename_file(t){
     var id = $(t).data('fileid');
@@ -138,7 +162,7 @@
   function submit_selected(){
     $('.file_list #select-all').css("visibility", "hidden");
     $('.file_list #update-all').css("visibility", "hidden");
-    $('.file_list .file-name').html("Updateing...");
+    $('.file_list .file-name').html("Updating...");
     var list = $('input.select-file').filter(':checked');
     var selected =  new Array();
     var i=0;
@@ -166,11 +190,18 @@
       setTimeout(submit_selected_items, 50, items ,i);
     }else{
       select_file();
-      $('select-all').css("visibility", "visable");
+      $('select-all').css("visibility", "visible");
     }
 }
 function scanFolderCallback(path){
-  get_data('scan', {'scan_folder' : path}, render);
+  if (datasource == ''){
+    $(".source_button").each(function(i, el) {
+      if ($(el).hasClass('active')) {
+        datasource = $(el).data('source');
+      }
+    });
+  }
+  get_data('scan', {'scan_folder' : path, 'datasource': datasource}, render);
 }
 function setSelectedValue(selectId, valueToSet) {
   var selectObj = document.getElementById(selectId);
@@ -181,10 +212,50 @@ function setSelectedValue(selectId, valueToSet) {
       }
   }
 }
-
-  function get_data(url, perams, callback, l = true){
+ function set_active_datasource(ds){
+    if ($('#source_tvdb').hasClass('active')) {
+        $('#source_tvdb').removeClass('active');
+      }
+      if ($('#source_tmdb').hasClass('active')) {
+        $('#source_tmdb').removeClass('active');
+      }
+      var el = $('#source_tmdb');
+      if (ds == 'tvdb'){
+        el = $('#source_tvdb');
+      }
+      if (ds == 'tmdb'){
+        el = $('#source_tmdb');
+      }
+      el.addClass("active");
+      datasource = $(el).data('source');
+    }
+    function validate_settings(e){
+    if (!$('#enable_tmdb').is(':checked') && !$('#enable_tvdb').is(':checked') ){
+      simple_message(t('tvshownamer', 'Unable to disable both data sources'));
+      $(e).prop('checked', true);
+    }
+    if (!$('#enable_tmdb').is(':checked')){
+      $('#source_tmdb').addClass("hide");
+      if ($('#source_tmdb').hasClass('active')) {
+        $('#source_tmdb').removeClass('active');
+        $('#source_tvdb').addClass("active");
+      }
+    }else{
+      $('#source_tmdb').removeClass("hide");
+    }
+    if (!$('#enable_tvdb').is(':checked')){
+      $('#source_tvdb').addClass("hide");
+      if ($('#source_tvdb').hasClass('active')) {
+        $('#source_tvdb').removeClass('active');
+        $('#source_tmdb').addClass("active");
+      }
+    }else{
+      $('#source_tvdb').removeClass("hide");
+    }
+  }
+  function get_data(url, params, callback, l = true){
     current_posts++;
-    if (perams === undefined || perams === null){
+    if (params === undefined || params === null){
      $.ajax({
       url: baseUrl + '/' + url,
       dataType: "json",
@@ -197,7 +268,7 @@ function setSelectedValue(selectId, valueToSet) {
       url: baseUrl + '/' + url,
       dataType: "json",
       type: "POST",
-      data: JSON.stringify(perams),
+      data: JSON.stringify(params),
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
       complete: function() {if(l){hide_loading(true);}current_posts--;}
@@ -220,13 +291,20 @@ function setSelectedValue(selectId, valueToSet) {
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
     });
   });
-  $("#hide_matching").change(function(e) {
-    get_data('save_setting', {'setting' : 'hide_matching', 'data' : $('#hide_matching').prop('checked') ? "checked" : ""}, message, false);
-    update_file_list();
+  $(".setting_toggle").change(function(e) {
+    validate_settings(this);
+    job = function(data){
+      message(data);
+      if (!$('#enable_'+datasource).is(':checked')){
+        get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
+      }else{
+        update_file_list();
+      }  
+    }
+    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).prop('checked') ? "checked" : ""}, job, false);
   });
   $("#dismiss").on("click", function(e) {
     var id = $(e).data('id');
-    alert(id);
     get_data('save_setting', {'setting' : 'hide_message', 'data' : id}, undefined, true);
     $('.message#'+id).css("visibility", "hidden");
   });
@@ -234,8 +312,17 @@ function setSelectedValue(selectId, valueToSet) {
     var id = $(e).data('id');
     get_data('execute', {'message' : id}, reload_page, true);
   });
+  $(".source_button").on("click", function(e) {
+    source_select(this);
+    datasource = $(this).data('source');
+    get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).data('source')}, message, false);
+    get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
+  });
   $("#app-settings-button").on("click", function(e) {
-    $('#app-settings').toggleClass('open');
+    $('#app-settings-content').toggleClass('open');
+  });
+  $("#app-datasource-button").on("click", function(e) {
+    $('#app-datasource-content').toggleClass('open');
   });
   function reload_page(){
     window.location.reload();

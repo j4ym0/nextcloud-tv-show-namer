@@ -6,13 +6,12 @@ use OCP\Files\FileInfo;
 use OC\Files\Node\File;
 use OC\Files\Node\Folder;
 
-use OCA\TVShowNamer\Utils\TMDB;
 use OCA\TVShowNamer\Controller\PageController;
 
 class Files {
 
   /**
-  * retern all files in the folder and do it recursive
+  * return all files in the folder and do it recursive
   * @param results $results use the & to preserve the results
   * @param path $path to scan
   * @param type $type array to filter the tiles returned
@@ -40,7 +39,7 @@ class Files {
   }
 
   /**
-  * retern file info
+  * return file info
   * @param path $path of the file
   * @since 0.0.1
   * @return results of search
@@ -64,16 +63,16 @@ class Files {
   }
 
   /**
-  * match the file names to the episode names from TMDB, uses a static var to update the files array
+  * match the file names to the episode names from DS, uses a static var to update the files array
   * @param Data $collection of the show info and files must include the ['show_info', 'files']
-  * @param TMDB $tmdb instance
+  * @param DS $ds instance
   * @param file_name_structure $file_name_structure
   * @param lang $lang language to search - added 0.6.0
   * @since 0.0.1
   * @return none
   */
 
-  public static function matchFilesToEpisodes(&$collection, &$TMDB, $file_name_structure = null, $lang = 'en') {
+  public static function matchFilesToEpisodes(&$collection, &$DS, $file_name_structure = null, $lang = 'en') {
     #check for empty-Collection
     if (is_null($collection['files'])){return false;}
     # loop though all the files in the collection
@@ -94,8 +93,8 @@ class Files {
         $collection['files'][$i]['ext'] = $matches['extention'];
         $collection['files'][$i]['new_name'] = '';
 
-        # get the episode list from tmdb
-        $epilist = $TMDB->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename'], $lang);
+        # get the episode list from the datasource passes
+        $epilist = $DS->getTvShowEpisodes($collection['show_info']['id'], $matches['seasonnumber'], $matches['episodename'], $lang);
         $episode_number = -1;
         if (!is_null($epilist['episodes'])){
           for($e = 0; $e < count($epilist['episodes']); ++$e) {
@@ -124,13 +123,13 @@ class Files {
   }
 
   /**
-  * build a filename from the info avalable
+  * build a filename from the info available
   * @param title $title of the show
   * @param year $season_year of the file
   * @param season $season_number of the file
   * @param episode $episode_number of the file
   * @param name $name of the episode
-  * @param ext $extention of the file
+  * @param ext $file_ext of the file
   * @param file_structure $file_structure how the file should be named - Default in PageController
   * @since 0.5.0
   * @version 2
@@ -165,9 +164,9 @@ class Files {
   }
 
   /**
-  * sanatize the string for renameing as a filename
+  * sanitize the string for renaming as a filename
   * @param str $string to be sanitized
-  * @param replace $replace charicter to replace the iligal char with
+  * @param replace $replace character to replace the illegal char with
   * @since 0.0.1
   * @return string sanitized
   */
@@ -176,7 +175,7 @@ class Files {
   }
 
   /**
-  * Function to check string startingwith given substring
+  * Function to check string starting with given substring
   * @param string $string to be check
   * @param startString $startString the start of the string to check
   * @since 0.0.1
@@ -200,7 +199,7 @@ class Files {
   }
 
   /**
-  * Function to remove everyting after a string
+  * Function to remove everything after a string
   * @param string $string to be check
   * @param trimAt $startAt where to start the trim
   * @since 0.1.3

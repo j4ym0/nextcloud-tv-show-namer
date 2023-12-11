@@ -11,7 +11,7 @@ return [
     'routes' => [
 	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
        ['name' => 'page#home', 'url' => '/home', 'verb' => 'GET'],
-       ['name' => 'page#image', 'url' => '/image/{img}', 'verb' => 'GET'],
+       ['name' => 'page#image', 'url' => '/{src}/image', 'verb' => 'GET'],
        ['name' => 'page#scan', 'url' => '/scan', 'verb' => 'POST'],
        ['name' => 'page#rename', 'url' => '/rename', 'verb' => 'POST'],
        ['name' => 'page#save_setting', 'url' => '/save_setting', 'verb' => 'POST'],
