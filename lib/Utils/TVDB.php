@@ -2,6 +2,8 @@
 namespace OCA\TVShowNamer\Utils;
 
 use OCA\TVShowNamer\Utils\Tools;
+use OCA\TVShowNamer\AppInfo\Application;
+
 
 class TVDB {
 
@@ -10,9 +12,14 @@ class TVDB {
   public $api_msg = "";
   private $base_url = "https://api4.thetvdb.com/v4";
   private $cache = array();
+  private $config;
 
-  public function __construct($api_key, $token = null){
-    $this->key = $key;
+  public function __construct($api_key, $token = null, $config = null){
+    $this->key = $api_key;
+
+    if ($config != null){
+      $this->config = $config;
+    }
     if ($token == null || $token == ''){
       $data = array(
         'apikey' => $api_key,
@@ -23,7 +30,11 @@ class TVDB {
       if ($token_data['status'] == 'success'){
         $this->token = $token_data['data']['token'];
       }else{
+        $this->token = '';
         $this->api_msg = $token_data['message'];
+      }
+      if ($this->config != null){
+        $this->config->setAppValue(Application::APP_ID, 'tvdb_token', $this->token);
       }
     }else{
       $this->token = $token;
@@ -40,7 +51,7 @@ class TVDB {
   * @since 1.0.0
   * @return results as array
   */
-  public function searchTvShow($searchTerm, $include_year, $lang = 'eng', $show_index = 0) {
+  public function searchTvShow($searchTerm, $include_year, $lang = 'eng', $show_index = 0, $i = 0) {
     # https://thetvdb.github.io/v4-api/#/Search
 
     #convert the dropdown ISO 639-1 to ISO 639-2
@@ -84,6 +95,9 @@ class TVDB {
       if (isset($results['data'][$show_index]['translations'][$lang])){
         $data['name'] = $results['data'][$show_index]['translations'][$lang];
       }
+    }elseif ($results['message'] == 'Unauthorized' && $i < 2){
+      $this->__construct($this->key);
+      $data = $this->searchTvShow($searchTerm, $include_year, $lang, $show_index, $i++);
     }else{
       $data = null;
     }

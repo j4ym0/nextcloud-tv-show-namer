@@ -60,8 +60,6 @@ class PageController extends Controller {
 			$this->l = $l;
 			$this->post_data = json_decode(file_get_contents("php://input"));
 
-			$tvdb_token = $this->config->getAppValue(Application::APP_ID, 'tvdb_token', '');
-
 			$this->app_file_name_structure = $this->config->getAppValue(Application::APP_ID, 'file_name_structure', '');
 			$this->app_hide_matching = $this->config->getAppValue(Application::APP_ID, 'hide_matching', '');
 
@@ -74,11 +72,7 @@ class PageController extends Controller {
 			$this->tmdb_active = $this->active_datasource == 'tmdb' ? 'active' : '';
 
 			$this->TMDB = new TMDB($this->tmdb_apiKey == '' ? Application::get_tmdb_api_key() : $this->tmdb_apiKey);
-			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token);
-
-			if ($tvdb_token != $this->TVDB->token){
-				$this->config->setAppValue(Application::APP_ID, 'tvdb_token', $this->TVDB->token);
-			}
+			$this->TVDB = new TVDB(Application::get_tvdb_api_key(), $tvdb_token, $this->config);
 
 			$this->hide_matching = $this->config->getUserValue($this->userId, Application::APP_ID, 'hide_matching', '');
 			$this->file_name_structure = $this->config->getUserValue($this->userId, Application::APP_ID, 'file_name_structure', '');
