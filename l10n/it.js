@@ -5,7 +5,11 @@ OC.L10N.register(
     "File Name" : "Nome file",
     "Select" : "Seleziona",
     "Update" : "Aggiorna",
+    "Enabled" : "Abilitata",
+    "Datasource" : "Fonte dei dati",
+    "Disabled" : "Disabilitata",
     "Please wait" : "Attendere",
+    "Search" : "Cerca",
     "Settings" : "Impostazioni",
     "Examples" : "Esempi"
 },

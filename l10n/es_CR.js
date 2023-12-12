@@ -4,6 +4,8 @@ OC.L10N.register(
     "Next" : "Siguiente",
     "Select" : "Seleccionar",
     "Update" : "Actualizar",
+    "Enabled" : "Habilitado",
+    "Disabled" : "Deshabilitado",
     "Please wait" : "Por favor aguarda",
     "Settings" : "Configuraciones "
 },

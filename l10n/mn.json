@@ -2,6 +2,9 @@
     "Next" : "дараагийх",
     "Select" : "Сонгох",
     "Update" : "Шинэчлэх",
+    "Enabled" : "Идэвхижүүлэх",
+    "Disabled" : "идэвхигүй",
+    "Search" : "Хайх",
     "Settings" : "Тохиргоо"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

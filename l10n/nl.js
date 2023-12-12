@@ -9,7 +9,11 @@ OC.L10N.register(
     "Select" : "Selecteer",
     "Update" : "Update",
     "Episode not found" : "Aflevering niet gevonden",
+    "Enabled" : "Ingeschakeld",
+    "Datasource" : "Databron",
+    "Disabled" : "Uitgeschakeld",
     "Please wait" : "Even geduld",
+    "Search" : "Zoeken",
     "Settings" : "Instellingen",
     "Examples" : "Voorbeelden"
 },

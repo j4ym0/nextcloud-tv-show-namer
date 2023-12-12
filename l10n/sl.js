@@ -11,8 +11,13 @@ OC.L10N.register(
     "Select" : "Izbor",
     "Update" : "Posodobi",
     "Oops, something went wrong." : "Joj, prišlo je do napake.",
+    "Enabled" : "Omogočeno",
+    "Datasource" : "Podatkovni vir",
+    "Disabled" : "Onemogočeno",
     "Cannot scan home folder. Select a folder" : "Ni mogoče prebrati domače mape. Izberite drugo.",
     "Please wait" : "Počakajte ...",
+    "Enable" : "Omogoči",
+    "Search" : "Poišči",
     "Settings" : "Nastavitve",
     "Hide matching entries" : "Skrij skladne zadetke"
 },

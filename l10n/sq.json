@@ -2,7 +2,11 @@
     "Next" : "Tjetër",
     "Select" : "Zgjidhni",
     "Update" : "Përditëso",
+    "Enabled" : "E aktivizuar",
+    "Disabled" : "I/E çaktivizuar",
     "Please wait" : "Ju lutem prisni",
+    "Enable" : "Aktivizoje",
+    "Search" : "Kërko",
     "Settings" : "Rregullimet"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

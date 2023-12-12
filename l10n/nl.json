@@ -7,7 +7,11 @@
     "Select" : "Selecteer",
     "Update" : "Update",
     "Episode not found" : "Aflevering niet gevonden",
+    "Enabled" : "Ingeschakeld",
+    "Datasource" : "Databron",
+    "Disabled" : "Uitgeschakeld",
     "Please wait" : "Even geduld",
+    "Search" : "Zoeken",
     "Settings" : "Instellingen",
     "Examples" : "Voorbeelden"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

@@ -2,7 +2,10 @@
     "Next" : "შემდეგი",
     "Select" : "არჩევა",
     "Update" : "განახლება",
+    "Enabled" : "მოქმედია",
+    "Disabled" : "არაა მოქმედი",
     "Please wait" : "გთხოვთ მოითმინოთ",
+    "Search" : "ძიება",
     "Settings" : "პარამეტრები"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

@@ -6,6 +6,7 @@ OC.L10N.register(
     "Select" : "Vælg",
     "Update" : "Opdater",
     "Please wait" : "Vent venligst...",
+    "Enable" : "Aktiver",
     "Settings" : "Indstillinger"
 },
 "nplurals=2; plural=(n != 1);");

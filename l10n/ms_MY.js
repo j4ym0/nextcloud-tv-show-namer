@@ -4,6 +4,7 @@ OC.L10N.register(
     "Next" : "Seterus",
     "Select" : "Select",
     "Update" : "Kemaskini",
+    "Search" : "Search",
     "Settings" : "Tetapan"
 },
 "nplurals=1; plural=0;");

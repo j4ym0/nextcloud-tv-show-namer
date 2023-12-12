@@ -4,6 +4,8 @@ OC.L10N.register(
     "Next" : "Sequente",
     "Select" : "Selectionar",
     "Update" : "Actualisation",
+    "Enabled" : "Activate",
+    "Search" : "Cercar",
     "Settings" : "Configurationes"
 },
 "nplurals=2; plural=(n != 1);");

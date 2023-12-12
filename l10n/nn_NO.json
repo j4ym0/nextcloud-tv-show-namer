@@ -2,6 +2,9 @@
     "Next" : "Neste",
     "Select" : "Vel",
     "Update" : "Oppdater",
+    "Disabled" : "Deaktivert",
+    "Enable" : "SLå på",
+    "Search" : "Søk",
     "Settings" : "Innstillingar"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

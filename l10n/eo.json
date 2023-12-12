@@ -2,6 +2,8 @@
     "Next" : "Sekva",
     "Select" : "Elekti",
     "Update" : "Ĝisdatigi",
+    "Disabled" : "Malkapabligita",
+    "Enable" : "Ŝalti",
     "Settings" : "Agordoj"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

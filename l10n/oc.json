@@ -2,6 +2,9 @@
     "Next" : "Seguent",
     "Select" : "Select",
     "Update" : "Actualizar",
+    "Enabled" : "Activada",
+    "Disabled" : "Desactivat",
+    "Search" : "Recercar",
     "Settings" : "Paramètres"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

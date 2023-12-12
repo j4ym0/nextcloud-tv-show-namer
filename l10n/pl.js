@@ -9,13 +9,16 @@ OC.L10N.register(
     "Select" : "Wybierz",
     "Update" : "Aktualizuj",
     "Updated your API Key" : "Zaktualizowano twój klucz API",
+    "Enabled" : "Włączone",
+    "Datasource" : "Źródło danych",
+    "Disabled" : "Wyłączone",
     "Unable rename the file" : "Nie można zmienić nazwy pliku",
     "No files found" : "Nie znaleziono plików",
     "Please wait" : "Proszę czekać",
     "Scan Folder" : "Skanuj folder",
+    "Enable" : "Włącz",
+    "Search" : "Szukaj",
     "Settings" : "Ustawienia",
-    "API Key" : "Klucz API",
-    "Get your API key here" : "Pobierz swój klucz API tutaj",
     "Examples" : "Przykłady"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

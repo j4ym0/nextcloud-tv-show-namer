@@ -1,6 +1,8 @@
 { "translations": {
     "Select" : "Select",
     "Update" : "Update",
+    "Enable" : "Enable",
+    "Search" : "Search",
     "Settings" : "Sozlamalar"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

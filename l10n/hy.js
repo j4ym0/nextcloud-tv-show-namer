@@ -4,6 +4,7 @@ OC.L10N.register(
     "Next" : "Հաջորդ",
     "Select" : "Select",
     "Update" : "Թարմացնել",
+    "Search" : "Search",
     "Settings" : "կարգավորումներ"
 },
 "nplurals=2; plural=(n != 1);");

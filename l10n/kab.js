@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Next" : "Uḍfir",
     "Select" : "Fren",
+    "Enabled" : "Yermed",
+    "Disabled" : "Ittwarermed",
+    "Search" : "Nadi",
     "Settings" : "Iɣewwaṛen"
 },
 "nplurals=2; plural=(n != 1);");

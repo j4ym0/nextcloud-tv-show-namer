@@ -2,6 +2,9 @@
     "Next" : "Weider",
     "Select" : "Select",
     "Update" : "Update",
+    "Enabled" : "Aktivéiert",
+    "Disabled" : "Deaktivéiert",
+    "Search" : "Search",
     "Settings" : "Astellungen"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -4,6 +4,9 @@ OC.L10N.register(
     "Next" : "ถัดไป",
     "Select" : "เลือก",
     "Update" : "อัปเดต",
+    "Enabled" : "เปิดใช้งาน",
+    "Disabled" : "ปิดใช้งาน",
+    "Search" : "ค้นหา",
     "Settings" : "การตั้งค่า"
 },
 "nplurals=1; plural=0;");

@@ -4,6 +4,7 @@ OC.L10N.register(
     "Next" : "كېيىنكى",
     "Select" : "Select",
     "Update" : "يېڭىلا",
+    "Search" : "Search",
     "Settings" : "تەڭشەكلەر"
 },
 "nplurals=2; plural=(n != 1);");

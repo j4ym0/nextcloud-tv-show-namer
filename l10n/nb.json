@@ -2,7 +2,10 @@
     "Next" : "Neste",
     "Select" : "Velg",
     "Update" : "Oppdater",
+    "Enabled" : "Aktivert",
+    "Disabled" : "Deaktivert",
     "Please wait" : "Vent",
+    "Search" : "Søk",
     "Settings" : "Innstillinger"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
