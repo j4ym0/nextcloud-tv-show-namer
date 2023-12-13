@@ -38,6 +38,7 @@ OC.L10N.register(
     "Scan Folder" : "Escanear carpeta",
     "Choose a folder to start" : "Seleccione una carpeta para comenzar",
     "Enable" : "Habilitar",
+    "Search" : "Buscar",
     "Settings" : "Ajustes",
     "Preferred Naming Language" : "Lenguaje preferido para el nombrado",
     "Naming Structure" : "Estructura de nombrado",

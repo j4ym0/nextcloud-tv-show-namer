@@ -6,6 +6,7 @@ OC.L10N.register(
     "Update" : "Ĝisdatigi",
     "Disabled" : "Malkapabligita",
     "Enable" : "Ŝalti",
+    "Search" : "Serĉi",
     "Settings" : "Agordoj"
 },
 "nplurals=2; plural=(n != 1);");

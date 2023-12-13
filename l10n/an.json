@@ -1,0 +1,7 @@
+{ "translations": {
+    "Enabled" : "Activau",
+    "Disabled" : "Desactivau",
+    "Search" : "Buscar",
+    "Settings" : "Configurazión"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

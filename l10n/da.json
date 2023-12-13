@@ -3,8 +3,11 @@
     "File Name" : "Filnavn",
     "Select" : "Vælg",
     "Update" : "Opdater",
+    "Enabled" : "Aktiveret",
+    "Disabled" : "Deaktiveret",
     "Please wait" : "Vent venligst...",
     "Enable" : "Aktiver",
+    "Search" : "Søg",
     "Settings" : "Indstillinger"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
