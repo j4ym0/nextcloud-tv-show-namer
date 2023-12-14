@@ -1,4 +1,5 @@
 { "translations": {
+    "Unexpected error" : "Неожиданная ошибка",
     "Next" : "Далее",
     "Select All" : "Выбрать все",
     "File Name" : "Имя файла",
