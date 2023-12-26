@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.1
+  translation updates
+  Nextcloud 28 compatibility
+
 ## v1.0.0
   added TVDB data source
   no need for api keys
