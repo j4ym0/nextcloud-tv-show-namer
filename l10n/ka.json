@@ -1,0 +1,12 @@
+{ "translations": {
+    "Next" : "Next",
+    "Select All" : "Select All",
+    "Select" : "Select",
+    "Update" : "Update",
+    "Enabled" : "Enabled",
+    "Disabled" : "Disabled",
+    "Enable" : "Enable",
+    "Search" : "Search",
+    "Settings" : "Settings"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
+}
