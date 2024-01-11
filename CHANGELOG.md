@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.2
+  translation updates
+
 ## v1.0.1
   translation updates
   Nextcloud 28 compatibility
