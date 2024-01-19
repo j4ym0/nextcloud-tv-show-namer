@@ -8,6 +8,7 @@ OC.L10N.register(
     "Unexpected error" : "Neočekávaná chyba",
     "Unable to find" : "Nelze najít",
     "{show_name} poster, click to open the show in a new window" : "Plakát k {show_name}, kliknutím pořad otevřete v novém okně",
+    "Open {show_name}" : "Otevřít {show_name}",
     "Not this one?" : "Tohle ne?",
     "Next" : "Další",
     "Select All" : "Vybrat vše",
