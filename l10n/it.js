@@ -6,7 +6,7 @@ OC.L10N.register(
     "Select" : "Seleziona",
     "Update" : "Aggiorna",
     "Enabled" : "Abilitata",
-    "Datasource" : "Fonte dei dati",
+    "Datasource" : "Sorgente dei dati",
     "Disabled" : "Disabilitata",
     "Please wait" : "Attendere",
     "Search" : "Cerca",
