@@ -7,6 +7,7 @@ OC.L10N.register(
     "Enabled" : "Aktivert",
     "Disabled" : "Deaktivert",
     "Please wait" : "Vent",
+    "Enable" : "Aktiver",
     "Search" : "Søk",
     "Settings" : "Innstillinger"
 },
