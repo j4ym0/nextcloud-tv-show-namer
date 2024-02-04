@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Next" : "Neste",
+    "Select All" : "Velg alle",
     "Select" : "Velg",
     "Update" : "Oppdater",
     "Enabled" : "Aktivert",
