@@ -9,6 +9,6 @@ OC.L10N.register(
     "Disabled" : "Disativadu",
     "Enable" : "Ativa",
     "Search" : "Chirca",
-    "Settings" : "Impostatziones"
+    "Settings" : "Cunfiguratzione"
 },
 "nplurals=2; plural=(n != 1);");
