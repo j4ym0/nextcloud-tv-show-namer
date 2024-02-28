@@ -8,6 +8,7 @@ OC.L10N.register(
     "Enabled" : "有効",
     "Disabled" : "無効",
     "Please wait" : "お待ちください",
+    "Enable" : "有効にする",
     "Search" : "検索",
     "Settings" : "設定"
 },
