@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Next" : "Siguiente",
     "File Name" : "Nome del ficheru",
+    "Select" : "Seleicionar",
     "Update" : "Anovar",
     "Search" : "Guetar",
     "Settings" : "Configuración"
