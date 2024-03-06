@@ -5,6 +5,7 @@ OC.L10N.register(
     "File Name" : "Nome del ficheru",
     "Select" : "Seleicionar",
     "Update" : "Anovar",
+    "Enable" : "Activar",
     "Search" : "Guetar",
     "Settings" : "Configuración"
 },
