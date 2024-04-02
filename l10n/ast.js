@@ -18,6 +18,8 @@ OC.L10N.register(
     "Oops, something went wrong." : "Meca, prodúxose daqué malo.",
     "Updated your API Key" : "Anovóse la clave API",
     "Updated your preferred language" : "Anovóse la llingua preferida",
+    "Enabled" : "Activóse",
+    "Disabled" : "Desactivóse",
     "Switching data source to" : "Cambiando la fonte de datos a",
     "Unable rename the file" : "Nun ye posible renomar el ficheru",
     "File is locked or in use" : "El ficheru ta bloquiáu o n'usu",
