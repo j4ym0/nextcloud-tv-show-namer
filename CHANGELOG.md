@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.3
+  Nextcloud 29 compatibility
+  translation updates
+
 ## v1.0.2
   translation updates
 
