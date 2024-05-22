@@ -10,6 +10,7 @@ OC.L10N.register(
     "Datasource" : "Sorgente dei dati",
     "Disabled" : "Disabilitata",
     "Please wait" : "Attendere",
+    "Enable" : "Abilita",
     "Search" : "Cerca",
     "Settings" : "Impostazioni",
     "Examples" : "Esempi"

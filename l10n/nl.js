@@ -13,6 +13,7 @@ OC.L10N.register(
     "Datasource" : "Databron",
     "Disabled" : "Uitgeschakeld",
     "Please wait" : "Even geduld",
+    "Enable" : "Inschakelen",
     "Search" : "Zoeken",
     "Settings" : "Instellingen",
     "Examples" : "Voorbeelden"
