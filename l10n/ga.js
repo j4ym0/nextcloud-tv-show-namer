@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Earráid gan choinne",
+    "Next" : "Ar aghaidh",
     "Select" : "Roghnaigh",
     "Update" : "Nuashonrú",
     "Disabled" : "Faoi mhíchumas",
