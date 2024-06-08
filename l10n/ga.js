@@ -5,6 +5,7 @@ OC.L10N.register(
     "Next" : "Ar aghaidh",
     "Select" : "Roghnaigh",
     "Update" : "Nuashonrú",
+    "Enabled" : "Cumasaithe",
     "Disabled" : "Faoi mhíchumas",
     "Enable" : "Cumasaigh",
     "Search" : "Cuardach",
