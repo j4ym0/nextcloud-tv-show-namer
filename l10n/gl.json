@@ -25,7 +25,7 @@
     "Datasource" : "OrixeDosDatos",
     "Disabled" : "Desactivado",
     "Switching data source to" : "Cambiando a orixe dos datos a",
-    "Unable rename the file" : "Non é posíbel renomear o ficheiro",
+    "Unable rename the file" : "Non é posíbel cambiarlle o nome ao ficheiro",
     "File is locked or in use" : "O ficheiro está bloqueado ou en uso",
     "File path invalid" : "A ruta do ficheiro non é válida",
     "Unable to find file. Try to refresh" : "Non é posíbel atopar o ficheiro. Tente actualizar",
