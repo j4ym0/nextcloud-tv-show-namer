@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Rescan selected folder" : "Genomsökning av vald katalog",
+    "Unexpected error" : "Oväntat fel",
     "Unable to find" : "Hittade inget",
     "Not this one?" : "Inte den här?",
     "Next" : "Nästa",
