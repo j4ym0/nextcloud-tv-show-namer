@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Неожиданная ошибка",
+    "{show_name} poster, click to open the show in a new window" : "{show_name} постер, нажмите, чтобы открыть выставку в новом окне",
     "Next" : "Далее",
     "Select All" : "Выбрать все",
     "File Name" : "Имя файла",
