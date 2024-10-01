@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.4
+  Nextcloud 30 compatibility
+  translation updates
+
 ## v1.0.3
   Nextcloud 29 compatibility
   translation updates
@@ -69,7 +73,7 @@
 
 ## v0.3.0
   implement internationalization
-  gramma / language fixes
+  grammar / language fixes
   bug fixes
 
 ## v0.2.2
