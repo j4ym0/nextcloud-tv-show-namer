@@ -34,7 +34,7 @@ OC.L10N.register(
     "No files found" : "Aucun fichier trouvé",
     "No results for \"%1$s\"" : "Aucun résultat pour \"%1$s\"",
     "Cannot scan home folder. Select a folder" : "Impossible de scanner le dossier de base. Sélectionnez un dossier",
-    "Please select a folder" : "Veuillez sélectionner un dossier",
+    "Please select a folder" : "Sélectionnez un dossier",
     "Folder does not exist" : "Le dossier n'existe pas",
     "TV Show Namer" : "TV Show Namer",
     "Organise your TV shows" : "Organisez vos émissions TV",
