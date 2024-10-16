@@ -38,6 +38,7 @@ OC.L10N.register(
     "Folder does not exist" : "Složka neexistuje",
     "TV Show Namer" : "TV Show Namer",
     "Organise your TV shows" : "Uspořádejte si vámi sledované televizní pořady",
+    "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org and thetvdb.com to scrape TV information to organise your files.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "TV show namer organizuje vámi sledované televizní pořady, seriály a jejich série do standardního formátu. Používá themoviedb.org a thetvdb.com, aby o nich získal informace za účelem uspořádání vašich souborů.\n\nSnadno přejmenujte soubory z \"nejaky.serial.s01e03.avi\" na \"Nějaký seriál - S01E01 - Název dílu.avi\".",
     "Please wait" : "Vyčkejte",
     "Scan Folder" : "Naskenovat složku",
     "Choose a folder to start" : "Pro začátek zvolte složku",
