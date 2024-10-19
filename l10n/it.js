@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unexpected error" : "Errore imprevisto",
     "Next" : "Successivo",
     "Select All" : "Seleziona tutto",
     "File Name" : "Nome file",
