@@ -1,7 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
-    "Open {path} in Nextcloud" : "إفتح {path} في نكست كلاود",
+    "Open {path} in Nextcloud" : "فتح {path} في نكست كلاود",
     "Click to open {path} in Nextcloud" : "أُنقُر لفتح {path} في نكست كلاود",
     "Rescan folder" : "أعِد فحص المُجلّد",
     "Rescan selected folder" : "أعِد فحص المجلد المُحدّد",
