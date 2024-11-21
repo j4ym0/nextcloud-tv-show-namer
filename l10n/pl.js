@@ -15,7 +15,7 @@ OC.L10N.register(
     "Unable rename the file" : "Nie można zmienić nazwy pliku",
     "No files found" : "Nie znaleziono plików",
     "Please wait" : "Proszę czekać",
-    "Scan Folder" : "Skanuj folder",
+    "Scan Folder" : "Skanuj katalog",
     "Enable" : "Włącz",
     "Search" : "Szukaj",
     "Settings" : "Ustawienia",
