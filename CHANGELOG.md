@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.5
+  translation updates
+
 ## v1.0.4
   Nextcloud 30 compatibility
   translation updates
