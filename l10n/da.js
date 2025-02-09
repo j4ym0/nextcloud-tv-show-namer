@@ -7,7 +7,7 @@ OC.L10N.register(
     "Update" : "Opdater",
     "Enabled" : "Aktiveret",
     "Disabled" : "Deaktiveret",
-    "Please wait" : "Vent venligst...",
+    "Please wait" : "Vent venligst",
     "Enable" : "Aktiver",
     "Search" : "Søg",
     "Settings" : "Indstillinger"
