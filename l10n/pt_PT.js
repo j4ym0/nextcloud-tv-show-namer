@@ -5,10 +5,10 @@ OC.L10N.register(
     "File Name" : "Nome do ficheiro",
     "Select" : "Selecionar",
     "Update" : "Atualizar",
-    "Enabled" : "Activo",
-    "Disabled" : "Desactivado",
+    "Enabled" : "Ativado",
+    "Disabled" : "Desativado",
     "Please wait" : "Por favor aguarde",
-    "Enable" : "Activar",
+    "Enable" : "Ativar",
     "Search" : "Pesquisa sobre",
     "Settings" : "Definições"
 },
