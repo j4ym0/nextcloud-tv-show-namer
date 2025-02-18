@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Obre {show_name}",
     "Next" : "Següent",
     "File Name" : "Nom del fitxer",
     "Select" : "Selecciona",
