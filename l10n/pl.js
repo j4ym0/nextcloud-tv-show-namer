@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Nieznany błąd",
+    "Open {show_name}" : "Otwórz {show_name}",
     "Not this one?" : "Nie ten?",
     "Next" : "Następna",
     "Select All" : "Wybierz wszystko",
