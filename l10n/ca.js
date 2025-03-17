@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Open {show_name}" : "Obre {show_name}",
     "Next" : "Següent",
+    "Select All" : "Selecciona-ho tot",
     "File Name" : "Nom del fitxer",
     "Select" : "Selecciona",
     "Update" : "Actualitzar",
