@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unexpected error" : "Tundmatu viga",
     "Next" : "Järgmine",
     "Select" : "Vali",
     "Update" : "Uuenda",
