@@ -8,6 +8,7 @@ OC.L10N.register(
     "Enabled" : "Sisse lülitatud",
     "Disabled" : "Keelatud",
     "Please wait" : "Palun oota",
+    "Enable" : "Lülita sisse",
     "Search" : "Otsi",
     "Settings" : "Seaded"
 },
