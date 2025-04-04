@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Tundmatu viga",
+    "Open {show_name}" : "Ava {show_name} ",
     "Next" : "Järgmine",
     "Select" : "Vali",
     "Update" : "Uuenda",
