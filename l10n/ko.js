@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Next" : "다음",
+    "Select All" : "모두 선택",
     "Select" : "선택",
     "Update" : "업데이트",
     "Enabled" : "활성화",
