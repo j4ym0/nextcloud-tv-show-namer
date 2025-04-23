@@ -5,7 +5,7 @@ OC.L10N.register(
     "Select" : "Select",
     "Update" : "Update",
     "Enable" : "Enable",
-    "Search" : "Search",
+    "Search" : "Qidirish",
     "Settings" : "Sozlamalar"
 },
 "nplurals=1; plural=0;");
