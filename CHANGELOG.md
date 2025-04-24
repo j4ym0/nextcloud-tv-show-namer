@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.6
+  translation updates
+  Nextcloud 31 compatibility
+
 ## v1.0.5
   translation updates
 
