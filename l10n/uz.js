@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Open {show_name}" : "Ochiq {show_name}",
+    "Next" : "Keyingisi",
     "Select" : "Select",
     "Update" : "Update",
     "Enable" : "Enable",
