@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Отвори {show_name}",
     "Next" : "Следна",
     "Select All" : "Избери се",
     "Select" : "Select",
