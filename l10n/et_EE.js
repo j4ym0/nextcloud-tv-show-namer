@@ -4,6 +4,7 @@ OC.L10N.register(
     "Unexpected error" : "Tundmatu viga",
     "Open {show_name}" : "Ava {show_name} ",
     "Next" : "Järgmine",
+    "Select All" : "Vali kõik",
     "Select" : "Vali",
     "Update" : "Uuenda",
     "Enabled" : "Sisse lülitatud",
