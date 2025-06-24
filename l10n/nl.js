@@ -4,6 +4,7 @@ OC.L10N.register(
     "Rescan folder" : "Map opnieuw scannen",
     "Rescan selected folder" : "Geselecteerde map opnieuw scannen",
     "Unexpected error" : "Onverwachte fout",
+    "Open {show_name}" : "{show_name} openen",
     "Next" : "Volgende",
     "Select All" : "Alles Selecteren",
     "File Name" : "Bestandsnaam",
