@@ -9,12 +9,16 @@
     "Select" : "Selecteer",
     "Update" : "Update",
     "Episode not found" : "Aflevering niet gevonden",
+    "Updated your API Key" : "Je API-sleutel is bijgewerkt",
     "Enabled" : "Ingeschakeld",
     "Datasource" : "Databron",
     "Disabled" : "Uitgeschakeld",
     "Please wait" : "Even geduld",
     "Enable" : "Inschakelen",
     "Search" : "Zoeken",
+    "Personal API Key" : "Persoonlijke API-sleutel",
+    "Personal API key help" : "Persoonlijke API-sleutel hulp",
+    "Personal API key" : "Persoonlijke API-sleutel",
     "Settings" : "Instellingen",
     "Examples" : "Voorbeelden"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
