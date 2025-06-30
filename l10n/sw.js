@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Unexpected error" : "Hitilafu isiyotarajiwa",
     "Update" : "Sasisha",
+    "Disabled" : "Zima",
     "Search" : "Tafuta",
     "Settings" : "Mipangilio"
 },
