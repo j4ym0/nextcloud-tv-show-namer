@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Hitilafu isiyotarajiwa",
+    "Select" : "Chagua",
     "Update" : "Sasisha",
     "Disabled" : "Zima",
     "Search" : "Tafuta",
