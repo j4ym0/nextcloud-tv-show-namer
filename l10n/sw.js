@@ -4,6 +4,7 @@ OC.L10N.register(
     "Unexpected error" : "Hitilafu isiyotarajiwa",
     "Select" : "Chagua",
     "Update" : "Sasisha",
+    "Enabled" : "Washwa",
     "Disabled" : "Zima",
     "Search" : "Tafuta",
     "Settings" : "Mipangilio"
