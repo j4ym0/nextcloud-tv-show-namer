@@ -7,6 +7,7 @@ OC.L10N.register(
     "Update" : "Sasisha",
     "Enabled" : "Washwa",
     "Disabled" : "Zima",
+    "Enable" : "Wezesha",
     "Search" : "Tafuta",
     "Settings" : "Mipangilio"
 },
