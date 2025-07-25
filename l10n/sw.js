@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Unexpected error" : "Hitilafu isiyotarajiwa",
     "Open {show_name}" : "Fungua {show_name}",
+    "Next" : "Next",
     "Select" : "Chagua",
     "Update" : "Sasisha",
     "Enabled" : "Washwa",
