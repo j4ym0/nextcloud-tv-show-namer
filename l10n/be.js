@@ -1,7 +1,9 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unable to find" : "Немагчыма знайсці",
     "Select" : "Выбраць",
+    "Unable to find file. Try to refresh" : "Немагчыма знайсці файл. Паспрабуйце абнавіць старонку.",
     "Search" : "Пошук",
     "Settings" : "Налады"
 },
