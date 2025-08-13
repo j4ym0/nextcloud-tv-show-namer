@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Unable to find" : "Немагчыма знайсці",
     "Select" : "Выбраць",
+    "Update" : "Абнавіць",
     "Unable to find file. Try to refresh" : "Немагчыма знайсці файл. Паспрабуйце абнавіць старонку.",
     "Search" : "Пошук",
     "Settings" : "Налады"
