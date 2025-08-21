@@ -5,6 +5,7 @@ OC.L10N.register(
     "Select" : "Выбраць",
     "Update" : "Абнавіць",
     "Unable to find file. Try to refresh" : "Немагчыма знайсці файл. Паспрабуйце абнавіць старонку.",
+    "Please wait" : "Пачакайце",
     "Search" : "Пошук",
     "Settings" : "Налады"
 },
