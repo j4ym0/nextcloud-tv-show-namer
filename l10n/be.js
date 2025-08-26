@@ -8,6 +8,7 @@ OC.L10N.register(
     "Updated your preferred language" : "Абноўлена ваша прыярытэтная мова",
     "Unable to find file. Try to refresh" : "Немагчыма знайсці файл. Паспрабуйце абнавіць старонку.",
     "Please wait" : "Пачакайце",
+    "Enable" : "Уключыць",
     "Search" : "Пошук",
     "Settings" : "Налады",
     "Preferred Naming Language" : "Прыярытэтная мова наймення"
