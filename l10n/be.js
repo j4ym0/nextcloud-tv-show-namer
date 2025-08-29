@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Unable to find" : "Немагчыма знайсці",
     "Open {show_name}" : "Адкрыць {show_name}",
+    "File Name" : "Назва файла",
     "Select" : "Выбраць",
     "Update" : "Абнавіць",
     "Updated your preferred language" : "Абноўлена ваша прыярытэтная мова",
