@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Avaa {show_name}",
     "Next" : "Seuraava",
     "Select All" : "Valitse kaikki",
     "File Name" : "Tiedoston nimi",
