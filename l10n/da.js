@@ -6,7 +6,7 @@ OC.L10N.register(
     "Select All" : "Vælg alle",
     "File Name" : "Filnavn",
     "Select" : "Vælg",
-    "Update" : "Opdater",
+    "Update" : "Opdatér",
     "Enabled" : "Aktiveret",
     "Disabled" : "Deaktiveret",
     "Please wait" : "Vent venligst",
