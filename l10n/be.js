@@ -8,6 +8,7 @@ OC.L10N.register(
     "Select" : "Выбраць",
     "Update" : "Абнавіць",
     "Updated your preferred language" : "Абноўлена ваша прыярытэтная мова",
+    "Enabled" : "Уключаны",
     "Disabled" : "Адключана",
     "Unable to find file. Try to refresh" : "Немагчыма знайсці файл. Паспрабуйце абнавіць старонку.",
     "No files found" : "Файлы не знойдзены",
