@@ -3,7 +3,13 @@ OC.L10N.register(
     {
     "Open {show_name}" : "ເປີດ {show_name}",
     "Next" : "ທັດໄປ",
+    "Select All" : "Select All",
     "Select" : "ເລືອກ",
+    "Update" : "Update",
+    "Enabled" : "Enabled",
+    "Disabled" : "Disabled",
+    "Please wait" : "Please wait",
+    "Enable" : "Enable",
     "Search" : "ຄົ້ນຫາ",
     "Settings" : "ການຕັ້ງຄ່າ"
 },
