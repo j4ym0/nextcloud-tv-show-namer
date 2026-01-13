@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unexpected error" : "알 수 없는 오류",
     "Next" : "다음",
     "Select All" : "모두 선택",
     "Select" : "선택",
