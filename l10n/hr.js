@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Otvori {show_name}",
     "Next" : "Dalje",
     "File Name" : "Naziv datoteke",
     "Select" : "Odaberi",
