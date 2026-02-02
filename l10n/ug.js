@@ -32,7 +32,7 @@ OC.L10N.register(
     "File path invalid" : "ھۆججەت يولى ئىناۋەتسىز",
     "Unable to find file. Try to refresh" : "ھۆججەت تاپالمىدى. يېڭىلاپ بېقىڭ",
     "No files found" : "ھۆججەت تېپىلمىدى",
-    "No results for \"%1$s\"" : "\"%1 $ s\" نىڭ نەتىجىسى يوق",
+    "No results for \"%1$s\"" : "\"%1$s\" نىڭ نەتىجىسى يوق",
     "Cannot scan home folder. Select a folder" : "ئۆي قىسقۇچنى سايىلەپ بولالمايدۇ. قىسقۇچنى تاللاڭ",
     "Please select a folder" : "قىسقۇچنى تاللاڭ",
     "Folder does not exist" : "ھۆججەت قىسقۇچ مەۋجۇت ئەمەس",
