@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Unexpected error" : "Гэнэтийн алдаа",
     "Open {show_name}" : "{show_name} нээх",
     "Next" : "дараагийх",
     "Select" : "Сонгох",
