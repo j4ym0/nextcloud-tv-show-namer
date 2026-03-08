@@ -6,6 +6,7 @@ OC.L10N.register(
     "Update" : "Actualizar",
     "Enabled" : "Activada",
     "Disabled" : "Desactivat",
+    "Enable" : "Activar",
     "Search" : "Recercar",
     "Settings" : "Paramètres"
 },
