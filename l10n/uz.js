@@ -5,6 +5,7 @@ OC.L10N.register(
     "Next" : "Keyingisi",
     "Select" : "Select",
     "Update" : "Update",
+    "Data Source" : "Ma'lumotlar manbai",
     "Enable" : "Enable",
     "Search" : "Qidirish",
     "Settings" : "Sozlamalar"
