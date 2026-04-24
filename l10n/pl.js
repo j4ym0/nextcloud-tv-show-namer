@@ -17,6 +17,7 @@ OC.L10N.register(
     "No files found" : "Nie znaleziono plików",
     "Please wait" : "Proszę czekać",
     "Scan Folder" : "Skanuj katalog",
+    "Data Source" : "Źródło danych",
     "Enable" : "Włącz",
     "Search" : "Szukaj",
     "Settings" : "Ustawienia",
