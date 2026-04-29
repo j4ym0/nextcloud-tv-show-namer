@@ -23,7 +23,7 @@ OC.L10N.register(
     "Unable to find file. Try to refresh" : "Hittade inte filen. Försök uppdatera",
     "No files found" : "Hittade inga filer",
     "Please select a folder" : "Vänligen välj en katalog",
-    "Please wait" : "Vänligen vänta",
+    "Please wait" : "Vänta",
     "Scan Folder" : "Genomsök katalog",
     "Choose a folder to start" : "Välj en katalog för att starta",
     "Enable" : "Aktivera",
