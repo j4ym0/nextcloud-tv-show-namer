@@ -2,6 +2,7 @@
 
 ## v1.0.8
   translation updates
+  fix settings scroll overflow
   Nextcloud 33 compatibility
 
 ## v1.0.7

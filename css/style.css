@@ -320,6 +320,10 @@ ul.menu li a:after {
 #app-settings .label-group{
 	padding-top: 10px;
 }
+#app-settings-content{
+	overflow-y: visible;
+	max-height: 400px;
+}
 #app-datasource-button::before {
     background-image: var(--icon-projects-dark) !important;
 }
