@@ -16,6 +16,7 @@ OC.L10N.register(
     "Please select a folder" : "Pasirinkite aplanką",
     "Folder does not exist" : "Aplanko nėra",
     "Please wait" : "Prašome palaukti",
+    "Data Source" : "Duomenų šaltinis",
     "Enable" : "Aktyvuoti",
     "Search" : "Ieškoti",
     "Settings" : "Nustatymai",
