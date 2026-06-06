@@ -4,6 +4,7 @@ OC.L10N.register(
     "Unexpected error" : "Netikėta klaida",
     "Unable to find" : "Nepavyko rasti",
     "Next" : "Kitas",
+    "Select All" : "Pažymėti viską",
     "File Name" : "Failo pavadinimas",
     "Select" : "Pasirinkti",
     "Update" : "Atnaujinti",
