@@ -12,6 +12,7 @@ OC.L10N.register(
     "Datasource" : "Источник данных",
     "Disabled" : "Отключено",
     "Please wait" : "Подождите",
+    "Data Source" : "Источник данных",
     "Enable" : "Включить",
     "Search" : "Поиск",
     "Settings" : "Настройки"
