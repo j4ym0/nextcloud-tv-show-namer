@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Abrir {show_name}",
     "Next" : "Seguinte",
     "File Name" : "Nome do ficheiro",
     "Select" : "Selecionar",
