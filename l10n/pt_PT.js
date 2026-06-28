@@ -1,16 +1,26 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Rescan folder" : "Reexaminar pasta",
     "Open {show_name}" : "Abrir {show_name}",
+    "Not this one?" : "Não é este?",
     "Next" : "Seguinte",
     "File Name" : "Nome do ficheiro",
     "Select" : "Selecionar",
     "Update" : "Atualizar",
+    "Updated your API Key" : "Atualizou sua chave de API",
     "Enabled" : "Ativado",
     "Disabled" : "Desativado",
+    "Switching data source to" : "Mudando a fonte de dados para",
+    "No files found" : "Nenhum arquivo encontrado",
+    "TV Show Namer" : "Nomeador de Programa de TV",
     "Please wait" : "Por favor aguarde",
+    "Choose a folder to start" : "Escolha uma pasta para começar",
     "Enable" : "Ativar",
     "Search" : "Pesquisa sobre",
-    "Settings" : "Definições"
+    "uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB." : "usa o TMDB e as APIs do TMDB, mas não é endossado, certificado ou aprovado de outra forma pelo TMDB.",
+    "Personal API key" : "Chave API pessoal",
+    "Settings" : "Definições",
+    "Hide matching entries" : "Esconder entradas correspondentes"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
