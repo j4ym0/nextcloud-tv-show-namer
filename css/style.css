@@ -67,8 +67,11 @@ input:checked + .slider:before {
 }
 .show_can img.poster{
 	float: left;
+	display: block;
+    min-height: 150px;
+	background-color: #f0f0f0;
 	height: 150px;
-	min-width: 100px;
+	max-width: 100px;
 	margin-right: 10px;
 }
 .show_info .headding{
@@ -335,6 +338,9 @@ ul.menu li a:after {
     max-height: 300px;
     overflow-y: auto;
     box-sizing: border-box;
+}
+#app-datasource-content.open, #app-settings-content.open{
+	display: block;
 }
 #app-datasource-content .powered{
 	display: block;

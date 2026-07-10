@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.0.9
+  translation updates
+  fix image link 
+  Nextcloud 34 compatibility
+  ship jQuery
+  update missing css
+  Fix CSRF
+  Fix image when unavailable
+
 ## v1.0.8
   translation updates
   fix settings scroll overflow

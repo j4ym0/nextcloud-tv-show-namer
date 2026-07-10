@@ -1,4 +1,5 @@
 <?php
+script('tvshownamer', 'jquery-4.0.0.min');
 script('tvshownamer', 'script');
 style('tvshownamer', 'style');
 ?>

@@ -258,6 +258,9 @@ function setSelectedValue(selectId, valueToSet) {
     if (params === undefined || params === null){
      $.ajax({
       url: baseUrl + '/' + url,
+      headers: {
+        'requesttoken': OC.requestToken
+      },
       dataType: "json",
       beforeSend: function() {if(l){hide_loading(false);}},
       success: function(data) {callback(data);},
@@ -266,6 +269,9 @@ function setSelectedValue(selectId, valueToSet) {
    }else{
      $.ajax({
       url: baseUrl + '/' + url,
+      headers: {
+        'requesttoken': OC.requestToken
+      },
       dataType: "json",
       type: "POST",
       data: JSON.stringify(params),
@@ -328,3 +334,4 @@ function setSelectedValue(selectId, valueToSet) {
     window.location.reload();
   }
 })();
+
