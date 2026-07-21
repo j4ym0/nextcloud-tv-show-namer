@@ -26,6 +26,7 @@ OC.L10N.register(
     "Please wait" : "Vänta",
     "Scan Folder" : "Genomsök katalog",
     "Choose a folder to start" : "Välj en katalog för att starta",
+    "Data Source" : "Datakälla",
     "Enable" : "Aktivera",
     "Search" : "Sök",
     "Settings" : "Inställningar",
