@@ -1,8 +1,8 @@
 OC.L10N.register(
     "tvshownamer",
     {
-    "Open {path} in Nextcloud" : "Atidaryti {path} Nextcloud platformoje",
-    "Click to open {path} in Nextcloud" : "Spustelėkite {path}, kad atidarytumėte Nextcloud platformoje",
+    "Open {path} in Nextcloud" : "Atidaryti {path} „Nextcloud“ aplinkoje",
+    "Click to open {path} in Nextcloud" : "Spustelėkite {path}, kad atidarytumėte „Nextcloud“ aplinkoje",
     "Rescan folder" : "Iš naujo nuskaityti aplanką",
     "Rescan selected folder" : "Iš naujo nuskaityti pasirinktą aplanką",
     "Unexpected error" : "Netikėta klaida",
