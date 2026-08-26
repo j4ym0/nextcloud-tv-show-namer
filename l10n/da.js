@@ -10,6 +10,7 @@ OC.L10N.register(
     "Enabled" : "Aktiveret",
     "Disabled" : "Deaktiveret",
     "Please wait" : "Vent venligst",
+    "Data Source" : "Datakilde",
     "Enable" : "Aktiver",
     "Search" : "Søg",
     "Settings" : "Indstillinger"
