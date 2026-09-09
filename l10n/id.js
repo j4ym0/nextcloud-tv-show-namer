@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Open {show_name}" : "Buka {show_name}",
     "Next" : "Berikutnya",
+    "Select All" : "Pilih Semua",
     "Select" : "Pilih",
     "Update" : "Perbarui",
     "Enabled" : "Diaktifkan",
