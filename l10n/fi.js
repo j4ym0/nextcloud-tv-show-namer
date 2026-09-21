@@ -1,18 +1,9 @@
 OC.L10N.register(
     "tvshownamer",
     {
-    "Open {show_name}" : "Avaa {show_name}",
-    "Next" : "Seuraava",
-    "Select All" : "Valitse kaikki",
     "File Name" : "Tiedoston nimi",
-    "Select" : "Valitse",
     "Update" : "Päivitä",
-    "Enabled" : "Käytössä",
     "Datasource" : "Datalähde",
-    "Disabled" : "Pois käytöstä",
-    "Please wait" : "Odota hetki",
-    "Enable" : "Käytä",
-    "Search" : "Etsi",
-    "Settings" : "Asetukset"
+    "Please wait" : "Odota hetki"
 },
 "nplurals=2; plural=(n != 1);");

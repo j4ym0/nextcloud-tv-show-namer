@@ -3,18 +3,14 @@ OC.L10N.register(
     {
     "Unexpected error" : "Неожиданная ошибка",
     "{show_name} poster, click to open the show in a new window" : "{show_name} постер, нажмите, чтобы открыть выставку в новом окне",
-    "Next" : "Далее",
     "Select All" : "Выбрать все",
     "File Name" : "Имя файла",
     "Select" : "Выбрать",
-    "Update" : "Обновить",
-    "Enabled" : "Включено",
+    "Update" : "Обновление",
     "Datasource" : "Источник данных",
     "Disabled" : "Отключено",
     "Please wait" : "Подождите",
     "Data Source" : "Источник данных",
-    "Enable" : "Включить",
-    "Search" : "Поиск",
-    "Settings" : "Настройки"
+    "Enable" : "Включить"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

@@ -1,11 +1,5 @@
 { "translations": {
-    "Next" : "Seguent",
-    "Select" : "Select",
     "Update" : "Actualizar",
-    "Enabled" : "Activada",
-    "Disabled" : "Desactivat",
-    "Enable" : "Activar",
-    "Search" : "Recercar",
-    "Settings" : "Paramètres"
+    "Enable" : "Activar"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

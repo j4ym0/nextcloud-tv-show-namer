@@ -1,10 +1,4 @@
 { "translations": {
-    "Next" : "Sekva",
-    "Select" : "Elekti",
-    "Update" : "Ĝisdatigi",
-    "Disabled" : "Malkapabligita",
-    "Enable" : "Ŝalti",
-    "Search" : "Serĉi",
-    "Settings" : "Agordoj"
+    "Update" : "Ĝisdatigi"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

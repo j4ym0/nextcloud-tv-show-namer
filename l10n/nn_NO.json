@@ -1,10 +1,6 @@
 { "translations": {
-    "Next" : "Neste",
     "Select" : "Vel",
     "Update" : "Oppdater",
-    "Disabled" : "Deaktivert",
-    "Enable" : "SLå på",
-    "Search" : "Søk",
-    "Settings" : "Innstillingar"
+    "Enable" : "SLå på"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

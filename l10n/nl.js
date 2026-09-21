@@ -1,27 +1,18 @@
 OC.L10N.register(
     "tvshownamer",
     {
-    "Rescan folder" : "Map opnieuw scannen",
     "Rescan selected folder" : "Geselecteerde map opnieuw scannen",
     "Unexpected error" : "Onverwachte fout",
-    "Open {show_name}" : "{show_name} openen",
-    "Next" : "Volgende",
-    "Select All" : "Alles Selecteren",
+    "Select All" : "Alles selecteren",
     "File Name" : "Bestandsnaam",
-    "Select" : "Selecteer",
-    "Update" : "Update",
+    "Select" : "Selecteren",
+    "Update" : "Bijwerken",
     "Episode not found" : "Aflevering niet gevonden",
     "Updated your API Key" : "Je API-sleutel is bijgewerkt",
-    "Enabled" : "Ingeschakeld",
     "Datasource" : "Databron",
-    "Disabled" : "Uitgeschakeld",
     "Please wait" : "Even geduld",
     "Enable" : "Inschakelen",
-    "Search" : "Zoeken",
     "Personal API Key" : "Persoonlijke API-sleutel",
-    "Personal API key help" : "Persoonlijke API-sleutel hulp",
-    "Personal API key" : "Persoonlijke API-sleutel",
-    "Settings" : "Instellingen",
-    "Examples" : "Voorbeelden"
+    "Personal API key" : "Persoonlijke API-sleutel"
 },
 "nplurals=2; plural=(n != 1);");

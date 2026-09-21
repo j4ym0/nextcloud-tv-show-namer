@@ -1,8 +1,4 @@
 { "translations": {
-    "Next" : "Seterus",
-    "Select" : "Select",
-    "Update" : "Kemaskini",
-    "Search" : "Search",
-    "Settings" : "Tetapan"
+    "Update" : "Kemaskini"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

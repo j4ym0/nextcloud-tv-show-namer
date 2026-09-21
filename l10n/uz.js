@@ -3,11 +3,10 @@ OC.L10N.register(
     {
     "Open {show_name}" : "Ochiq {show_name}",
     "Next" : "Keyingisi",
-    "Select" : "Select",
-    "Update" : "Update",
+    "Select" : "Tanlash",
+    "Update" : "Yangilash",
     "Data Source" : "Ma'lumotlar manbai",
-    "Enable" : "Enable",
-    "Search" : "Qidirish",
+    "Enable" : "Yoqish",
     "Settings" : "Sozlamalar"
 },
 "nplurals=1; plural=0;");

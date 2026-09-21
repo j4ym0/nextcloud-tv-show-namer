@@ -44,7 +44,6 @@ OC.L10N.register(
     "Choose a folder to start" : "選擇要開始的資料夾",
     "Change data source to" : "變更資料來源為",
     "Data Source" : "資料來源",
-    "Metadata provided by TheTVDB. Please consider adding missing information or subscribing." : "詮釋資料由 TheTVDB 提供。請考慮新增缺少的資訊或訂閱。",
     "Enable" : "啟用",
     "data source" : "資料來源",
     "Search" : "搜尋",
