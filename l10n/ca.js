@@ -1,0 +1,17 @@
+OC.L10N.register(
+    "tvshownamer",
+    {
+    "Open {show_name}" : "Obre {show_name}",
+    "Next" : "Següent",
+    "Select All" : "Selecciona-ho tot",
+    "File Name" : "Nom del fitxer",
+    "Select" : "Seleccioneu",
+    "Update" : "Actualitza",
+    "Enabled" : "Habilitat",
+    "Disabled" : "Inhabilitat",
+    "Please wait" : "Espereu si us plau",
+    "Enable" : "Habilita",
+    "Search" : "Cerca",
+    "Settings" : "Paràmetres"
+},
+"nplurals=2; plural=(n != 1);");

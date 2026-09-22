@@ -1,0 +1,8 @@
+{ "translations": {
+    "Open {show_name}" : "Ubrir {show_name}",
+    "Enabled" : "Activau",
+    "Disabled" : "Desactivau",
+    "Search" : "Buscar",
+    "Settings" : "Configuración"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

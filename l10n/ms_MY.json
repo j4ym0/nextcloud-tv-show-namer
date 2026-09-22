@@ -1,4 +1,7 @@
 { "translations": {
-    "Update" : "Kemaskini"
+    "Open {show_name}" : "Buka{show_name}",
+    "Update" : "Kemaskini",
+    "Search" : "Search",
+    "Settings" : "Tetapan"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

@@ -1,5 +1,10 @@
 { "translations": {
     "Select" : "Auswielen",
-    "Update" : "Aktualiséieren"
+    "Update" : "Aktualiséieren",
+    "Enabled" : "Aktivéiert",
+    "Disabled" : "Desaktivéiert",
+    "Enable" : "Aktivéieren",
+    "Search" : "Sich",
+    "Settings" : "Astellungen"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -1,0 +1,10 @@
+{ "translations": {
+    "Open {show_name}" : "{show_name} faylını açın",
+    "Select" : "Seç",
+    "Update" : "Yenilənmə",
+    "Enabled" : "İşə salınıb",
+    "Disabled" : "Dayandırılıb",
+    "Search" : "Axtarış",
+    "Settings" : "Quraşdırmalar"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

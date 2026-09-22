@@ -1,4 +1,9 @@
 { "translations": {
-    "Update" : "Actualisation"
+    "Next" : "Proxime",
+    "Select" : "Selectionar",
+    "Update" : "Actualisation",
+    "Enabled" : "Activate",
+    "Search" : "Cercar",
+    "Settings" : "Configurationes"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

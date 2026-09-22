@@ -1,0 +1,15 @@
+OC.L10N.register(
+    "tvshownamer",
+    {
+    "Unexpected error" : "Гэнэтийн алдаа",
+    "Open {show_name}" : "{show_name} нээх",
+    "Next" : "–î–∞–∞—Ä–∞–∞—Ö",
+    "Select" : "–°–æ–Ω–≥–æ—Ö",
+    "Update" : "–®–∏–Ω—ç—á–ª—ç—Ö",
+    "Enabled" : "–ò–¥—ç–≤—Ö–∏–∂“Ø“Ø–ª—ç—Ö",
+    "Disabled" : "–∏–¥—ç–≤—Ö–∏–≥“Ø–π",
+    "Enable" : "Идэвхжүүлэх",
+    "Search" : "Ð¥Ð°Ð¹Ñ…",
+    "Settings" : "–¢–æ—Ö–∏—Ä–≥–æ–æ"
+},
+"nplurals=2; plural=(n != 1);");

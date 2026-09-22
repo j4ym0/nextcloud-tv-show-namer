@@ -1,4 +1,9 @@
 { "translations": {
-    "Update" : "ធ្វើ​បច្ចុប្បន្នភាព"
+    "Open {show_name}" : "បើក {show_name}",
+    "Update" : "ធ្វើ​បច្ចុប្បន្នភាព",
+    "Enabled" : "បាន​បើក",
+    "Disabled" : "បាន​បិទ",
+    "Search" : "ស្វែងរក",
+    "Settings" : "ការកំណត់"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

@@ -1,0 +1,8 @@
+{ "translations": {
+    "Open {show_name}" : "Բացել {նիշքիանուն}",
+    "Select" : "Նշել",
+    "Update" : "Թարմացնել",
+    "Search" : "Search",
+    "Settings" : "Կարգավորումներ"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
