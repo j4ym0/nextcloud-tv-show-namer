@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Open {show_name}" : "Open {show_name}",
     "Select" : "সিলেক্ট",
     "Update" : "পরিবর্ধন",
     "Enabled" : "কার্যকর",
