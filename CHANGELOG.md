@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.10
+  translation updates
+  Nextcloud 35 compatibility
+
 ## v1.0.9
   translation updates
   fix image link 
