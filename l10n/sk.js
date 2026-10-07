@@ -30,7 +30,7 @@ OC.L10N.register(
     "Unable rename the file" : "Nepodarilo sa premenovať súbor",
     "File is locked or in use" : "Súbor je zamknutý alebo sa používa",
     "File path invalid" : "Cesta k súboru je neplatná",
-    "Unable to find file. Try to refresh" : "Nepodarilo sa nájisť súbor. Skúste obnoviť",
+    "Unable to find file. Try to refresh" : "Nepodarilo sa nájsť súbor. Skúste obnoviť",
     "No files found" : "Nenašli sa žiadne súbory",
     "No results for \"%1$s\"" : "Žiadne výsledky pre \"%1$s\"",
     "Cannot scan home folder. Select a folder" : "Nie je možné skenovať domáci priečinok. Vyberte priečinok",
