@@ -7,6 +7,7 @@ OC.L10N.register(
     "Update" : "Yangilash",
     "Data Source" : "Ma'lumotlar manbai",
     "Enable" : "Yoqish",
+    "Search" : "Qidirish",
     "Settings" : "Sozlamalar"
 },
 "nplurals=1; plural=0;");

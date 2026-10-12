@@ -8,6 +8,7 @@ OC.L10N.register(
     "Enabled" : "Đá kích hoạt",
     "Disabled" : "Đã vô hiệu",
     "Enable" : "Bật",
+    "Search" : "Tìm kiếm",
     "Settings" : "Thiết lập"
 },
 "nplurals=1; plural=0;");
