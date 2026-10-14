@@ -369,3 +369,12 @@ ul.menu li a:after {
 	}
 	
 }
+/* fix for nextcloud 35+ */
+[class*="_toastContainer_"] {
+    position: fixed !important;
+    top: 12px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    left: auto !important;
+	align-items: flex-end !important;
+}
