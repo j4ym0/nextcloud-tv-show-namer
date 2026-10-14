@@ -252,54 +252,59 @@ class PageController extends Controller {
 		$path = $this->post_data->scan_folder;
 		$userHome = $this->rootFolder->getUserFolder($this->userId);
 
-		#check to make sure the folder exists
-		$path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
-		if ($userHome->nodeExists($path)) {
-			$folder_to_scan = $userHome->get($path);
+		if ($path != ""){
+			#check to make sure the folder exists
+			$path = Files::startsWith($path, $userHome->getPath()) ? Files::removeStart($path, $userHome->getPath()) : $path;
+			if ($userHome->nodeExists($path)) {
+				$folder_to_scan = $userHome->get($path);
 
-			# store the folder info ready to eb returned to ui
-			$response['id'] =  $folder_to_scan->getId();
-			$response['name'] =  $folder_to_scan->getName();
-			$response['path'] = $folder_to_scan->getPath();
+				# store the folder info ready to eb returned to ui
+				$response['id'] =  $folder_to_scan->getId();
+				$response['name'] =  $folder_to_scan->getName();
+				$response['path'] = $folder_to_scan->getPath();
 
-			# check if folder was selected
-			if ($folder_to_scan instanceof Folder) {
-				#check if home folder was selected
-				if ($folder_to_scan != $userHome) {
-						# store the folder info ready to eb returned to ui
-						$response['folder_id'] =  $folder_to_scan->getId();
-						$response['name'] =  $folder_to_scan->getName();
-#						$response['absolute_path'] = $folder_to_scan->getPath();
-						$response['path'] = $path;
+				# check if folder was selected
+				if ($folder_to_scan instanceof Folder) {
+					#check if home folder was selected
+					if ($folder_to_scan != $userHome) {
+							# store the folder info ready to eb returned to ui
+							$response['folder_id'] =  $folder_to_scan->getId();
+							$response['name'] =  $folder_to_scan->getName();
+	#						$response['absolute_path'] = $folder_to_scan->getPath();
+							$response['path'] = $path;
 
-						$search = $DS->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
-						#check if there are enough results
-						if ($search !== "" && (string)$search['total_results'] != '0'){
-							$response['show_info'] = $search;
-							$response['show_index'] = $show_index;
-							$response['files'] = Files::getFilesRecursive($path);
+							$search = $DS->searchTvShow(Files::removeAfter($response['name'], "#"), $show_index == 0 ? true : false, $this->preferred_language, $show_index);
+							#check if there are enough results
+							if ($search !== "" && (string)$search['total_results'] != '0'){
+								$response['show_info'] = $search;
+								$response['show_index'] = $show_index;
+								$response['files'] = Files::getFilesRecursive($path);
 
-							# check we have some files
-							if (is_null($response['files'])){
-								$response['message'] = $this->l->t("No files found");
+								# check we have some files
+								if (is_null($response['files'])){
+									$response['message'] = $this->l->t("No files found");
+								}else{
+								#match the files to episodes
+									Files::matchFilesToEpisodes($response, $DS, $this->file_name_structure, $this->preferred_language);
+
+									$response['success'] = true;
+								}
 							}else{
-							#match the files to episodes
-								Files::matchFilesToEpisodes($response, $DS, $this->file_name_structure, $this->preferred_language);
-
-								$response['success'] = true;
+								$response['message'] = $this->l->t('No results for "%1$s"',  [$response['name']]);
 							}
-						}else{
-							$response['message'] = $this->l->t('No results for "%1$s"',  [$response['name']]);
-						}
+					}else{
+						$response['message'] = $this->l->t("Cannot scan home folder. Select a folder");
+					}
 				}else{
-					$response['message'] = $this->l->t("Cannot scan home folder. Select a folder");
+					$response['message'] = $this->l->t("Please select a folder");
 				}
 			}else{
-				$response['message'] = $this->l->t("Please select a folder");
+				$response['message'] = $this->l->t("Folder does not exist");
 			}
 		}else{
-			$response['message'] = $this->l->t("Folder does not exist");
+			$response['message'] = $this->l->t("Please select a folder");
 		}
+
 
 		#return the json to render on client
 		return new JSONResponse($response);
