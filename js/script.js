@@ -43,14 +43,24 @@
         checkElForCallback('a.reload', function(t){  get_data('scan', {'scan_folder' : $(t).data('path'), 'datasource': datasource}, render);});
       }
     }else{
-      message(data);
+      message(data, 'warning');
     }
   }
-  function message(json = null){
-    OC.Notification.showTemporary(json.message != null ? json.message : t('tvshownamer', 'Unexpected error'));
-  }
-  function simple_message(msg){
-    OC.Notification.showTemporary(msg);
+  function message(json = null, _type='info'){
+    msg = json.message != null ? json.message : t('tvshownamer', 'Unexpected error');
+    options = {};
+		options.timeout = 5;
+		options.type = _type || 'info';
+    options.position = "top-right";
+    if (_type == 'sucsess'){
+      OCP.Toast.success(msg);
+    }else if (_type == 'error'){
+      OCP.Toast.error(msg);
+    }else if (_type == 'warning'){
+      OCP.Toast.warning(msg);
+    }else{
+      OCP.Toast.info(msg);
+    }  
   }
   function build_show_header(json){
     if (json.show_info == null || typeof json.show_info.id === "undefined"){
@@ -231,7 +241,7 @@ function setSelectedValue(selectId, valueToSet) {
     }
     function validate_settings(e){
     if (!$('#enable_tmdb').is(':checked') && !$('#enable_tvdb').is(':checked') ){
-      simple_message(t('tvshownamer', 'Unable to disable both data sources'));
+      message(t('tvshownamer', 'Unable to disable both data sources'), 'warning');
       $(e).prop('checked', true);
     }
     if (!$('#enable_tmdb').is(':checked')){
@@ -293,14 +303,14 @@ function setSelectedValue(selectId, valueToSet) {
   $(document).ready(function () {
     setSelectedValue("preferred_language", $('#preferred_language').data('selected-value'));
     $("#preferred_language").change(function(e) {
-      var lang_exe = function (d) {message(d); $('#rescan').click();};
+      var lang_exe = function (d) {message(d, 'sucsess'); $('#rescan').click();};
       get_data('save_setting', {'setting' : 'preferred_language', 'data' : $('#preferred_language').val()}, lang_exe, false);
     });
   });
   $(".setting_toggle").change(function(e) {
     validate_settings(this);
     job = function(data){
-      message(data);
+      message(data, 'sucsess');
       if (!$('#enable_'+datasource).is(':checked')){
         get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
       }else{
