@@ -334,12 +334,6 @@ function setSelectedValue(selectId, valueToSet) {
     get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).data('source')}, message, false);
     get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
   });
-  $("#app-settings-button").on("click", function(e) {
-    $('#app-settings-content').toggleClass('open');
-  });
-  $("#app-datasource-button").on("click", function(e) {
-    $('#app-datasource-content').toggleClass('open');
-  });
   function reload_page(){
     window.location.reload();
   }
