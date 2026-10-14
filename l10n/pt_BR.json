@@ -34,7 +34,7 @@
     "Cannot scan home folder. Select a folder" : "Não é possível examinar a pasta raiz. Selecione uma pasta",
     "Please select a folder" : "Selecione uma pasta",
     "Folder does not exist" : "A pasta não existe",
-    "TV Show Namer" : "Nomeador de Programa de TV",
+    "TV Show Namer" : "Nomeador de programa de TV",
     "Organise your TV shows" : "Organize seus programas de TV",
     "TV show namer organises your TV shows, series and seasons into a standard format. It uses themoviedb.org and thetvdb.com to scrape TV information to organise your files.\n\nRename files from “some.show.s01e03.avi” To “Some Show - S01E01 - Episode Name.avi” easily" : "O nomeador de programas de TV organiza seus programas de TV, séries e temporadas em um formato padrão. Ele usa themoviedb.org e thetvdb.com para coletar informações da TV e organizar seus arquivos. \n\nRenomeie facilmente os arquivos de “algum.show.s01e03.avi” para “Algum Show - S01E01 - Nome do Episódio.avi”",
     "Please wait" : "Por favor, espere",
