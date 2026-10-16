@@ -334,6 +334,13 @@ function setSelectedValue(selectId, valueToSet) {
     get_data('save_setting', {'setting' : $(this).data('setting'), 'data' : $(this).data('source')}, message, false);
     get_data('scan', {'scan_folder' : $('a.reload').data('path'), 'datasource': datasource}, render);
   });
+  $("[data-menu-eject]").on("click", function (e) {
+      const target = $(this).data("menu-eject");
+      $("[data-menu-eject]").not(this).each(function () {
+          $($(this).data("menu-eject")).removeClass("open");
+      });
+      $(target).toggleClass("open");
+  });
   function reload_page(){
     window.location.reload();
   }

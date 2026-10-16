@@ -1,6 +1,6 @@
 <div id="app-settings">
 	<div id="app-settings-header">
-		<button type="button" class="settings-button" id="app-datasource-button" data-apps-slide-toggle="#app-datasource-content"><?php p($l->t('Data Source')); ?></button>
+		<button type="button" class="settings-button" data-menu-eject="#app-datasource-content"><?php p($l->t('Data Source')); ?></button>
 	</div>
 	<div id="app-datasource-content">
 		<div class="tvdb">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div id="app-settings-header">
-		<button type="button" class="settings-button" id="app-settings-button" data-apps-slide-toggle="#app-settings-content"><?php p($l->t('Settings')); ?></button>
+		<button type="button" class="settings-button" data-menu-eject="#app-settings-content"><?php p($l->t('Settings')); ?></button>
 	</div>
 	<div id="app-settings-content">
 		<div>

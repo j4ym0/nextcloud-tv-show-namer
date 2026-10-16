@@ -359,7 +359,6 @@ ul.menu li a:after {
 [data-themes*=light] #app-datasource-content .tvdb .powered img{
 	content:url(../img/tvdb_dark.png);
 }
-
 @media (prefers-color-scheme: dark){
 	#app-datasource-content .tvdb .powered img{
 		content:url(../img/tvdb.png);
