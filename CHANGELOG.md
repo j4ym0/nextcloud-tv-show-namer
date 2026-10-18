@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.0
+  translation updates
+  tested on nextcloud 30-35
+  fix double bounce on first menu open
+  upgrade notification messages to toast
+  add message type warning or sucsess
+  fix error 500 when no folder selected
+  drop unused database table
+
 ## v1.0.10
   translation updates
   Nextcloud 35 compatibility
