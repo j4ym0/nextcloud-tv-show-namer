@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Įjungta",
     "Datasource" : "Duomenų šaltinis",
     "Disabled" : "Išjungta",
-    "Switching data source to" : "Duomenų šaltinio perjungimas į",
     "Unable rename the file" : "Nepavyko pervadinti failo",
     "File is locked or in use" : "Failas yra užrakintas arba naudojamas",
     "File path invalid" : "Failo kelias netinkamas",

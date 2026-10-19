@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Engedélyezve",
     "Datasource" : "Adatforrás",
     "Disabled" : "Letiltva",
-    "Switching data source to" : "Adatforrás váltása erre:",
     "Unable rename the file" : "A fájl nem nevezhető át",
     "File is locked or in use" : "A fájl zárolt vagy használatban van",
     "File path invalid" : "A fájlútvonal érvénytelen",

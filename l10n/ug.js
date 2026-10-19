@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "قوزغىتىلدى",
     "Datasource" : "Datasource",
     "Disabled" : "چەكلەنگەن",
-    "Switching data source to" : "سانلىق مەلۇمات مەنبەسىنى ئالماشتۇرۇش",
     "Unable rename the file" : "ھۆججەتنىڭ نامىنى ئۆزگەرتكىلى بولمايدۇ",
     "File is locked or in use" : "ھۆججەت قۇلۇپلانغان ياكى ئىشلىتىلىۋاتىدۇ",
     "File path invalid" : "ھۆججەت يولى ئىناۋەتسىز",

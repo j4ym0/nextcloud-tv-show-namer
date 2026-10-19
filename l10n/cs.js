@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Zapnuto",
     "Datasource" : "Zdroj dat",
     "Disabled" : "Vypnuto",
-    "Switching data source to" : "Přepíná se zdroj dat na",
     "Unable rename the file" : "Soubor se nepodařilo přejmenovat",
     "File is locked or in use" : "Soubor je uzamčen, nebo používán jinou aplikací",
     "File path invalid" : "Neplatný popis umístění souboru",

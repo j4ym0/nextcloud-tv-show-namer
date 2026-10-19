@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Увімкнено",
     "Datasource" : "Джерело даних",
     "Disabled" : "Вимкнено",
-    "Switching data source to" : "Перемикання джерела даних на",
     "Unable rename the file" : "Неможливо перейменувати файл",
     "File is locked or in use" : "Файл заблоковано або використовується",
     "File path invalid" : "Недійсний шлях до файлу",

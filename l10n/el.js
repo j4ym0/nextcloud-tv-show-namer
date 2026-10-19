@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Ενεργοποιημένο",
     "Datasource" : "Πηγή δεδομένων",
     "Disabled" : "Απενεργοποιημένο",
-    "Switching data source to" : "Αλλαγή πηγής δεδομένων σε",
     "Unable rename the file" : "Δεν ήταν δυνατή η μετονομασία του αρχείου",
     "File is locked or in use" : "Το αρχείο είναι κλειδωμένο ή σε χρήση",
     "File path invalid" : "Μη έγκυρη διαδρομή αρχείου",

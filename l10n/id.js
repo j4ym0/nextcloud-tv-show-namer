@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Diaktifkan",
     "Datasource" : "Sumber data",
     "Disabled" : "Dinonaktifkan",
-    "Switching data source to" : "Mengalihkan sumber data ke",
     "Unable rename the file" : "Tidak dapat mengganti nama file",
     "File is locked or in use" : "File terkunci atau sedang digunakan",
     "File path invalid" : "Path file tidak valid",

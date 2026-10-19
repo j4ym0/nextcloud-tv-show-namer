@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Washwa",
     "Datasource" : "Chanzo cha data",
     "Disabled" : "Ilizimwa",
-    "Switching data source to" : "Inabadilisha chanzo cha data hadi",
     "Unable rename the file" : "Imeshindwa kubadilisha jina la faili",
     "File is locked or in use" : "Faili imefungwa au inatumika",
     "File path invalid" : "Njia ya faili si sahihi",

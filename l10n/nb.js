@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Aktivert",
     "Datasource" : "Datakilde",
     "Disabled" : "Deaktivert",
-    "Switching data source to" : "Bytter datakilde til",
     "Unable rename the file" : "Ikke i stand til å omdøpe filen",
     "File is locked or in use" : "Filen er låst eller i bruk",
     "File path invalid" : "Ugyldig filbane",

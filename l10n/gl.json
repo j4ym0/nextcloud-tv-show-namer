@@ -24,7 +24,6 @@
     "Enabled" : "Activado",
     "Datasource" : "OrixeDosDatos",
     "Disabled" : "Desactivado",
-    "Switching data source to" : "Cambiando a orixe dos datos a",
     "Unable rename the file" : "Non é posíbel cambiarlle o nome ao ficheiro",
     "File is locked or in use" : "O ficheiro está bloqueado ou en uso",
     "File path invalid" : "A ruta do ficheiro non é válida",

@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "Sisselülitatud",
     "Datasource" : "Andmeallikas",
     "Disabled" : "Väljalülitatud",
-    "Switching data source to" : "Vahetan andmeallikat:",
     "Unable rename the file" : "Faili nime muutmine ei õnnestu.",
     "File is locked or in use" : "Fail on lukustatud või kasutuses",
     "File path invalid" : "Faili asukoht on vigane",

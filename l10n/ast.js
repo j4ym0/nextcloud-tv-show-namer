@@ -20,7 +20,6 @@ OC.L10N.register(
     "Updated your preferred language" : "Anovóse la llingua preferida",
     "Enabled" : "Activóse",
     "Disabled" : "Desactivóse",
-    "Switching data source to" : "Cambiando la fonte de datos a",
     "Unable rename the file" : "Nun ye posible renomar el ficheru",
     "File is locked or in use" : "El ficheru ta bloquiáu o n'usu",
     "File path invalid" : "El camín del ficheru ye inválidu",

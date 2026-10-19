@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "已啟用",
     "Datasource" : "數據源",
     "Disabled" : "停用",
-    "Switching data source to" : "切換資料來源為",
     "Unable rename the file" : "無法重新命名檔案",
     "File is locked or in use" : "檔案已被上鎖或正在使用中",
     "File path invalid" : "無效的檔案途徑",

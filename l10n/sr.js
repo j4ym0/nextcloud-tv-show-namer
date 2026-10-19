@@ -26,7 +26,6 @@ OC.L10N.register(
     "Enabled" : "укључено",
     "Datasource" : "Извор података",
     "Disabled" : "Искључено",
-    "Switching data source to" : "Извор података се пребацује на",
     "Unable rename the file" : "Фајлу не може да се промени име",
     "File is locked or in use" : "Фајл је закључан или је у употреби",
     "File path invalid" : "Путања до фајла је неисправна",
