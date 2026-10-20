@@ -26,6 +26,7 @@ OC.L10N.register(
     "Enabled" : "Ativado",
     "Datasource" : "Fonte de dados",
     "Disabled" : "Desativado",
+    "Data source now" : "Fonte da dados agora",
     "Unable rename the file" : "Não foi possível renomear o arquivo",
     "File is locked or in use" : "O arquivo está trancado ou em uso",
     "File path invalid" : "Caminho do arquivo inválido",

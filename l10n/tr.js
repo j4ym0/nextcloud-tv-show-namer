@@ -26,6 +26,7 @@ OC.L10N.register(
     "Enabled" : "Kullanılıyor",
     "Datasource" : "Veri kaynağı",
     "Disabled" : "Kullanılmıyor",
+    "Data source now" : "Şimdiki veri kaynağı",
     "Unable rename the file" : "Dosya yeniden adlandırılamadı",
     "File is locked or in use" : "Dosya kilitli ya da kullanılıyor",
     "File path invalid" : "Dosya yolu geçersiz",
