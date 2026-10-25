@@ -26,6 +26,7 @@ OC.L10N.register(
     "Enabled" : "Cumasaithe",
     "Datasource" : "Foinse sonraí",
     "Disabled" : "Faoi mhíchumas",
+    "Data source now" : "Foinse sonraí anois",
     "Unable rename the file" : "Ní féidir an comhad a athainmniú",
     "File is locked or in use" : "Tá an comhad faoi ghlas nó in úsáid",
     "File path invalid" : "Conair an chomhaid neamhbhailí",
