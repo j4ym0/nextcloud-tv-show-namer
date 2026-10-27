@@ -2,7 +2,9 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Unexpected error" : "Neočekivana greška",
+    "Next" : "Sledeće",
     "Select" : "Obeleži",
+    "Enabled" : "Uključeno",
     "Search" : "Traži",
     "Settings" : "Поставке"
 },

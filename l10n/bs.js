@@ -1,6 +1,7 @@
 OC.L10N.register(
     "tvshownamer",
     {
+    "Next" : "Sljedeće",
     "Select" : "Izaberi",
     "Update" : "Ažuriraj",
     "Enabled" : "Aktivirano",

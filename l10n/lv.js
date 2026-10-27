@@ -2,6 +2,7 @@ OC.L10N.register(
     "tvshownamer",
     {
     "Open {show_name}" : "Atvērt {show_name}",
+    "Next" : "Nākamā",
     "Select" : "Atzīmēt",
     "Update" : "Atjaunināt",
     "Enabled" : "Iespējots",

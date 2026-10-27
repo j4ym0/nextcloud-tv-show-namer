@@ -4,6 +4,7 @@ OC.L10N.register(
     "Unexpected error" : "Нечаканая памылка",
     "Unable to find" : "Немагчыма знайсці",
     "Open {show_name}" : "Адкрыць {show_name}",
+    "Next" : "Далей",
     "File Name" : "Назва файла",
     "Select" : "Выбраць",
     "Update" : "Абнавіць",
