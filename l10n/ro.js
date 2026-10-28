@@ -4,6 +4,7 @@ OC.L10N.register(
     "Unexpected error" : "Eroare neașteptată",
     "Open {show_name}" : "Deschide {show_name}",
     "Next" : "Următorul",
+    "Select All" : "Selectează tot",
     "Select" : "Selectează",
     "Update" : "Actualizare",
     "Enabled" : "Activat",
