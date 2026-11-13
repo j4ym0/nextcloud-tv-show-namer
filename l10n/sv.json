@@ -24,6 +24,7 @@
     "Enabled" : "Aktiverad",
     "Datasource" : "Datakälla",
     "Disabled" : "Inaktiverad",
+    "Data source now" : "Datakälla nu",
     "Unable rename the file" : "Det gick inte att byta namn på filen",
     "File is locked or in use" : "Filen är låst eller används",
     "File path invalid" : "Felaktig sökväg",
